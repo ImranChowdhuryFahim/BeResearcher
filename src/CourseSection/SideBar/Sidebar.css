@@ -1,0 +1,25 @@
+.Sidebar_Container{
+    width: 350px;
+    position: fixed;
+    border: 1px solid #e2e7ed;
+    border-top: none;
+    height: 95vh;
+    background-color: 'white';
+
+    
+
+}
+.CourseContents{
+    height: 100%;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 600px) {
+    /* #coursetitle{
+        font-size: 0px !important;
+        display: none !important;
+        width: 0px !important;
+    } */
+  }
+
+

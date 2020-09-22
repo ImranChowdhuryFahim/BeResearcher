@@ -1,0 +1,9 @@
+.CourseContent{
+    background-color: white;
+    height: 55px;
+    border: .5px solid #e2e7ed;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+}

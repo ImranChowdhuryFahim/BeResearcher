@@ -1,0 +1,152 @@
+.CourseHeader{
+    height: 50px;
+    border-bottom: 1px solid #e2e7ed;
+    display: flex;
+}
+
+.LogoCourseSection{
+    width: 34vmax;
+    cursor: pointer;
+}
+
+.ProgressBar{
+    width: 40vmax;
+    cursor: pointer;
+}
+.Announcement{
+    width: 15vmax;
+    cursor: pointer;
+}
+
+.ProgressBarPercentile{
+    margin-top: 5px;
+    height: 7px; 
+    width: 500px;
+	background: #e2e7ed;
+	-moz-border-radius: 13px;
+	-webkit-border-radius: 13px;
+    border-radius: 13px;
+    cursor: pointer;
+    
+}
+.ProgressBarPercentile > span{
+  display: block;
+  height: 100%;
+  border-radius: 13px;
+  background-color: #31c984;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ham{
+    display: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    margin-top: 10px;
+    margin-left: -50px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .UserDetails{
+      cursor: pointer;
+  }
+
+  .UserDetails:hover .dropdown-content {
+    display: block;
+  }
+
+@media screen and (max-width: 900px)
+{
+    .LogoCourseSection{
+        width: 25vmax;
+    }
+    .ProgressBarPercentile{
+        width: 250px;
+    }
+    .Announcement{
+        width: 35vmax;
+    }
+    
+}
+
+@media screen and (max-width: 1100px)
+{
+    .LogoCourseSection{
+        width: 25vmax;
+    }
+    .ProgressBarPercentile{
+        width: 250px;
+    }
+    .ProgressBar{
+        width: 60vmax;
+    }
+    .Announcement{
+        width: 30vmax;
+    }
+    
+}
+
+@media screen and (max-width: 1260px)
+{
+    .LogoCourseSection{
+        width: 25vmax;
+    }
+    .ProgressBarPercentile{
+        width: 300px;
+    }
+    .ProgressBar{
+        width: 60vmax;
+    }
+    .Announcement{
+        width: 30vmax;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .ProgressBarPercentile{
+        width: 160px;
+    }
+    .LogoCourseSection{
+        display: none;
+    }
+    .ans{
+        display: none;
+    }
+    .ham{
+        display: block;
+        width: 55px;
+        padding-right: 15px;
+    }
+    .ProgressLabel{
+        text-align: center;
+    }
+    .ProgressBar{
+        width: 17vmax;
+    }
+    .UserDetails{
+        margin-left: -100px;
+    }
+    
+    
+  }
+
+
+
