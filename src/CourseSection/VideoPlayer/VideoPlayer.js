@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import './VideoPlayer.css'
 import ReactPlayer from 'react-player'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,12 +30,19 @@ class VideoPlayer extends Component {
         if(this.context.CurrentContentDetails.id<=this.state.backnfortharray.length-1)
         {
             this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id])
+            const node = ReactDOM.findDOMNode(this.props.rf.current)
+            node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id*5
+            console.log(node.scrollTop)
         }
     }
     handlePrev()
     {
         if(this.context.CurrentContentDetails.id-2>=0){
-        this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id-2])}
+        this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id-2])
+        const node = ReactDOM.findDOMNode(this.props.rf.current)
+        node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id*5
+        console.log(node.scrollTop)
+    }
     }
     handleMarkasDone()
     {

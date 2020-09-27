@@ -1,4 +1,5 @@
 import React , { Component } from 'react'
+import ReactDOM from 'react-dom'
 import './Sidebar.css'
 import { CaretLeftFilled, CaretRightOutlined } from "@ant-design/icons";
 import Unit from './Unit/Unit'
@@ -9,7 +10,12 @@ class Sidebar extends Component{
     componentDidMount()
     {
         console.log(this.context.CourseContent)
+        const node = ReactDOM.findDOMNode(this.props.rf.current)
+        node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id*5
+        console.log(node.scrollTop)
+        
     }
+
 
     render()
     {
@@ -36,7 +42,7 @@ class Sidebar extends Component{
                    
                     
                 </div>
-               <div className="CourseContents">
+               <div className="CourseContents" ref={this.props.rf}>
                 {
                    Object.keys(this.context.CourseContent).map( (unit) => {
                         return(

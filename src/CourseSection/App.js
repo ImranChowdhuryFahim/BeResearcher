@@ -10,7 +10,8 @@ class App extends Component {
         super()
         this.state = {
             open: true,
-            Ismobile: false
+            Ismobile: false,
+            myref : React.createRef()
         }
     }
     close()
@@ -58,8 +59,8 @@ class App extends Component {
         return (
             <div className="CourseSection">
                 <Header toggole={this.toggole.bind(this)}></Header>
-                <Sidebar Isopen={this.state.open} open={this.open.bind(this)} Ismobile={this.state.Ismobile} close={this.close.bind(this)}></Sidebar>
-                <VideoPlayer></VideoPlayer>
+                <Sidebar Isopen={this.state.open} open={this.open.bind(this)} Ismobile={this.state.Ismobile} rf={this.state.myref} close={this.close.bind(this)}></Sidebar>
+                <VideoPlayer rf={this.state.myref} ></VideoPlayer>
             </div>
         )
     }

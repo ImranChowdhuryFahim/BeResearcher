@@ -149,7 +149,7 @@ export class CourseProvider extends Component {
         },
         CurrentContentDetails: {
             id : 1,
-            unit : 1,
+            unit :1,
             title : 'Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College',
             src : 'https://youtu.be/Ra6vA6-GbiI'
         }
@@ -164,7 +164,7 @@ export class CourseProvider extends Component {
   UpdateCurrentContentDetails(e)
   {
       this.setState({CurrentContentDetails: e});
-    //   console.log(this.state.CurrentContentDetails)
+      console.log(this.state.CurrentContentDetails)
   }
 
   render() {

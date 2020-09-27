@@ -13,6 +13,7 @@
 .CourseContents{
     height: 100%;
     overflow-y: auto;
+    transition: 0.3s ease;
 }
 
 @media screen and (max-width: 600px) {
