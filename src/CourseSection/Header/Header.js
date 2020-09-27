@@ -3,65 +3,58 @@ import './Header.css'
 import logo from './logo2.png'
 import ham from './ham.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faBullhorn } from '@fortawesome/free-solid-svg-icons'
-import sidebar from '../SideBar/Sidebar'
+import { faUser, faBullhorn } from '@fortawesome/free-solid-svg-icons'
+import { CourseContext } from '../../data'
 
 class Header extends Component {
-    constructor()
-    {
+    constructor() {
         super()
-        this.state={
+        this.state = {
             open: true
         }
     }
     render() {
         return (
             <div>
-            <div className="CourseHeader">
-                <div className="LogoCourseSection">
-                    <img src={logo} alt="logo" style={{ height: '45px', marginTop: '2px', marginLeft: '35px' }}></img>
-                </div>
-                <div className="ham">
-                    <img src={ham} alt="hame" style={{ height: '45px', marginTop: '2px', marginLeft: '5px' }} onClick={this.props.toggole}></img>
-                </div>
-                <div className="ProgressBar" style={{ padding: '3.25px 13px 0px 0px' }}>
-                    <div className="ProgressLabel" style={{ marginTop: '5px', fontSize: '13px', fontWeight: 'bold' }}>
-                        <span style={{ color: '#31c984' }}>
-                            30% complete
+                <div className="CourseHeader">
+                    <div className="LogoCourseSection">
+                        <img src={logo} alt="logo" style={{ height: '45px', marginTop: '2px', marginLeft: '35px' }}></img>
+                    </div>
+                    <div className="ham">
+                        <img src={ham} alt="hame" style={{ height: '45px', marginTop: '2px', marginLeft: '5px' }} onClick={this.props.toggole}></img>
+                    </div>
+                    <div className="ProgressBar" style={{ padding: '3.25px 13px 0px 0px' }}>
+                        <div className="ProgressLabel" style={{ marginTop: '5px', fontSize: '13px', fontWeight: 'bold' }}>
+                            <span style={{ color: '#31c984' }}>
+                                {this.context.CurrentUserDetails.completed} complete
                        </span>
-                    </div>
-                    <div className="ProgressBarPercentile" >
-                        <span style={{ width: "30%" }}>
+                        </div>
+                        <div className="ProgressBarPercentile" >
+                            <span style={{ width: this.context.CurrentUserDetails.completed }}>
 
-                        </span>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className="Announcement" style={{ display: 'flex' }}>
-                    <FontAwesomeIcon className="ans" icon={faBullhorn} size={'2x'} style={{ marginTop: '5px' }}></FontAwesomeIcon>
-                    <span className="ans" style={{ paddingLeft: '5px', fontSize: '13px' , marginTop: '15px' }}>Announcements</span>
-                </div>
-                <div className="UserDetails">
-                    <div className="UserProfile" style={{ display: 'flex', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faUser} size={'2x'}  style={{ marginTop: '5px' }}></FontAwesomeIcon>
-                        <span style={{ paddingLeft: '5px', fontSize: '11px', marginTop: '10px' }}>Imran Chowdhury</span>
-                        
+                    <div className="Announcement" style={{ display: 'flex' }}>
+                        <FontAwesomeIcon className="ans" icon={faBullhorn} size={'2x'} style={{ marginTop: '5px' }}></FontAwesomeIcon>
+                        <span className="ans" style={{ paddingLeft: '5px', fontSize: '13px', marginTop: '15px' }}>Announcements</span>
                     </div>
-                    <div class="dropdown-content">
+                    <div className="UserDetails">
+                        <div className="UserProfile" style={{ display: 'flex', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faUser} size={'2x'} style={{ marginTop: '5px' }}></FontAwesomeIcon>
+                            <span style={{ paddingLeft: '5px', fontSize: '11px', marginTop: '10px' }}>{this.context.CurrentUserDetails.name}</span>
+
+                        </div>
+                        <div class="dropdown-content">
                             <a href="#">Dashboard</a>
                             <a href="#">Announcements</a>
                             <a href="#">Logout</a>
                         </div>
+                    </div>
                 </div>
-            </div>
-            {/* {
-               this.state.open?(
-                   n
-               ):
-               (<div></div>)
-            } */}
             </div>
         )
     }
 }
-
+Header.contextType = CourseContext
 export default Header

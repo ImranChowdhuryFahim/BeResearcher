@@ -45,7 +45,7 @@ class Sidebar extends Component{
                             {
                                 this.context.CourseContent[unit].map( (course) => {
                                     return(
-                                        <CourseContent txt={course.title}></CourseContent>
+                                        <CourseContent txt={course.title} coursedata={course}></CourseContent>
                                     )
                                 } )
                             }
