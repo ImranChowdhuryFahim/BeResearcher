@@ -58,7 +58,7 @@ class VideoPlayer extends Component {
                     <span>{this.context.CurrentContentDetails.title}</span>
                     <span className={'inprogress'} style={{ paddingLeft: '10px', backgroundColor: '#112040', paddingRight: '10px', borderRadius: '50px', color: 'white', paddingTop: '5px', paddingBottom: '5px', marginLeft: 'auto', order: '2' }}>In Progress</span>
                 </div>
-                <ReactPlayer controls id="video" width={'100px'} url={this.context.CurrentContentDetails.src} />
+                <ReactPlayer playing={true} controls id="video" width={'100px'} url={this.context.CurrentContentDetails.src} />
 
                 <div className="forwardbackward">
                     <span onClick={this.handlePrev.bind(this)} className="btn1" style={{
