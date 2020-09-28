@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  background-color: peru;
+  box-shadow: 0px 4px 4px #aaa6a6;
+}
+
+.header ul {
+  list-style-type: none;
+  padding-right: 1em;
+  float: right;
+}
+.nav-item {
+  display: inline-block;
+  padding-right: 1em;
+  cursor: pointer;
+}
+
+.message-badge {
+  position: absolute;
+  top: 7px;
+  right: 93px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
