@@ -53,7 +53,45 @@
     transition: ease all .3s;
 }
 
+.assignmentdetails{
+    margin-left: 34%;
+    background-color: #f0f3f6;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 790px;
+    border-radius: 5px;
+    
+}
 
+.FileUploader{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    margin-left: 34%;
+}
+
+.filechooser{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 1px dashed gray;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#upload{
+    width: 800px;
+    height: 30px;
+    background-color: #4faf3d;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#upload:focus{
+    outline: none;
+}
 
 @media screen and (max-width: 1200px) {
     
@@ -87,10 +125,25 @@
         width: 59% !important;
         margin-left: 40%;
     }
+
+    .assignmentdetails{
+        margin-left: 40%;
+        width: 57% !important;
+    }
+    .FileUploader{
+        margin-left: 40%;
+        width: 59% !important;
+    }
+    .filechooser{
+        width: 100% !important;
+    }
+    #upload{
+        width: 100% !important;
+    }
   }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 760px) {
     /* .Sidebar_Container{
         width: 0px !important;
         color: transparent !important;
@@ -120,7 +173,7 @@
     }
     .forwardbackward{
         /* margin-left: 34%; */
-        padding-top: 60px;
+        padding-top: 10px;
         width: 90% !important;
         display: flex;
         flex-direction: column;
@@ -137,6 +190,16 @@
     .inprogress{
         margin: 0 auto !important;
     }
+
+    .assignmentdetails{
+        margin: 0 auto;
+        width: 88% !important;
+    }
+    .FileUploader{
+        margin: 0 auto;
+        width: 90% !important;
+    }
+   
   }
 
  
