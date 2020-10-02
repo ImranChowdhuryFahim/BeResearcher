@@ -1,32 +1,49 @@
 import React from "react";
 import "./leftsidebar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+const activeStyle = {
+  color: "peru",
+};
 
 const LeftSideBar = () => {
-  const handleClick = (event) => {
-    console.log(event.target);
-  };
   return (
     <div className="left-sidebar">
-      <nav onClick={handleClick}>
+      <nav>
         <ul>
           <li className="list-item" role="button">
-            <Link to="/admin/my-courses">My Courses</Link>
+            <NavLink to="/admin/my-courses" activeStyle={activeStyle}>
+              My Courses
+            </NavLink>
           </li>
           <li className="list-item" role="button">
-            <Link to="/admin/review-assignment">Review Assignment</Link>
+            <NavLink to="/admin/review-assignment" activeStyle={activeStyle}>
+              Review Assignment
+            </NavLink>
           </li>
           <li>
-            <Link>Create</Link>
+            <b>Create</b>
             <ul className="nested-list">
               <li>
-                <Link to="/admin/create-assignment">Assignment</Link>
+                <NavLink
+                  to="/admin/create-assignment"
+                  activeStyle={activeStyle}
+                >
+                  Assignment
+                </NavLink>
               </li>
               <li>
-                <Link to="/admin/create-course">Course</Link>
+                <NavLink to="/admin/create-course" activeStyle={activeStyle}>
+                  Course
+                </NavLink>
               </li>
               <li>
-                <Link to="/admin/create-announcement">Announcement</Link>
+                <NavLink
+                  activeStyle={activeStyle}
+                  to="/admin/create-announcement"
+                >
+                  Announcement
+                </NavLink>
               </li>
             </ul>
           </li>

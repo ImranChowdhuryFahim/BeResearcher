@@ -1,7 +1,7 @@
 import React from "react";
 
 const CreateAssignment = () => {
-  return <button>Create Assignement</button>;
+  return <button style={{ height: "inherit" }}>Create Assignement</button>;
 };
 
 export default CreateAssignment;
