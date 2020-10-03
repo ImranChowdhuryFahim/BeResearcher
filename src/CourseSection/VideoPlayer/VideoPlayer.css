@@ -1,5 +1,6 @@
 .VideoContainer{
     width: 100%;
+    height: 100vh;
 }
 
 #video{
@@ -52,7 +53,97 @@
     transition: ease all .3s;
 }
 
-@media screen and (max-width: 600px) {
+.assignmentdetails{
+    margin-left: 34%;
+    background-color: #f0f3f6;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 790px;
+    border-radius: 5px;
+    
+}
+
+.FileUploader{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    margin-left: 34%;
+}
+
+.filechooser{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 1px dashed gray;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#upload{
+    width: 800px;
+    height: 30px;
+    background-color: #4faf3d;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#upload:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 1200px) {
+    
+    #video{
+        margin: 0 auto;
+        padding-top: 50px;
+        width: 59% !important;
+        height: 450px !important;
+        margin-left: 40%;
+        padding-bottom: 50px;
+    }
+    .unitinfo{
+        width: 59% !important;
+        margin: 0 auto;
+        padding-top: 10px;
+        margin-left: 40%;
+    }
+    .LectureTitle{
+        margin-left: 40%;
+        background-color: #f0f3f6;
+        height: 43px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        width: 58% !important;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .forwardbackward{
+        
+        width: 59% !important;
+        margin-left: 40%;
+    }
+
+    .assignmentdetails{
+        margin-left: 40%;
+        width: 57% !important;
+    }
+    .FileUploader{
+        margin-left: 40%;
+        width: 59% !important;
+    }
+    .filechooser{
+        width: 100% !important;
+    }
+    #upload{
+        width: 100% !important;
+    }
+  }
+
+
+@media screen and (max-width: 760px) {
     /* .Sidebar_Container{
         width: 0px !important;
         color: transparent !important;
@@ -63,16 +154,16 @@
     
     #video{
         margin: 0 auto;
-        width: 300px !important;
-        height: 170px !important;
+        width: 89% !important;
+        height: 25% !important;
     }
     .unitinfo{
-        width: 300px;
+        width: 90% !important;
         margin: 0 auto;
         padding-top: 10px;
     }
     .LectureTitle{
-        width: 300px;
+        width: 90% !important;
         height: 90px;
         margin: 0 auto;
         flex-direction: column;
@@ -82,7 +173,8 @@
     }
     .forwardbackward{
         /* margin-left: 34%; */
-        width: 300px;
+        padding-top: 10px;
+        width: 90% !important;
         display: flex;
         flex-direction: column;
         margin: auto !important;
@@ -98,4 +190,16 @@
     .inprogress{
         margin: 0 auto !important;
     }
+
+    .assignmentdetails{
+        margin: 0 auto;
+        width: 88% !important;
+    }
+    .FileUploader{
+        margin: 0 auto;
+        width: 90% !important;
+    }
+   
   }
+
+ 
