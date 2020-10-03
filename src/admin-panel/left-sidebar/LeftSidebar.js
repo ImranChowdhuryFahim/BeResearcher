@@ -4,6 +4,9 @@ import { Link, NavLink } from "react-router-dom";
 
 const activeStyle = {
   color: "peru",
+  backgroundColor: "white",
+  borderRight: "5px solid peru",
+  zIndex: "-1",
 };
 
 const LeftSideBar = () => {

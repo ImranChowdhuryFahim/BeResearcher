@@ -5,3 +5,10 @@
 .body {
   margin: 9px;
 }
+
+.review-assignment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}

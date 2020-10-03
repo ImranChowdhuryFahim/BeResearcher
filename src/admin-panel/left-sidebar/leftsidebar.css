@@ -1,7 +1,10 @@
+* {
+  box-sizing: border-box;
+}
 .left-sidebar {
   position: sticky;
   height: 900px;
-  width: fit-content;
+  width: 220px;
   background-color: rgb(216, 224, 224);
 }
 
