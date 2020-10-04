@@ -120,9 +120,9 @@
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .ProgressBarPercentile{
-        width: 160px;
+        width: 20vmax;
     }
     .LogoCourseSection{
         display: none;
@@ -132,17 +132,23 @@
     }
     .ham{
         display: block;
-        width: 55px;
-        padding-right: 15px;
+        margin-left: 10px;
     }
     .ProgressLabel{
         text-align: center;
     }
     .ProgressBar{
-        width: 17vmax;
+        width: 20vmax;
+        margin-right: auto;
+        order: 0;
+        margin-left: 40px;
     }
     .UserDetails{
-        margin-left: -100px;
+        margin-left: auto;
+        order: 1;
+        margin-right: 5px;
+
+
     }
     
     

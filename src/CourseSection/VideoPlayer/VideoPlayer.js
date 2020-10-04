@@ -4,7 +4,7 @@ import './VideoPlayer.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight, faCheck , faUpload} from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faAngleRight, faCheck , faLeaf, faUpload} from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../../data'
 
 class VideoPlayer extends Component {
@@ -66,11 +66,16 @@ class VideoPlayer extends Component {
                     <span >Unit {this.context.CurrentContentDetails.unit}</span>
                 </div>
                 <div className={'LectureTitle'}>
-                    <span>{this.context.CurrentContentDetails.title}</span>
-                    <span className={'inprogress'} style={{ paddingLeft: '10px', backgroundColor: '#112040', paddingRight: '10px', borderRadius: '50px', color: 'white', paddingTop: '5px', paddingBottom: '5px', marginLeft: 'auto', order: '2' }}>In Progress</span>
+                    <span style={{
+                        width: '75%'
+                    }}>{this.context.CurrentContentDetails.title}</span>
+                    <span className={'inprogress'} style={{ paddingLeft: '10px', 
+                    backgroundColor: '#112040', paddingRight: '10px', borderRadius: '50px', color: 'white',
+                    alignItems:"center",
+                    paddingBottom: '5px', marginLeft: 'auto', order: '2' }}>In Progress</span>
                 </div>
                 {
-                    this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video" width={'100px'} url={this.context.CurrentContentDetails.src} />):(<div>
+                    this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video"  url={this.context.CurrentContentDetails.src} />):(<div>
                         <div className={'unitinfo'}> Description </div>
                     <div className={'assignmentdetails'} >{this.context.CurrentContentDetails.description}</div>
                         
@@ -90,20 +95,20 @@ class VideoPlayer extends Component {
                 <div className="forwardbackward">
                     <span onClick={this.handlePrev.bind(this)} className="btn1" style={{
                         backgroundColor: '#112040',
-                        padding: '15px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginRight: 'auto', order: '1',
-                        cursor: 'pointer'
-                    }}><FontAwesomeIcon id="leftarrow" icon={faAngleLeft} style={{ paddingRight: '5px' }}>></FontAwesomeIcon> Previous Topic </span>
+                        padding: '5px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginRight: 'auto', order: '1',
+                        cursor: 'pointer',display: 'flex' , alignItems: 'center'
+                    }}><FontAwesomeIcon id="leftarrow" icon={faAngleLeft} style={{ paddingRight: '5px' , paddingTop: '3px' }} size={'2x'}></FontAwesomeIcon> Previous Topic </span>
                     <span onClick={this.handleMarkasDone.bind(this)} className="btn2" style={{
                         backgroundColor: '#52c984',
-                        padding: '15px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
+                        padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
                         cursor: 'pointer'
                     }}>Mark as Done
                 <FontAwesomeIcon id="tiksign" icon={faCheck} style={{ paddingLeft: '5px' }}></FontAwesomeIcon></span>
                     <span onClick={this.handleNext.bind(this)} className="btn3" style={{
                         backgroundColor: '#112040',
-                        padding: '15px', paddingRight: '34px', paddingLeft: '34px', color: 'white', borderRadius: '50px', marginLeft: 'auto', order: '3',
-                        cursor: 'pointer'
-                    }} >Next Topic <FontAwesomeIcon id="rightarrow" icon={faAngleRight} style={{ paddingLeft: '5px' }}>></FontAwesomeIcon></span>
+                        padding: '5px', paddingRight: '34px', paddingLeft: '34px', color: 'white', borderRadius: '50px', marginLeft: 'auto', order: '3',
+                        cursor: 'pointer',display: 'flex' , alignItems: 'center'
+                    }} >Next Topic <FontAwesomeIcon id="rightarrow" icon={faAngleRight} style={{ paddingLeft: '5px' , paddingTop: '3px' }} size={'2x'}></FontAwesomeIcon></span>
 
                 </div>
             </div>
