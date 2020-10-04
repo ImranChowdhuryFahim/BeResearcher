@@ -31,7 +31,7 @@ class App extends Component {
     }
 
     updateDimensions = () => {
-        if(window.innerWidth<=760){
+        if(window.innerWidth<=800){
             this.close()
             this.setState({Ismobile: true})
         }
@@ -41,7 +41,7 @@ class App extends Component {
         }
       }
       componentDidMount() {
-        if(window.innerWidth<=760){
+        if(window.innerWidth<=800){
             this.close()
             this.setState({Ismobile: true})
         }
