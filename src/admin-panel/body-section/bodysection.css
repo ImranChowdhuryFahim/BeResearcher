@@ -12,3 +12,49 @@
   align-items: center;
   width: 70%;
 }
+
+.review-assignment input {
+  height: 30px;
+}
+.create-assignment {
+  margin: auto;
+}
+
+.create-assignment form {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+.create-assignment input[type="text"] {
+  margin: 5px 0 20px 0;
+  background-color: rgb(216, 224, 224);
+  height: 50px;
+  width: 500px;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.create-assignment textarea {
+  margin: 5px 0 5px 0;
+  width: 500px;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.create-assignment input[type="submit"] {
+  background-color: rgb(216, 224, 224);
+  height: 50px;
+  width: 200px;
+}
+select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  background-color: rgb(216, 224, 224);
+}

@@ -15,7 +15,7 @@ const ReviewAssignments = () => {
         frameborder="0"
         style={{ width: "100%", height: "700px", margin: "2px" }}
       ></iframe>
-      <a href="fhh">kulu</a>
+      <input type="number" placeholder="Marks/points" />
     </div>
   );
 };
