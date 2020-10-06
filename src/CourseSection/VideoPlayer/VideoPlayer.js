@@ -72,7 +72,7 @@ class VideoPlayer extends Component {
                     <span className={'inprogress'} style={{ paddingLeft: '10px', 
                     backgroundColor: '#112040', paddingRight: '10px', borderRadius: '50px', color: 'white',
                     alignItems:"center",
-                    paddingBottom: '5px', marginLeft: 'auto', order: '2' }}>In Progress</span>
+                    paddingBottom: '5px', marginLeft: 'auto', order: '2',paddingTop: '3px' }}>In Progress</span>
                 </div>
                 {
                     this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video"  url={this.context.CurrentContentDetails.src} />):(<div>

@@ -179,7 +179,8 @@ export class CourseProvider extends Component {
             title : 'Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College',
             src : 'https://youtu.be/Ra6vA6-GbiI',
             type: 'lecture'
-        }
+        },
+        CourseTitle: 'Research Methodology'
     };
   }
 
@@ -201,6 +202,7 @@ export class CourseProvider extends Component {
           CourseContent: this.state.CourseContent,
           CurrentUserDetails: this.state.currentuserdetails,
           CurrentContentDetails: this.state.CurrentContentDetails,
+          CourseTitle: this.state.CourseTitle,
           UpdateCurrentContentDetails : (e) => this.UpdateCurrentContentDetails(e)
         //   currentactive: this.state.CurrentActive,
         //   updateCurrentActive: (e) => this.updateCurrentActive(e),
