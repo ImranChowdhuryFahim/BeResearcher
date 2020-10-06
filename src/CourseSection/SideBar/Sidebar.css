@@ -24,13 +24,16 @@
 }
 
 .coursetitle{
-    font-size: 18px;
+    /* font-size: 18px; */
     /* font-weight: bold ;  */
     margin-left: 25px ; 
     padding-right: 65px;
 
 }
+#leftArrow:focus{
+    outline: none;
 
+}
 
 
 @media screen and (max-width: 600px) {

@@ -9,8 +9,8 @@ class CourseContent extends Component{
     handleclick(event) {
         event.stopPropagation();
         this.context.UpdateCurrentContentDetails(this.props.coursedata)
-        // this.props.history.push('/hello');
-        // window.location.reload()
+        this.props.history.push('/home');
+        window.location.reload()
     }
     render()
     {
