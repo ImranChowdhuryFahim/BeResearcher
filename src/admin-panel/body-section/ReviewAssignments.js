@@ -15,7 +15,10 @@ const ReviewAssignments = () => {
         frameborder="0"
         style={{ width: "100%", height: "700px", margin: "2px" }}
       ></iframe>
-      <input type="number" placeholder="Marks/points" />
+      <form>
+        <input type="number" placeholder="Marks/points" />
+        <input type="submit" />
+      </form>
     </div>
   );
 };

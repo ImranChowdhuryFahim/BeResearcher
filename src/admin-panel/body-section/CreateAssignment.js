@@ -1,6 +1,8 @@
 import React from "react";
 import "./bodysection.css";
 
+import { CourseContext } from "../../data";
+
 class CreateAssignment extends React.Component {
   constructor(props) {
     super(props);
@@ -20,9 +22,9 @@ class CreateAssignment extends React.Component {
     this.setState({ body: event.target.value });
   }
   handleSubmit(event) {
-    alert("ananan");
     const { title, body } = this.state;
     console.log(title, body);
+    this.context.updateAssignment(1);
     event.preventDefault();
   }
 
@@ -34,8 +36,8 @@ class CreateAssignment extends React.Component {
           <select name="unit" id="unit">
             <option value="">Choose a unit</option>
             <option value="1">1</option>
-            <option value="1">2</option>
-            <option value="1">3</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
           <label htmlFor="title">
             Title:
@@ -56,14 +58,18 @@ class CreateAssignment extends React.Component {
               onChange={this.handleBodyChange}
               rows="30"
               cols="30"
+              placeholder="Describe the Assignment"
             />
           </label>
 
           <input type="submit" value="Submit" />
         </form>
+        <pre>{JSON.stringify(this.context.CourseContent, null, 4)}</pre>
       </div>
     );
   }
 }
+
+CreateAssignment.contextType = CourseContext;
 
 export default CreateAssignment;
