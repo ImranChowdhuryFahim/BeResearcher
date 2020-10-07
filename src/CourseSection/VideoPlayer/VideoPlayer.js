@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import {withRouter} from 'react-router-dom'
 import './VideoPlayer.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
@@ -23,22 +24,32 @@ class VideoPlayer extends Component {
                 a.push(course)
             })
         })
-        this.setState({ backnfortharray: a })
+        this.setState({ backnfortharray: a },function(){
+            this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id-1])
+
+        })
+       
+        
     }
     handleNext() {
         if (this.context.CurrentContentDetails.id <= this.state.backnfortharray.length - 1) {
-            this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id])
-            const node = ReactDOM.findDOMNode(this.props.rf.current)
-            node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 5
-            console.log(node.scrollTop)
+            // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id])
+            // const node = ReactDOM.findDOMNode(this.props.rf.current)
+            // node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 5
+            // console.log(node.scrollTop)
+            // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
+            this.props.history.push(`/ResearchMethodology/${this.state.backnfortharray[this.props.id].id}`);
+            window.location.reload()
         }
     }
     handlePrev() {
         if (this.context.CurrentContentDetails.id - 2 >= 0) {
-            this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id - 2])
-            const node = ReactDOM.findDOMNode(this.props.rf.current)
-            node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 5
-            console.log(node.scrollTop)
+            // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id - 2])
+            // const node = ReactDOM.findDOMNode(this.props.rf.current)
+            // node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 5
+            // console.log(node.scrollTop)
+            this.props.history.push(`/ResearchMethodology/${this.state.backnfortharray[this.props.id - 2].id}`);
+            window.location.reload()
         }
     }
     handleMarkasDone() {
@@ -72,7 +83,7 @@ class VideoPlayer extends Component {
                     <span className={'inprogress'} style={{ paddingLeft: '10px', 
                     backgroundColor: '#112040', paddingRight: '10px', borderRadius: '50px', color: 'white',
                     alignItems:"center",
-                    paddingBottom: '5px', marginLeft: 'auto', order: '2',paddingTop: '3px' }}>In Progress</span>
+                    paddingBottom: '5px', marginLeft: 'auto', order: '2', paddingTop:'3px' }}>In Progress</span>
                 </div>
                 {
                     this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video"  url={this.context.CurrentContentDetails.src} />):(<div>
@@ -116,4 +127,4 @@ class VideoPlayer extends Component {
     }
 }
 VideoPlayer.contextType = CourseContext
-export default VideoPlayer
+export default withRouter(VideoPlayer)

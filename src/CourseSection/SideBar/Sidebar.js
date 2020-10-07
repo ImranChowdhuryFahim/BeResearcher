@@ -7,11 +7,13 @@ import CourseContent from "./CourseContent/CourseContent";
 import { CourseContext } from "../../data";
 class Sidebar extends Component {
   componentDidMount() {
+    if(this.props.id>1){
     console.log(this.context.CourseContent);
     const node = ReactDOM.findDOMNode(this.props.rf.current);
-    node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 5;
-    console.log(node.scrollTop);
+    node.scrollTop = node.scrollTop + this.props.id * 20;
+    console.log(node.scrollTop);}
   }
+
 
   render() {
     return (
@@ -38,17 +40,20 @@ class Sidebar extends Component {
                   {Object.keys(this.context.CourseContent).map((unit) => {
                     return (
                       <div>
-                        <Unit txt={"Unit " + unit}></Unit>
+                        <Unit txt={"Unit " + unit} key={unit}></Unit>
                         {this.context.CourseContent[unit].map((course) => {
                           return (
                             <CourseContent
                               txt={course.title}
                               coursedata={course}
+                              key={course.id}
                               active={
                                 this.context.CurrentContentDetails.id === course.id
                                   ? "true"
                                   : "false"
                               }
+                              open={this.props.open}
+                              close={this.props.close}
                             ></CourseContent>
                           );
                         })}

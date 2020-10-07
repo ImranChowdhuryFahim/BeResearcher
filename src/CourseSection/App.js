@@ -41,6 +41,7 @@ class App extends Component {
         }
       }
       componentDidMount() {
+        console.log(this.props.match.params)
         if(window.innerWidth<=800){
             this.close()
             this.setState({Ismobile: true})
@@ -58,8 +59,8 @@ class App extends Component {
         return (
             <div className="CourseSection">
                 <Header toggole={this.toggole.bind(this)}></Header>
-                <Sidebar Isopen={this.state.open} open={this.open.bind(this)} Ismobile={this.state.Ismobile} rf={this.state.myref} close={this.close.bind(this)}></Sidebar>
-                <VideoPlayer rf={this.state.myref} ></VideoPlayer>
+                <Sidebar Isopen={this.state.open} id={this.props.match.params.ContentId}  open={this.open.bind(this)} Ismobile={this.state.Ismobile} rf={this.state.myref} close={this.close.bind(this)}></Sidebar>
+                <VideoPlayer rf={this.state.myref} id={this.props.match.params.ContentId} ></VideoPlayer>
             </div>
         )
     }
