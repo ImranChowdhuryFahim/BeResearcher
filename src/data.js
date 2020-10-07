@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Unit from "./CourseSection/SideBar/Unit/Unit";
+
 
 export const CourseContext = React.createContext();
 
@@ -192,7 +192,7 @@ export class CourseProvider extends Component {
   UpdateCurrentContentDetails(e)
   {
       this.setState({CurrentContentDetails: e});
-      console.log(this.state.CurrentContentDetails)
+    //   console.log(this.state.CurrentContentDetails)
   }
 
   render() {

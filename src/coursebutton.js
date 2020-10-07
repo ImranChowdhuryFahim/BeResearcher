@@ -6,7 +6,7 @@ class Coursebutton extends Component{
     {
         return(
             <button onClick={()=>{
-                this.props.history.push(`/ResearchMethodology/${1}`);
+                this.props.history.push(`/course/ResearchMethodology/${1}`);
        }}>Course</button>
         )
     }

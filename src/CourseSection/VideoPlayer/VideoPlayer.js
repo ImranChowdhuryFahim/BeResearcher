@@ -38,7 +38,7 @@ class VideoPlayer extends Component {
             // node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 5
             // console.log(node.scrollTop)
             // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
-            this.props.history.push(`/ResearchMethodology/${this.state.backnfortharray[this.props.id].id}`);
+            this.props.history.push(`/course/ResearchMethodology/${this.state.backnfortharray[this.props.id].id}`);
             window.location.reload()
         }
     }
@@ -48,7 +48,7 @@ class VideoPlayer extends Component {
             // const node = ReactDOM.findDOMNode(this.props.rf.current)
             // node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 5
             // console.log(node.scrollTop)
-            this.props.history.push(`/ResearchMethodology/${this.state.backnfortharray[this.props.id - 2].id}`);
+            this.props.history.push(`/course/ResearchMethodology/${this.state.backnfortharray[this.props.id - 2].id}`);
             window.location.reload()
         }
     }

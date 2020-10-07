@@ -4,7 +4,6 @@ import CourseSection from "./CourseSection/App";
 import AdminPanel from "./admin-panel";
 import { CourseProvider } from "./data";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import {withRouter, useRouteMatch} from 'react-router-dom'
 import Coursebutton from './coursebutton'
 
 function App() {
@@ -12,15 +11,15 @@ function App() {
     <CourseProvider>
       <Router>
         <Switch>
-          <Route exact path="/home">
+          <Route  path="/home" >
             <div className="App">
               <Coursebutton></Coursebutton>
             </div>
           </Route>
-          <Route exact path="/admin">
+          <Route  path="/admin" >
             <AdminPanel />
           </Route>
-          <Route exact path="/:CourseName/:ContentId" component={CourseSection}></Route>
+          <Route exact path="/course/:CourseName/:ContentId" component={CourseSection} key={2}></Route>
           
         </Switch>
       </Router>

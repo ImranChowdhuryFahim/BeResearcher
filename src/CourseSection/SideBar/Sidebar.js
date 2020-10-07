@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./Sidebar.css";
-import { CaretLeftFilled, CaretRightFilled, CaretRightOutlined } from "@ant-design/icons";
+import { CaretLeftFilled, CaretRightFilled} from "@ant-design/icons";
 import Unit from "./Unit/Unit";
 import CourseContent from "./CourseContent/CourseContent";
 import { CourseContext } from "../../data";
 class Sidebar extends Component {
   componentDidMount() {
     if(this.props.id>1){
-    console.log(this.context.CourseContent);
+    // console.log(this.context.CourseContent);
     const node = ReactDOM.findDOMNode(this.props.rf.current);
     node.scrollTop = node.scrollTop + this.props.id * 20;
-    console.log(node.scrollTop);}
+    // console.log(node.scrollTop);
+  }
   }
 
 
@@ -39,7 +40,7 @@ class Sidebar extends Component {
                 <div className="CourseContents" ref={this.props.rf}>
                   {Object.keys(this.context.CourseContent).map((unit) => {
                     return (
-                      <div>
+                      <div key={unit}>
                         <Unit txt={"Unit " + unit} key={unit}></Unit>
                         {this.context.CourseContent[unit].map((course) => {
                           return (
