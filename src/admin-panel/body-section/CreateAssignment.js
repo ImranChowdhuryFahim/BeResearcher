@@ -64,7 +64,7 @@ class CreateAssignment extends React.Component {
 
           <input type="submit" value="Submit" />
         </form>
-        <pre>{JSON.stringify(this.context.CourseContent, null, 4)}</pre>
+        {/* <pre>{JSON.stringify(this.context.CourseContent, null, 4)}</pre> */}
       </div>
     );
   }

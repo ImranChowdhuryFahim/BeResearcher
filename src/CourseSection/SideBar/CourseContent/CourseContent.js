@@ -3,11 +3,18 @@ import './CourseContent.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDotCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../../../data'
+import {withRouter} from 'react-router-dom'
 
 class CourseContent extends Component{
     handleclick(event) {
         event.stopPropagation();
         this.context.UpdateCurrentContentDetails(this.props.coursedata)
+        this.props.history.push(`/course/ResearchMethodology/${this.props.coursedata.id}`)
+        window.location.reload()
+        // if(window.innerWidth<=800)
+        // {
+        //     this.props.close()
+        // }
     }
     render()
     {
@@ -20,4 +27,4 @@ class CourseContent extends Component{
     }
 }
 CourseContent.contextType = CourseContext
-export default CourseContent
+export default withRouter(CourseContent)

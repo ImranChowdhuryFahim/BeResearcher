@@ -16,6 +16,26 @@
     transition: 0.3s ease;
 }
 
+.CourseHeading{
+     height: 75px ;
+     background-color:#102040;
+     display: flex ;
+     align-items: center;
+}
+
+.coursetitle{
+    /* font-size: 18px; */
+    /* font-weight: bold ;  */
+    margin-left: 25px ; 
+    padding-right: 65px;
+
+}
+#leftArrow:focus{
+    outline: none;
+
+}
+
+
 @media screen and (max-width: 600px) {
     /* #coursetitle{
         font-size: 0px !important;

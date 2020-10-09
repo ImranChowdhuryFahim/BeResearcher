@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Unit from "./CourseSection/SideBar/Unit/Unit";
 
 export const CourseContext = React.createContext();
 

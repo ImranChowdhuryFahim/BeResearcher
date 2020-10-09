@@ -48,13 +48,38 @@ label {
   letter-spacing: 2px;
 }
 
-.create-assignment input[type="submit"] {
+.create-assignment input[type="submit"],
+.review-assignment input[type="submit"] {
   background-color: rgb(216, 224, 224);
-  height: 50px;
-  width: 200px;
+  /* height: 50px; */
+  /* width: 200px; */
 }
 select {
   font-size: 0.9rem;
   padding: 2px 5px;
   background-color: rgb(216, 224, 224);
+}
+
+.review-assignment form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-assignment form * {
+  margin: 2px;
+}
+
+table,
+td {
+  border: 1px solid #333;
+}
+
+td {
+  padding: 12px;
+}
+
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
 }

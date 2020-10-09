@@ -45,10 +45,10 @@ class Header extends Component {
                             <span style={{ paddingLeft: '5px', fontSize: '11px', marginTop: '10px' }}>{this.context.CurrentUserDetails.name}</span>
 
                         </div>
-                        <div class="dropdown-content">
-                            <a href="#">Dashboard</a>
-                            <a href="#">Announcements</a>
-                            <a href="#">Logout</a>
+                        <div className="dropdown-content">
+                            <a href="/dashboard">Dashboard</a>
+                            <a href="/announcement">Announcements</a>
+                            <a href="/logout">Logout</a>
                         </div>
                     </div>
                 </div>
