@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 export const CourseContext = React.createContext();
 
 export class CourseProvider extends Component {
@@ -21,17 +20,23 @@ export class CourseProvider extends Component {
         },
         CourseTitle: 'Research Methodology'
     };
+    this.updateAssignment = this.updateAssignment.bind(this);
   }
-
 
   updateCurrentActive(e) {
     this.setState({ CurrentActive: e });
   }
 
-  UpdateCurrentContentDetails(e)
-  {
-      this.setState({CurrentContentDetails: e});
-    //   console.log(this.state.CurrentContentDetails)
+  UpdateCurrentContentDetails(e) {
+    this.setState({ CurrentContentDetails: e });
+    console.log(this.state.CurrentContentDetails);
+  }
+
+  updateAssignment(unit) {
+    console.log(this.state.CourseContent[unit]);
+    this.setState({ CourseContent: "kicchu na" }, () =>
+      console.log(this.state.CourseContent)
+    );
   }
 
   UpdateCourseContent(e)
@@ -47,6 +52,7 @@ export class CourseProvider extends Component {
           CurrentUserDetails: this.state.currentuserdetails,
           CurrentContentDetails: this.state.CurrentContentDetails,
           CourseTitle: this.state.CourseTitle,
+          updateAssignment: this.updateAssignment,
           UpdateCurrentContentDetails : (e) => this.UpdateCurrentContentDetails(e),
           UpdateCourseContent: (e) => this.UpdateCourseContent(e),
         //   currentactive: this.state.CurrentActive,
