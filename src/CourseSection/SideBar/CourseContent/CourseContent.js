@@ -10,7 +10,7 @@ class CourseContent extends Component{
         event.stopPropagation();
         this.context.UpdateCurrentContentDetails(this.props.coursedata)
         this.props.history.push(`/course/ResearchMethodology/${this.props.coursedata.id}`)
-        window.location.reload()
+        // window.location.reload()
         // if(window.innerWidth<=800)
         // {
         //     this.props.close()

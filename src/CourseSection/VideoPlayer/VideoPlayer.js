@@ -34,22 +34,24 @@ class VideoPlayer extends Component {
     handleNext() {
         if (this.context.CurrentContentDetails.id <= this.state.backnfortharray.length - 1) {
             // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id])
-            // const node = ReactDOM.findDOMNode(this.props.rf.current)
-            // node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 5
-            // console.log(node.scrollTop)
-            // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
+            const node = ReactDOM.findDOMNode(this.props.rf.current)
+            node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 20
+            console.log(node.scrollTop)
+            this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
             this.props.history.push(`/course/ResearchMethodology/${this.state.backnfortharray[this.props.id].id}`);
-            window.location.reload()
+
+            // window.location.reload()
         }
     }
     handlePrev() {
         if (this.context.CurrentContentDetails.id - 2 >= 0) {
             // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id - 2])
-            // const node = ReactDOM.findDOMNode(this.props.rf.current)
-            // node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 5
-            // console.log(node.scrollTop)
+            const node = ReactDOM.findDOMNode(this.props.rf.current)
+            node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 20
+            console.log(node.scrollTop)
+            this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id - 2])
             this.props.history.push(`/course/ResearchMethodology/${this.state.backnfortharray[this.props.id - 2].id}`);
-            window.location.reload()
+            // window.location.reload()
         }
     }
     handleMarkasDone() {
