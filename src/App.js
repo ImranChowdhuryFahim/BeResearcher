@@ -5,6 +5,7 @@ import AdminPanel from "./admin-panel";
 import { CourseProvider } from "./data";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Coursebutton from './coursebutton'
+import Dahsboard from './Dashboard/Dashboard'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Coursebutton></Coursebutton>
             </div>
           </Route>
+          <Route exact path="/dashboard" component={Dahsboard}></Route>
           <Route  path="/admin" >
             <AdminPanel />
           </Route>

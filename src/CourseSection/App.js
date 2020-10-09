@@ -79,7 +79,7 @@ class App extends Component {
                 {this.context.CourseContent!==null?(<div className="CourseSection">
                 <Header key={0} toggole={this.toggole.bind(this)}></Header>
                 <Sidebar key={1} Isopen={this.state.open} id={this.props.match.params.ContentId}  open={this.open.bind(this)} Ismobile={this.state.Ismobile} rf={this.state.myref} close={this.close.bind(this)}></Sidebar>
-                <VideoPlayer key={2} rf={this.state.myref} id={this.props.match.params.ContentId} ></VideoPlayer>
+                <VideoPlayer key={2} Isopen={this.state.open} rf={this.state.myref} id={this.props.match.params.ContentId} ></VideoPlayer>
             </div>):(
                 <div>
                     <BeatLoader css={loaderCss} loading size={'30'} color={'blue'} ></BeatLoader>
