@@ -20,7 +20,7 @@
 }
 
 .course-info{
-    background: #ED474A;
+    background:#2C2464;
     color: #FFF;
     float: left;
     padding: 30px;
@@ -72,7 +72,7 @@
 
 .progress >span{
     border-radius: 3px;
-    background: #ED474A;
+    background: #2C2464;
     content: '';
     position: absolute;
     top: 0px;
@@ -88,7 +88,7 @@
 }
 
 .btn{
-    background: #ED474A;
+    background: #2C2464;
     border: 0px;
     outline: none;
     box-shadow: 0px 10px 10px rgba(0,0,0,0.2);

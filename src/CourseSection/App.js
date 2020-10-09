@@ -71,8 +71,9 @@ class App extends Component {
            
            height: 100vh;
            text-align: center;
-           vertical-align: middle;
-           margin-top: 40%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
         `
         return (
             <div>
