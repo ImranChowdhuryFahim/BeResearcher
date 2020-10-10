@@ -6,19 +6,20 @@ export class CourseProvider extends Component {
   constructor() {
     super();
     this.state = {
-        CourseContent: null,
-        currentuserdetails: {
-            name : 'Imran Chowdhury',
-            completed : '10%'
-        },
-        CurrentContentDetails: {
-            id : 1,
-            unit :1,
-            title : 'Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College',
-            src : 'https://youtu.be/Ra6vA6-GbiI',
-            type: 'lecture'
-        },
-        CourseTitle: 'Research Methodology'
+      CourseContent: null,
+      currentuserdetails: {
+        name: "Imran Chowdhury",
+        completed: "10%",
+      },
+      CurrentContentDetails: {
+        id: 1,
+        unit: 1,
+        title:
+          "Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College",
+        src: "https://youtu.be/Ra6vA6-GbiI",
+        type: "lecture",
+      },
+      CourseTitle: "Research Methodology",
     };
     this.updateAssignment = this.updateAssignment.bind(this);
   }
@@ -39,9 +40,8 @@ export class CourseProvider extends Component {
     );
   }
 
-  UpdateCourseContent(e)
-  {
-      this.setState({CourseContent: e});
+  UpdateCourseContent(e) {
+    this.setState({ CourseContent: e });
   }
 
   render() {
@@ -53,10 +53,11 @@ export class CourseProvider extends Component {
           CurrentContentDetails: this.state.CurrentContentDetails,
           CourseTitle: this.state.CourseTitle,
           updateAssignment: this.updateAssignment,
-          UpdateCurrentContentDetails : (e) => this.UpdateCurrentContentDetails(e),
+          UpdateCurrentContentDetails: (e) =>
+            this.UpdateCurrentContentDetails(e),
           UpdateCourseContent: (e) => this.UpdateCourseContent(e),
-        //   currentactive: this.state.CurrentActive,
-        //   updateCurrentActive: (e) => this.updateCurrentActive(e),
+          //   currentactive: this.state.CurrentActive,
+          //   updateCurrentActive: (e) => this.updateCurrentActive(e),
         }}
       >
         {this.props.children}
