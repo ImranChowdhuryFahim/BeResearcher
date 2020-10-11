@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from "react-dom";
 import Header from './Header/Header'
 import Sidebar from './SideBar/Sidebar'
 import VideoPlayer from './VideoPlayer/VideoPlayer'
@@ -6,7 +7,6 @@ import { CourseContext } from '../data'
 import axios from 'axios'
 import { BeatLoader } from 'react-spinners'
 import { css } from '@emotion/core'
-import { wait } from '@testing-library/react'
 
 class App extends Component {
 
@@ -27,6 +27,8 @@ class App extends Component {
     open()
     {
         this.setState({open: true})
+        // const node = ReactDOM.findDOMNode(this.state.myref.current);
+        // node.scrollTop = node.scrollTop + this.props.match.params.ContentId * 20;
         // console.log(this.state.open)
     }
     toggole()
@@ -49,6 +51,7 @@ class App extends Component {
         // console.log(this.props.match.params)
         axios.get(`http://localhost:8000/api/course/getcoursedata/${'Research Methodology'}`)
         .then((res)=>{
+            console.log(res.data)
             setTimeout(() => {
                 this.context.UpdateCourseContent(res.data[0].courseContent)
             }, 2000);

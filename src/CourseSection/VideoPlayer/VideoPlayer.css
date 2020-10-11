@@ -61,7 +61,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    width: 790px;
+    width: 810px;
     border-radius: 5px;
     
 }
@@ -76,14 +76,14 @@
     padding-top: 50px;
     padding-bottom: 50px;
     border: 1px dashed gray;
-    width: 800px;
+    width: 810px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
 #upload{
-    width: 800px;
+    width: 810px;
     height: 30px;
     background-color: #4faf3d;
     border-style: none;
@@ -117,7 +117,7 @@
         display: flex;
         align-items: center;
         padding: 5px;
-        width: 58% !important;
+        width: 59% !important;
         border-radius: 5px;
         text-align: center;
     }
@@ -129,7 +129,7 @@
 
     .assignmentdetails{
         margin-left: 40%;
-        width: 57% !important;
+        width: 59% !important;
     }
     .FileUploader{
         margin-left: 40%;

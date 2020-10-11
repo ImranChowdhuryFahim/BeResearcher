@@ -13,10 +13,16 @@ class VideoPlayer extends Component {
         super()
         this.state = {
             backnfortharray: null,
-            selectedFile : null
+            selectedFile : null,
+            videowatched: false,
+            donebuttonstyle: {
+                backgroundColor: '#D3D3D3',
+                padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
+                cursor: 'not-allowed'
+            }
         }
     }
-
+// '#52c984' 'pointer'
     componentDidMount() {
         let a = []
         Object.keys(this.context.CourseContent).map((e) => {
@@ -30,6 +36,15 @@ class VideoPlayer extends Component {
         })
        
         
+    }
+
+    componentDidUpdate()
+    {
+        // console.log(this.props.id)
+        if(this.state.videowatched)
+        {
+            this.setState({ videowatched: false })
+        }
     }
     handleNext() {
         if (this.context.CurrentContentDetails.id <= this.state.backnfortharray.length - 1) {
@@ -69,10 +84,21 @@ class VideoPlayer extends Component {
     {
         const data = new FormData()
         data.append('file',this.state.selectedFile)
-        axios.post("http://localhost:8000/upload?id=hello",data,{
+        axios.post("http://localhost:8000/api/upload?id=hello",data,{
 
         }).then(res =>{
             console.log(res.statusText)
+        })
+    }
+    handleVideoEnd()
+    {
+        console.log('sees video')
+        this.setState({ videowatched : true } , function(){
+            this.setState({ donebuttonstyle : {
+                backgroundColor: '#52c984',
+                padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
+                cursor: 'pointer'
+            } })
         })
     }
     render() {
@@ -91,8 +117,11 @@ class VideoPlayer extends Component {
                     paddingBottom: '5px', marginLeft: 'auto', order: '2', paddingTop:'3px' }}>In Progress</span>
                 </div>
                 {
-                    this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video"  url={this.context.CurrentContentDetails.src} />):(<div>
-                        <div className={'unitinfo'}> Description </div>
+                    this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video" onEnded={this.handleVideoEnd.bind(this)} url={this.context.CurrentContentDetails.src} />):(
+                    <div>
+                        {this.context.CurrentContentDetails.type==='assignment'?(
+                            <div>
+                                <div className={'unitinfo'}> Description </div>
                     <div className={'assignmentdetails'} >{this.context.CurrentContentDetails.description}</div>
                         
                         <div className={"FileUploader"}>
@@ -103,6 +132,11 @@ class VideoPlayer extends Component {
                             </div>
                            <br></br> <button type='button' onClick={this.handleupload.bind(this)} id="upload">Upload</button>
                         </div>
+                            </div>
+                        ):(
+                            <div></div>
+                        )}
+                        
                         </div>)
                 }
                 
@@ -114,11 +148,7 @@ class VideoPlayer extends Component {
                         padding: '5px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginRight: 'auto', order: '1',
                         cursor: 'pointer',display: 'flex' , alignItems: 'center'
                     }}><FontAwesomeIcon id="leftarrow" icon={faAngleLeft} style={{ paddingRight: '5px' , paddingTop: '3px' }} size={'2x'}></FontAwesomeIcon> Previous Topic </span>
-                    <span onClick={this.handleMarkasDone.bind(this)} className="btn2" style={{
-                        backgroundColor: '#52c984',
-                        padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
-                        cursor: 'pointer'
-                    }}>Mark as Done
+                    <span onClick={this.handleMarkasDone.bind(this)} className="btn2" style={this.state.donebuttonstyle}>Mark as Done
                 <FontAwesomeIcon id="tiksign" icon={faCheck} style={{ paddingLeft: '5px' }}></FontAwesomeIcon></span>
                     <span onClick={this.handleNext.bind(this)} className="btn3" style={{
                         backgroundColor: '#112040',

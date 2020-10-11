@@ -7,12 +7,28 @@ import CourseContent from "./CourseContent/CourseContent";
 import { CourseContext } from "../../data";
 class Sidebar extends Component {
   componentDidMount() {
-    if(this.props.id>1){
+    if(this.props.id>1 && this.props.Isopen){
     // console.log(this.context.CourseContent);
     const node = ReactDOM.findDOMNode(this.props.rf.current);
     node.scrollTop = node.scrollTop + this.props.id * 20;
     // console.log(node.scrollTop);
   }
+  }
+
+  componentDidUpdate()
+  {
+    if(this.props.id>1 && this.props.Isopen && this.props.Ismobile){
+      // console.log(this.context.CourseContent);
+      const node = ReactDOM.findDOMNode(this.props.rf.current);
+      node.scrollTop = node.scrollTop + this.props.id * 40;
+      // console.log(node.scrollTop);
+    }
+    else if(this.props.id>1 && this.props.Isopen && !this.props.Ismobile){
+      // console.log(this.context.CourseContent);
+      const node = ReactDOM.findDOMNode(this.props.rf.current);
+      node.scrollTop = node.scrollTop + this.props.id * 20;
+      // console.log(node.scrollTop);
+    }
   }
 
 
