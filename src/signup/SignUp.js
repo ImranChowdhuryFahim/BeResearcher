@@ -1,74 +1,249 @@
 import React from "react";
-import { useFormik } from "formik";
+import { Formik, Field, Form, ErrorMessage, useField } from "formik";
 import * as Yup from "yup";
-
 import "./style.css";
-const SignUp = () => {
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string()
-        .max(15, "Must be 15 characters or less")
-        .required("Required"),
-      lastName: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-    }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+import { useState } from "react";
 
+export const MyTextInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.firstName}
-        />
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <div>{formik.errors.firstName}</div>
-        ) : null}{" "}
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
-        <br />
-        <br />
-        <input type="submit" />
-      </form>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <input className="text-input" {...field} {...props} />
+      {meta.error ? <div className="error">{meta.error}</div> : null}
     </>
+  );
+};
+
+export const MySelect = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <select {...field} {...props} />
+      {meta.error ? <div className="error">{meta.error}</div> : null}
+    </>
+  );
+};
+
+export const SuperVisorSignUp = () => {
+  return (
+    <div>
+      <Formik
+        initialValues={{ firstName: "", lastName: "", email: "" }}
+        validationSchema={Yup.object({
+          firstName: Yup.string()
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
+          lastName: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("Required"),
+          password: Yup.string()
+            .min(8, "Must be 8 characters or more")
+            .required("Required"),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("Required"),
+          institution: Yup.string()
+            .oneOf(["BUET", "CUET", "KUET", "RUET", "SUST"])
+            .required("Required"),
+          position: Yup.string().required("Required"),
+        })}
+        onSubmit={async (values, { setSubmitting }) => {
+          console.log(values);
+          await new Promise((r) => setTimeout(r, 500));
+          setSubmitting(false);
+        }}
+      >
+        <Form>
+          <h2>Supervisor SignUp</h2>
+          <MyTextInput
+            label="First Name"
+            name="firstName"
+            type="text"
+            placeholder="Abdul"
+          />
+          <MyTextInput
+            label="Last Name"
+            name="lastName"
+            type="text"
+            placeholder="Matin"
+          />
+          <MyTextInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="********"
+          />
+
+          <MyTextInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="abdulmatin@gmail.com"
+          />
+
+          <MyTextInput
+            label="Institution"
+            name="institution"
+            type="text"
+            list="institution"
+            placeholder="Type a institution"
+          />
+          <datalist id="institution">
+            <option value="BUET">BUET</option>
+            <option value="CUET">CUET</option>
+            <option value="KUET">KUET</option>
+            <option value="RUET">RUET</option>
+            <option value="SUST">SUST</option>
+            <option value="DU">DU</option>
+            <option value="CU">CU</option>
+            <option value="RU">RU</option>
+            <option value="KU">kU</option>
+          </datalist>
+
+          <MySelect label="Postition" name="position">
+            <option value="">Select a position</option>
+            <option value="prof">Professor</option>
+            <option value="associateprof">Associate Professor</option>
+            <option value="assistantprof">Assistant Professor</option>
+            <option value="lecturer">Lecturer</option>
+          </MySelect>
+          <br />
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </div>
+  );
+};
+
+const SignUp = () => {
+  const [signUpAsSupervisor, setSignUpAsSupervisor] = useState(false);
+  return (
+    <div
+      className={
+        signUpAsSupervisor ? "container right-panel-active" : "container"
+      }
+    >
+      <Formik
+        initialValues={{ firstName: "", lastName: "", email: "" }}
+        validationSchema={Yup.object({
+          firstName: Yup.string()
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
+          lastName: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("Required"),
+          password: Yup.string()
+            .min(8, "Must be 8 characters or more")
+            .required("Required"),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("Required"),
+          institution: Yup.string().required("Required"),
+          occupation: Yup.string().required("Required"),
+        })}
+        onSubmit={async (values, { setSubmitting }) => {
+          console.log(values);
+          await new Promise((r) => setTimeout(r, 500));
+          setSubmitting(false);
+        }}
+      >
+        <div className="student-signup-container">
+          <Form>
+            <h2>Student SignUp</h2>
+            <MyTextInput
+              label="First Name"
+              name="firstName"
+              type="text"
+              placeholder="Abdul"
+            />
+            <MyTextInput
+              label="Last Name"
+              name="lastName"
+              type="text"
+              placeholder="Matin"
+            />
+            <MyTextInput
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="********"
+            />
+
+            <MyTextInput
+              label="Email"
+              name="email"
+              type="email"
+              placeholder="abdulmatin@gmail.com"
+            />
+
+            <MyTextInput
+              label="Institution"
+              name="institution"
+              type="text"
+              list="institution"
+              placeholder="Type a institution"
+            />
+            <datalist id="institution">
+              <option value="BUET">BUET</option>
+              <option value="CUET">CUET</option>
+              <option value="KUET">KUET</option>
+              <option value="RUET">RUET</option>
+              <option value="SUST">SUST</option>
+              <option value="DU">DU</option>
+              <option value="CU">CU</option>
+              <option value="RU">RU</option>
+              <option value="KU">kU</option>
+            </datalist>
+
+            <MySelect label="Occupation" name="occupation">
+              <option value="">Select a job type</option>
+              <option value="teacher">Teacher</option>
+              <option value="undergrad">Under Grad Student</option>
+              <option value="postgrad">Post Grad Student</option>
+            </MySelect>
+            <br />
+            <button type="submit">Submit</button>
+          </Form>
+        </div>
+      </Formik>
+      <div className="supervisor-signup-container">
+        <SuperVisorSignUp />
+      </div>
+
+      <div className="overlay-container">
+        <div className="overlay">
+          <div className="overlay-panel overlay-left">
+            <h1>Want to be researcher?</h1>
+            <p>
+              Start journey with us where you will get guidelines and supervisor
+              to work under
+            </p>
+            <button
+              className="ghost"
+              id="signUp"
+              onClick={(e) => setSignUpAsSupervisor(false)}
+            >
+              Sign Up
+            </button>
+          </div>
+          <div className="overlay-panel overlay-right">
+            <h1>Supervisor</h1>
+            <p>Want to supervise some students?</p>
+            <button
+              className="ghost"
+              id="signIn"
+              onClick={(e) => {
+                setSignUpAsSupervisor(true);
+              }}
+            >
+              Register as a Supervisor
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

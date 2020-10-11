@@ -1,6 +1,7 @@
 input[type="email"],
 input[type="text"],
 input[type="number"],
+input[type="password"],
 textarea,
 select {
   width: 400px;
@@ -85,7 +86,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: white;
+    color: black;
     background-color: var(--gray-900);
     caret-color: white;
   }
@@ -201,7 +202,8 @@ label {
 
 input[type="email"],
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
   padding: 0.65rem 0.5rem;
   font-size: 1rem;
   border: 2px solid var(--gray-200);
@@ -216,7 +218,15 @@ input[type="number"] {
 @media (prefers-color-scheme: dark) {
   input[type="email"],
   input[type="text"],
-  input[type="number"] {
+  input[type="number"],
+  input[type="password"],
+  input[type="submit"] {
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
+    color: white;
+  }
+
+  button {
     background-color: var(--gray-800);
     border-color: var(--gray-700);
     color: white;
@@ -234,9 +244,10 @@ input[type="number"] {
 input[type="email"],
 input[type="text"],
 input[type="number"],
+input[type="password"],
 textarea,
 select {
-  width: 400px;
+  width: 350px;
 }
 
 select {
@@ -647,3 +658,115 @@ button.secondary:hover,
 button[type="reset"]:hover {
   background-color: var(--gray-400);
 }
+
+/* mine */
+.container {
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.overlay {
+  background: #ff416c;
+  background: linear-gradient(to right, rgb(216, 224, 224), rgb(216, 224, 224))
+    no-repeat 0 0 / cover;
+  color: rgb(0, 0, 0);
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateY(0);
+}
+
+.overlay-left {
+  transform: translateY(-20%);
+}
+
+.container form {
+  margin-left: 10px;
+}
+
+.student-signup-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+/* .supervisor-signup-container {
+  left: 0;
+  width: 50%;
+  z-index: 1;
+  opacity: 0;
+} */
+
+/* Move signin to right */
+.container.right-panel-active .student-signup-container {
+  transform: translateY(100%);
+}
+
+/* Move overlay to left */
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+/* Bring signup over signin */
+.container.right-panel-active .superisor-signup-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Move overlay back to right */
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+/* Bring back the text to center */
+.container.right-panel-active .overlay-left {
+  transform: translateY(0);
+}
+
+/* Same effect for right */
+.container.right-panel-active .overlay-right {
+  transform: translateY(20%);
+}
+
+/* --------------- */
