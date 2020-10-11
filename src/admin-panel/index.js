@@ -9,7 +9,7 @@ const AdminPanel = () => {
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="admin-container">
         <Router>
           <LeftSidebar />
           <Switch>

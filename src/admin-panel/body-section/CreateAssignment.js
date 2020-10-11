@@ -56,7 +56,7 @@ class CreateAssignment extends React.Component {
               id="body"
               value={this.state.body}
               onChange={this.handleBodyChange}
-              rows="30"
+              rows="25"
               cols="30"
               placeholder="Describe the Assignment"
             />
