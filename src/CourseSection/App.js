@@ -7,6 +7,7 @@ import { CourseContext } from '../data'
 import axios from 'axios'
 import { BeatLoader } from 'react-spinners'
 import { css } from '@emotion/core'
+import './App.css'
 
 class App extends Component {
 

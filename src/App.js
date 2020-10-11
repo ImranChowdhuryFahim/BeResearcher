@@ -6,16 +6,16 @@ import { CourseProvider } from "./data";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Coursebutton from "./coursebutton";
 import Dahsboard from "./Dashboard/Dashboard";
-import SignUp from "./signup/SignUp";
+// import SignUp from "./signup/SignUp";
 
 function App() {
   return (
     <CourseProvider>
       <Router>
         <Switch>
-          <Route path="/signup">
+          {/* <Route path="/signup">
             <SignUp />
-          </Route>
+          </Route> */}
           <Route path="/home">
             <div className="App">
               <Coursebutton></Coursebutton>

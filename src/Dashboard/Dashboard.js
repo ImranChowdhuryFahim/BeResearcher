@@ -1,13 +1,33 @@
 import React,{Component} from 'react'
 import './Dashboard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight , faUser } from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../data'
+import logo from './logo2.png'
+
 
 class Dashboard extends Component{
     render()
     {
         return(
+            <div>
+                <div className={'DashboardHeader'}>
+                 <div>   <img src={logo} alt={'logo'} style={{ marginTop: '5px' ,height: '50px' , marginLeft: '10px'}}></img></div>
+                 <div className={'DashboardUserDetails'}>
+                 <div className="UserDetails">
+                        <div className="UserProfile" style={{ display: 'flex', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faUser} size={'2x'} style={{ marginTop: '5px' }}></FontAwesomeIcon>
+                            <span style={{ paddingLeft: '5px', fontSize: '11px', marginTop: '10px' }}>{this.context.CurrentUserDetails.name}</span>
+
+                        </div>
+                        <div className="dropdown-content">
+                            <a href="/dashboard">Dashboard</a>
+                            <a href="/announcement">Announcements</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             <div className={'courseContainer'}>
                 <div className={'course'}>
                 <div className={'course-info'}>
@@ -31,6 +51,7 @@ class Dashboard extends Component{
                     <button className={'btn'}>Continue</button>
                 </div>
                 </div>
+            </div>
             </div>
         )
     }
