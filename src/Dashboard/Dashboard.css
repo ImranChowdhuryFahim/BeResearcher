@@ -8,6 +8,8 @@
     border-bottom: 1px solid #e2e7ed;
     display: flex;
     align-items: center;
+    background: linear-gradient(to right, rgb(255, 234, 190), rgb(184, 214, 214))
+    no-repeat 0 0 / cover;;
 }
 
 .DashboardUserDetails{
@@ -111,10 +113,12 @@
     padding: 12px 25px;
     position: absolute;
     right: 30px;
-    bottom: -20px;
+    bottom: -30px !important;
     cursor: pointer;
     letter-spacing: 1px;
 }
+
+
 
 @media screen and (max-width: 740px)
 {
@@ -136,7 +140,7 @@
         margin: 16px 0px;
     }
     .btn{
-        bottom: 30px;
+        bottom: 10px !important;
         left: 30px;
     }
 }

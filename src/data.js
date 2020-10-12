@@ -11,14 +11,7 @@ export class CourseProvider extends Component {
         name: "Imran Chowdhury",
         completed: "10%",
       },
-      CurrentContentDetails: {
-        id: 1,
-        unit: 1,
-        title:
-          "Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College",
-        src: "https://youtu.be/Ra6vA6-GbiI",
-        type: "lecture",
-      },
+      CurrentContentDetails: null,
       CourseTitle: "Research Methodology",
     };
     this.updateAssignment = this.updateAssignment.bind(this);

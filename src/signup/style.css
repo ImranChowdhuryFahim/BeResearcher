@@ -221,7 +221,7 @@ input[type="button"]:focus-visible {
   position: relative;
   overflow: hidden;
   width: 768px;
-  margin: 50px auto;
+  margin: 100px auto;
   max-width: 100%;
   min-height: 480px;
 }

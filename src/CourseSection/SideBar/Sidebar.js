@@ -10,7 +10,7 @@ class Sidebar extends Component {
     if(this.props.id>1 && this.props.Isopen){
     // console.log(this.context.CourseContent);
     const node = ReactDOM.findDOMNode(this.props.rf.current);
-    node.scrollTop = node.scrollTop + this.props.id * 20;
+    node.scrollTop = node.scrollTop + this.props.id * 5;
     // console.log(node.scrollTop);
   }
   }
@@ -26,7 +26,7 @@ class Sidebar extends Component {
     else if(this.props.id>1 && this.props.Isopen && !this.props.Ismobile){
       // console.log(this.context.CourseContent);
       const node = ReactDOM.findDOMNode(this.props.rf.current);
-      node.scrollTop = node.scrollTop + this.props.id * 20;
+      node.scrollTop = node.scrollTop + this.props.id * 5;
       // console.log(node.scrollTop);
     }
   }

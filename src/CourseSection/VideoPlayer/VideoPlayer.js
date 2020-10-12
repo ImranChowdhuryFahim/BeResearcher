@@ -49,10 +49,10 @@ class VideoPlayer extends Component {
     handleNext() {
         if (this.context.CurrentContentDetails.id <= this.state.backnfortharray.length - 1) {
             // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id])
-            if(this.props.Isopen){
-            const node = ReactDOM.findDOMNode(this.props.rf.current)
-            node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id * 20
-            console.log(node.scrollTop)}
+            // if(this.props.Isopen){
+            // const node = ReactDOM.findDOMNode(this.props.rf.current)
+            // node.scrollTop = node.scrollTop + this.context.CurrentContentDetails.id 
+            // console.log(node.scrollTop)}
             this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
             this.props.history.push(`/course/ResearchMethodology/${this.state.backnfortharray[this.props.id].id}`);
 
@@ -64,7 +64,7 @@ class VideoPlayer extends Component {
             // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id - 2])
             if(this.props.Isopen){
             const node = ReactDOM.findDOMNode(this.props.rf.current)
-            node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 20
+            node.scrollTop = node.scrollTop - this.context.CurrentContentDetails.id * 10
             console.log(node.scrollTop)
             }
             this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id - 2])
