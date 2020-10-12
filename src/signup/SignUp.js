@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage, useField } from "formik";
 import * as Yup from "yup";
+import logo from "./logo.png";
 import "./style.css";
 import { useState } from "react";
 
@@ -10,18 +11,24 @@ export const MyTextInput = ({ label, ...props }) => {
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
       <input className="text-input" {...field} {...props} />
-      {meta.error ? <div className="error">{meta.error}</div> : null}
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
     </>
   );
 };
 
-export const MySelect = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+export const MySelect = ({ label, children, ...props }) => {
+  const [field, meta] = useField({ ...props, type: "select" });
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <select {...field} {...props} />
-      {meta.error ? <div className="error">{meta.error}</div> : null}
+      <select {...field} {...props}>
+        {children}
+      </select>
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
     </>
   );
 };
@@ -44,10 +51,10 @@ export const SuperVisorSignUp = () => {
           email: Yup.string()
             .email("Invalid email address")
             .required("Required"),
-          institution: Yup.string()
-            .oneOf(["BUET", "CUET", "KUET", "RUET", "SUST"])
-            .required("Required"),
-          position: Yup.string().required("Required"),
+          // institution: Yup.string()
+          //   .oneOf(["BUET", "CUET", "KUET", "RUET", "SUST"])
+          //   .required("Required"),
+          // position: Yup.string().required("Required"),
         })}
         onSubmit={async (values, { setSubmitting }) => {
           console.log(values);
@@ -109,6 +116,7 @@ export const SuperVisorSignUp = () => {
             <option value="assistantprof">Assistant Professor</option>
             <option value="lecturer">Lecturer</option>
           </MySelect>
+
           <br />
           <button type="submit">Submit</button>
         </Form>
@@ -140,8 +148,10 @@ const SignUp = () => {
           email: Yup.string()
             .email("Invalid email address")
             .required("Required"),
-          institution: Yup.string().required("Required"),
-          occupation: Yup.string().required("Required"),
+          // institution: Yup.string()
+          //   .oneOf(["teacher", "undergrad", "postgrad"])
+          //   .required("Required"),
+          // occupation: Yup.string().required("Required"),
         })}
         onSubmit={async (values, { setSubmitting }) => {
           console.log(values);
@@ -170,14 +180,12 @@ const SignUp = () => {
               type="password"
               placeholder="********"
             />
-
             <MyTextInput
               label="Email"
               name="email"
               type="email"
               placeholder="abdulmatin@gmail.com"
             />
-
             <MyTextInput
               label="Institution"
               name="institution"
@@ -196,7 +204,6 @@ const SignUp = () => {
               <option value="RU">RU</option>
               <option value="KU">kU</option>
             </datalist>
-
             <MySelect label="Occupation" name="occupation">
               <option value="">Select a job type</option>
               <option value="teacher">Teacher</option>
@@ -215,7 +222,8 @@ const SignUp = () => {
       <div className="overlay-container">
         <div className="overlay">
           <div className="overlay-panel overlay-left">
-            <h1>Want to be researcher?</h1>
+            <img src={logo} alt="logo"></img>
+            <h1>Want to be a researcher?</h1>
             <p>
               Start journey with us where you will get guidelines and supervisor
               to work under
@@ -229,6 +237,7 @@ const SignUp = () => {
             </button>
           </div>
           <div className="overlay-panel overlay-right">
+            <img src={logo} alt="logo"></img>
             <h1>Supervisor</h1>
             <p>Want to supervise some students?</p>
             <button
