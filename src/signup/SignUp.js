@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, ErrorMessage, useField } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, matchPath } from "react-router-dom";
 import * as Yup from "yup";
 import logo from "./logo.png";
 import "./style.css";
@@ -41,7 +41,7 @@ export const SuperVisorSignUp = () => {
   return (
     <div>
       <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
+        initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Must be 15 characters or less")
@@ -156,7 +156,7 @@ const SignUp = () => {
         <img src={logo} alt="logo"></img>
       </div>
       <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
+        initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Must be 15 characters or less")
