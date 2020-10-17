@@ -7,7 +7,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Coursebutton from "./coursebutton";
 import Dahsboard from "./Dashboard/Dashboard";
 import SignUp from "./signup/SignUp";
-
+import Login from "./login/Login";
 function App() {
   return (
     <CourseProvider>
@@ -15,6 +15,9 @@ function App() {
         <Switch>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/home">
             <div className="App">

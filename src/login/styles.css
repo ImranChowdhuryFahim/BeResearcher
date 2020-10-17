@@ -1,0 +1,12 @@
+.login-form-container {
+  width: fit-content;
+  margin: 50px auto;
+}
+
+.login-form-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

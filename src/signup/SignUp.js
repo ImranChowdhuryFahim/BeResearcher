@@ -1,9 +1,13 @@
-import React from "react";
-import { Formik, Field, Form, ErrorMessage, useField } from "formik";
+import React, { useState } from "react";
+import { Formik, Form, ErrorMessage, useField } from "formik";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link, matchPath } from "react-router-dom";
 import * as Yup from "yup";
 import logo from "./logo.png";
 import "./style.css";
-import { useState } from "react";
+
+import SocialMedia from "./SocialMedia";
 
 export const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -37,7 +41,7 @@ export const SuperVisorSignUp = () => {
   return (
     <div>
       <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
+        initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Must be 15 characters or less")
@@ -63,7 +67,7 @@ export const SuperVisorSignUp = () => {
         }}
       >
         <Form>
-          <h2>Supervisor SignUp</h2>
+          <h1>Supervisor SignUp</h1>
           <MyTextInput
             label="First Name"
             name="firstName"
@@ -76,18 +80,18 @@ export const SuperVisorSignUp = () => {
             type="text"
             placeholder="Matin"
           />
-          <MyTextInput
-            label="Password"
-            name="password"
-            type="password"
-            placeholder="********"
-          />
 
           <MyTextInput
             label="Email"
             name="email"
             type="email"
             placeholder="abdulmatin@gmail.com"
+          />
+          <MyTextInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="********"
           />
 
           <MyTextInput
@@ -127,14 +131,32 @@ export const SuperVisorSignUp = () => {
 
 const SignUp = () => {
   const [signUpAsSupervisor, setSignUpAsSupervisor] = useState(false);
+  const [studentSingUp, setStudentSingUp] = useState(false); // for resposive view, less than 801px
+
   return (
     <div
       className={
-        signUpAsSupervisor ? "container right-panel-active" : "container"
+        signUpAsSupervisor
+          ? "container right-panel-active"
+          : studentSingUp
+          ? "container student-signup-active"
+          : "container"
       }
     >
+      <div className="mobile-view-form-top-div">
+        <div
+          style={{ margin: "3px", cursor: "pointer" }}
+          onClick={(e) => {
+            setSignUpAsSupervisor(false);
+            setStudentSingUp(false);
+          }}
+        >
+          <FontAwesomeIcon icon={faArrowAltCircleLeft} size="lg" />
+        </div>
+        <img src={logo} alt="logo"></img>
+      </div>
       <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
+        initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Must be 15 characters or less")
@@ -175,16 +197,16 @@ const SignUp = () => {
               placeholder="Matin"
             />
             <MyTextInput
-              label="Password"
-              name="password"
-              type="password"
-              placeholder="********"
-            />
-            <MyTextInput
               label="Email"
               name="email"
               type="email"
               placeholder="abdulmatin@gmail.com"
+            />
+            <MyTextInput
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="********"
             />
             <MyTextInput
               label="Institution"
@@ -231,10 +253,19 @@ const SignUp = () => {
             <button
               className="ghost"
               id="signUp"
-              onClick={(e) => setSignUpAsSupervisor(false)}
+              onClick={(e) => {
+                setSignUpAsSupervisor(false);
+                setStudentSingUp(true);
+              }}
             >
               Sign Up
             </button>
+            <h4>
+              Have a account?<Link to="/login">Login</Link>
+            </h4>
+          </div>
+          <div className="social-media-mobile-view">
+            <SocialMedia />
           </div>
           <div className="overlay-panel overlay-right">
             <img src={logo} alt="logo"></img>
@@ -245,10 +276,14 @@ const SignUp = () => {
               id="signIn"
               onClick={(e) => {
                 setSignUpAsSupervisor(true);
+                setStudentSingUp(false);
               }}
             >
               Register as a Supervisor
             </button>
+            <h4>
+              Have a account?<Link to="/login">Login</Link>
+            </h4>
           </div>
         </div>
       </div>
