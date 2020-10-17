@@ -26,11 +26,11 @@ class Header extends Component {
                     <div className="ProgressBar" style={{ padding: '3.25px 13px 0px 0px' }}>
                         <div className="ProgressLabel" style={{ marginTop: '5px', fontSize: '13px', fontWeight: 'bold' }}>
                             <span style={{ color: '#31c984' }}>
-                                {this.context.CurrentUserDetails.completed} complete
+                                {this.context.currentCourseProgress.completed + '%'} complete
                        </span>
                         </div>
                         <div className="ProgressBarPercentile" >
-                            <span style={{ width: this.context.CurrentUserDetails.completed }}>
+                            <span style={{ width: this.context.currentCourseProgress.completed + '%' }}>
 
                             </span>
                         </div>

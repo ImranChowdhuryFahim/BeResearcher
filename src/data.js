@@ -9,10 +9,22 @@ export class CourseProvider extends Component {
       CourseContent: null,
       currentuserdetails: {
         name: "Imran Chowdhury",
-        completed: "10%",
+        completed: "10",
+        id: "",
       },
-      CurrentContentDetails: null,
-      CourseTitle: "Research Methodology",
+      currentCourseProgress: {
+        id: "5f82fcb88c7efc487acf1143",
+        title: "Research Methodology",
+        completed: "10",
+      },
+      CurrentContentDetails: {
+        id: 1,
+        unit: 1,
+        title:
+          "Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College",
+        src: "https://youtu.be/Ra6vA6-GbiI",
+        type: "lecture",
+      },
     };
     this.updateAssignment = this.updateAssignment.bind(this);
   }
@@ -37,6 +49,11 @@ export class CourseProvider extends Component {
     this.setState({ CourseContent: e });
   }
 
+  UpdatecurrentCourseProgress(e)
+  {
+    this.setState({ currentCourseProgress: e});
+  }
+
   render() {
     return (
       <CourseContext.Provider
@@ -45,6 +62,8 @@ export class CourseProvider extends Component {
           CurrentUserDetails: this.state.currentuserdetails,
           CurrentContentDetails: this.state.CurrentContentDetails,
           CourseTitle: this.state.CourseTitle,
+          currentCourseProgress: this.state.currentCourseProgress,
+          UpdatecurrentCourseProgress: (e)=> this.UpdatecurrentCourseProgress(e),
           updateAssignment: this.updateAssignment,
           UpdateCurrentContentDetails: (e) =>
             this.UpdateCurrentContentDetails(e),

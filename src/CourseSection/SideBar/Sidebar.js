@@ -45,7 +45,7 @@ class Sidebar extends Component {
                 }}
               >
                 <div className="CourseHeading">
-                  <span className="coursetitle" style={{color:this.props.Isopen?'#ffffff':'transparent', fontSize:this.props.Isopen?'18px':'0px'}}>{this.context.CourseTitle}</span>
+                  <span className="coursetitle" style={{color:this.props.Isopen?'#ffffff':'transparent', fontSize:this.props.Isopen?'18px':'0px'}}>{this.context.currentCourseProgress.title}</span>
                       <CaretLeftFilled
                         id="leftArrow"
                         style={{ color: "white", fontSize: "40px" }}
