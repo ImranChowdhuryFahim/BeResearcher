@@ -55,6 +55,7 @@ class App extends Component {
             console.log(res.data)
             setTimeout(() => {
                 this.context.UpdateCourseContent(res.data.courseContent)
+                // this.context.UpdateTotalItem(res.data.totalItem)
             }, 200);
         })
         // axios.get(`http://localhost:8000/api/student/getdetails/${'imran.cuet.cse17@gmail.com'}`)

@@ -8,8 +8,6 @@
     border-bottom: 1px solid #e2e7ed;
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, rgb(255, 234, 190), rgb(184, 214, 214))
-    no-repeat 0 0 / cover;;
 }
 
 .DashboardUserDetails{

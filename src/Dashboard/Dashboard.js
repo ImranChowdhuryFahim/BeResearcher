@@ -9,6 +9,7 @@ import logo from './logo2.png'
 class Dashboard extends Component{
     render()
     {
+        const {history} = this.props
         return(
             <div>
                 <div className={'DashboardHeader'}>
@@ -40,15 +41,17 @@ class Dashboard extends Component{
                 <div className={'course-progress'}>
                     <div className={'progress-container'}>
                         <div data-percentage={'50px'} className={'progress'}>
-                            <span style={{width:this.context.CurrentUserDetails.completed}}></span>
+                            <span style={{width:(this.context.currentCourseProgress.completedItem/this.context.totalItem)*100}}></span>
                             <div className={'progress-text'}>
-                                08/16 Challanges
+        {this.context.currentCourseProgress.completedItem}/{this.context.totalItem} Items
                             </div>
                         </div>
                     </div>
                     <h6>Unit {this.context.CurrentContentDetails.unit}</h6>
         <h2 style={{fontSize: '14px'}}>{this.context.CurrentContentDetails.title}</h2>
-                    <button className={'btn'}>Continue</button>
+                    <button className={'btn'} onClick={(e)=>{
+                        history.push('/course/research-methodology/1')
+                    }}>Continue</button>
                 </div>
                 </div>
             </div>

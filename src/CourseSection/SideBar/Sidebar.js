@@ -69,6 +69,11 @@ class Sidebar extends Component {
                                   ? "true"
                                   : "false"
                               }
+                              done = {
+                                parseInt(this.context.currentCourseProgress.completedItem) >= parseInt(course.id)
+                                ? "true"
+                                  : "false"
+                              }
                               open={this.props.open}
                               close={this.props.close}
                             ></CourseContent>

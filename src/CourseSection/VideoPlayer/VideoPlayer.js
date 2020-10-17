@@ -24,6 +24,7 @@ class VideoPlayer extends Component {
     }
 // '#52c984' 'pointer'
     componentDidMount() {
+        
         let a = []
         Object.keys(this.context.CourseContent).map((e) => {
             this.context.CourseContent[e].map((course) => {
@@ -47,7 +48,7 @@ class VideoPlayer extends Component {
         }
     }
     handleNext() {
-        if (this.context.CurrentContentDetails.id <= this.state.backnfortharray.length - 1) {
+        if ((this.context.CurrentContentDetails.id <= this.state.backnfortharray.length - 1) && (parseInt(this.context.currentCourseProgress.completedItem)  >= parseInt(this.props.id))) {
             // this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.context.CurrentContentDetails.id])
             // if(this.props.Isopen){
             // const node = ReactDOM.findDOMNode(this.props.rf.current)
@@ -92,7 +93,34 @@ class VideoPlayer extends Component {
     }
     handleVideoEnd()
     {
-        console.log('sees video')
+        console.log(this.context.currentCourseProgress)
+        this.context.UpdatecurrentCourseProgress({
+            _id: this.context.currentCourseProgress._id,
+            title: this.context.currentCourseProgress.title,
+            completedItem: parseInt(this.context.currentCourseProgress.completedItem) + 1
+        })
+        setTimeout(()=>{
+            axios({
+                method: 'PUT',
+                url: 'http://localhost:8000/api//student/courseprogress',
+                headers:{
+                                    'Accept': 'application/json',
+                                     'Content-Type': 'application/json'
+                                },
+                           data: JSON.stringify( {
+                               email: this.context.CurrentUserDetails.email,
+                               id: this.context.currentCourseProgress._id,
+                               completedItem: this.context.currentCourseProgress.completedItem,
+                           })
+            }).then((result)=>{
+                console.log(result)
+               this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
+               this.props.history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem)+1}`)
+            }).catch((err)=>{
+                console.log(err)
+            })
+        },1000)
+        
         this.setState({ videowatched : true } , function(){
             this.setState({ donebuttonstyle : {
                 backgroundColor: '#52c984',
@@ -111,10 +139,18 @@ class VideoPlayer extends Component {
                     <span style={{
                         width: '75%'
                     }}>{this.context.CurrentContentDetails.title}</span>
-                    <span className={'inprogress'} style={{ paddingLeft: '10px', 
+                    {parseInt(this.context.currentCourseProgress.completedItem) >= parseInt(this.props.id)?(
+                        <span className={'inprogress'} style={{ paddingLeft: '10px', 
+                    backgroundColor: '#31c984', paddingRight: '10px', borderRadius: '50px', color: 'white',
+                    alignItems:"center",
+                    paddingBottom: '5px', marginLeft: 'auto', order: '2', paddingTop:'3px' , fontWeight: 'bold'}}>Completed</span>
+                    ):(
+                        <span className={'inprogress'} style={{ paddingLeft: '10px', 
                     backgroundColor: '#112040', paddingRight: '10px', borderRadius: '50px', color: 'white',
                     alignItems:"center",
                     paddingBottom: '5px', marginLeft: 'auto', order: '2', paddingTop:'3px' }}>In Progress</span>
+                    )}
+                    
                 </div>
                 {
                     this.context.CurrentContentDetails.type==='lecture'?(<ReactPlayer playing={true} controls id="video" onEnded={this.handleVideoEnd.bind(this)} url={this.context.CurrentContentDetails.src} />):(

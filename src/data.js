@@ -9,13 +9,13 @@ export class CourseProvider extends Component {
       CourseContent: null,
       currentuserdetails: {
         name: "Imran Chowdhury",
-        completed: "10",
+        email: "imran.cuet.cse17@gmail.com",
         id: "",
       },
       currentCourseProgress: {
-        id: "5f82fcb88c7efc487acf1143",
+        _id: "5f8ac2936e9334246ba98438",
         title: "Research Methodology",
-        completed: "10",
+        completedItem: 0,
       },
       CurrentContentDetails: {
         id: 1,
@@ -25,6 +25,7 @@ export class CourseProvider extends Component {
         src: "https://youtu.be/Ra6vA6-GbiI",
         type: "lecture",
       },
+      totalItem: 22,
     };
     this.updateAssignment = this.updateAssignment.bind(this);
   }
@@ -49,9 +50,19 @@ export class CourseProvider extends Component {
     this.setState({ CourseContent: e });
   }
 
-  UpdatecurrentCourseProgress(e)
+  UpdatecurrentCourseProgress(e) {
+    this.setState({ currentCourseProgress: e });
+    console.log(this.state.currentCourseProgress)
+  }
+
+  UpdateCurrentUserDetails(e){
+    this.setState({CurrentUserDetails: e});
+    
+  }
+
+  UpdateTotalItem(e)
   {
-    this.setState({ currentCourseProgress: e});
+    this.setState({totalItem: e});
   }
 
   render() {
@@ -63,11 +74,15 @@ export class CourseProvider extends Component {
           CurrentContentDetails: this.state.CurrentContentDetails,
           CourseTitle: this.state.CourseTitle,
           currentCourseProgress: this.state.currentCourseProgress,
-          UpdatecurrentCourseProgress: (e)=> this.UpdatecurrentCourseProgress(e),
+          totalItem: this.state.totalItem,
+          UpdateTotalItem : (e)=> this.UpdateTotalItem(e),
+          UpdatecurrentCourseProgress: (e) =>
+            this.UpdatecurrentCourseProgress(e),
           updateAssignment: this.updateAssignment,
           UpdateCurrentContentDetails: (e) =>
             this.UpdateCurrentContentDetails(e),
           UpdateCourseContent: (e) => this.UpdateCourseContent(e),
+          UpdateCurrentUserDetails: (e) => this.UpdateCurrentUserDetails(e),
           //   currentactive: this.state.CurrentActive,
           //   updateCurrentActive: (e) => this.updateCurrentActive(e),
         }}

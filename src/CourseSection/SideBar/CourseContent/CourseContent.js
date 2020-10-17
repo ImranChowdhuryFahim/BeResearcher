@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDotCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../../../data'
 import {withRouter} from 'react-router-dom'
+import { faGratipay } from '@fortawesome/free-brands-svg-icons'
 
 class CourseContent extends Component{
     handleclick(event) {
@@ -20,7 +21,13 @@ class CourseContent extends Component{
     {
         return(
             <div className="CourseContent" onClick={this.handleclick.bind(this)}>
-                 <span style={{ marginLeft: '5px', paddingRight: '10px' }}><FontAwesomeIcon icon={faDotCircle} color={'gray'}></FontAwesomeIcon></span>
+                {
+                    this.props.done==="true"? (
+                        <span style={{ marginLeft: '5px', paddingRight: '10px' }}><FontAwesomeIcon icon={faCheckCircle} color={'#52c984'}></FontAwesomeIcon></span>
+                    ):(
+                        <span style={{ marginLeft: '5px', paddingRight: '10px' }}><FontAwesomeIcon icon={faDotCircle} color={'gray'}></FontAwesomeIcon></span>
+                    )
+                }
                  <span style={{ fontSize: '13px' , color: this.props.active==='true'?'#00a4ea':'black' , fontWeight: this.props.active==='true'?'bold':'normal' }}>{this.props.txt}</span>
             </div>
         )
