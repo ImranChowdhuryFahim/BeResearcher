@@ -50,7 +50,7 @@ class Dashboard extends Component{
                     <h6>Unit {this.context.CurrentContentDetails.unit}</h6>
         <h2 style={{fontSize: '14px'}}>{this.context.CurrentContentDetails.title}</h2>
                     <button className={'btn'} onClick={(e)=>{
-                        history.push('/course/research-methodology/1')
+                        history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem) + 1}`)
                     }}>Continue</button>
                 </div>
                 </div>

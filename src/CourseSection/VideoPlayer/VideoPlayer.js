@@ -15,6 +15,7 @@ class VideoPlayer extends Component {
             backnfortharray: null,
             selectedFile : null,
             videowatched: false,
+            percentage: 0,
             donebuttonstyle: {
                 backgroundColor: '#D3D3D3',
                 padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
@@ -85,14 +86,22 @@ class VideoPlayer extends Component {
     {
         const data = new FormData()
         data.append('file',this.state.selectedFile)
-        axios.post("http://localhost:8000/api/upload?id=hello",data,{
 
-        }).then(res =>{
+        const options = {
+            onUploadProgress: (ProgressEvent) =>{
+                const {loaded, total} = ProgressEvent;
+                let percent = Math.floor( (loaded*100)/total )
+                console.log(`${loaded}kb of ${total}kb | ${percent}`)
+            }
+        }
+         
+        axios.post(`https://beresearcherbd.com/api/upload?id=${ this.context.CurrentUserDetails.id }`,data,options).then(res =>{
             console.log(res.statusText)
         })
     }
     handleVideoEnd()
     {
+        if(parseInt(this.props.id)> parseInt(this.context.currentCourseProgress.completedItem)){
         console.log(this.context.currentCourseProgress)
         this.context.UpdatecurrentCourseProgress({
             _id: this.context.currentCourseProgress._id,
@@ -111,6 +120,7 @@ class VideoPlayer extends Component {
                                email: this.context.CurrentUserDetails.email,
                                id: this.context.currentCourseProgress._id,
                                completedItem: this.context.currentCourseProgress.completedItem,
+                               currentContentDetails: this.state.backnfortharray[this.props.id]
                            })
             }).then((result)=>{
                 console.log(result)
@@ -128,6 +138,7 @@ class VideoPlayer extends Component {
                 cursor: 'pointer'
             } })
         })
+    }
     }
     render() {
         return (

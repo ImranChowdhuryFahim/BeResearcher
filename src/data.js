@@ -56,8 +56,8 @@ export class CourseProvider extends Component {
   }
 
   UpdateCurrentUserDetails(e){
-    this.setState({CurrentUserDetails: e});
-    
+    this.setState({currentuserdetails: e});
+    console.log(this.state.currentuserdetails)
   }
 
   UpdateTotalItem(e)
