@@ -42,7 +42,6 @@ class VideoPlayer extends Component {
 
     componentDidUpdate()
     {
-        // console.log(this.props.id)
         if(this.state.videowatched)
         {
             this.setState({ videowatched: false })
@@ -91,6 +90,7 @@ class VideoPlayer extends Component {
             onUploadProgress: (ProgressEvent) =>{
                 const {loaded, total} = ProgressEvent;
                 let percent = Math.floor( (loaded*100)/total )
+                this.setState({percentage: percent})
                 console.log(`${loaded}kb of ${total}kb | ${percent}`)
             }
         }
@@ -111,7 +111,7 @@ class VideoPlayer extends Component {
         setTimeout(()=>{
             axios({
                 method: 'PUT',
-                url: 'http://localhost:8000/api//student/courseprogress',
+                url: 'https://beresearcherbd.herokuapp.com/api//student/courseprogress',
                 headers:{
                                     'Accept': 'application/json',
                                      'Content-Type': 'application/json'

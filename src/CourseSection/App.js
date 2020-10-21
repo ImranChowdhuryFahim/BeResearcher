@@ -50,7 +50,7 @@ class App extends Component {
       }
       componentDidMount() {
         // console.log(this.props.match.params)
-        axios.get(`http://localhost:8000/api/course/getcoursedata/${'Research Methodology'}`)
+        axios.get(`https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${'Research Methodology'}`)
         .then((res)=>{
             console.log(res.data)
             setTimeout(() => {
