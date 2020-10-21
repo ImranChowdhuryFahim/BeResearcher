@@ -131,13 +131,14 @@ class VideoPlayer extends Component {
             })
         },1000)
         
-        this.setState({ videowatched : true } , function(){
-            this.setState({ donebuttonstyle : {
-                backgroundColor: '#52c984',
-                padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
-                cursor: 'pointer'
-            } })
-        })
+        
+        // this.setState({ videowatched : true } , function(){
+        //     this.setState({ donebuttonstyle : {
+        //         backgroundColor: '#52c984',
+        //         padding: '10px', paddingRight: '20px', paddingLeft: '20px', color: 'white', borderRadius: '50px', marginLeft: 'auto', marginRight: 'auto', order: '2',
+        //         cursor: 'pointer'
+        //     } })
+        // })
     }
     }
     render() {
