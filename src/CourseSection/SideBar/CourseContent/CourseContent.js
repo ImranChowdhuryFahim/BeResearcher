@@ -9,8 +9,9 @@ import { faGratipay } from '@fortawesome/free-brands-svg-icons'
 class CourseContent extends Component{
     handleclick(event) {
         event.stopPropagation();
+        if(parseInt(this.context.currentCourseProgress.completedItem)+1 >= parseInt(this.props.coursedata.id)){
         this.context.UpdateCurrentContentDetails(this.props.coursedata)
-        this.props.history.push(`/course/research-methodology/${this.props.coursedata.id}`)
+        this.props.history.push(`/course/research-methodology/${this.props.coursedata.id}`)}
         // window.location.reload()
         if(window.innerWidth<=800)
         {

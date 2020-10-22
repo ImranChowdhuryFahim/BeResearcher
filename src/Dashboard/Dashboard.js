@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { CourseContext } from "../data";
-import logo from "./logo2.png";
+import logo from "./logo.png";
 
 class Dashboard extends Component {
   render() {
@@ -44,6 +45,7 @@ class Dashboard extends Component {
                 <a href="/dashboard">Dashboard</a>
                 <a href="/announcement">Announcements</a>
                 <a href="/logout">Logout</a>
+                <Link to="/admin">Admin Panel</Link>
               </div>
             </div>
           </div>
