@@ -54,6 +54,12 @@ label {
   /* height: 50px; */
   /* width: 200px; */
 }
+input[type="submit"] {
+  cursor: pointer;
+}
+input[type="submit"]:disabled {
+  cursor: not-allowed;
+}
 select {
   font-size: 0.9rem;
   padding: 2px 5px;
@@ -82,4 +88,28 @@ thead,
 tfoot {
   background-color: #333;
   color: #fff;
+}
+
+.loading:after {
+  content: " .";
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: white;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 white;
+  }
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 white;
+  }
 }
