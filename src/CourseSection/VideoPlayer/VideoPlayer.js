@@ -7,6 +7,8 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight, faCheck , faLeaf, faUpload} from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../../data'
+import { Line, Circle } from 'rc-progress';
+
 
 class VideoPlayer extends Component {
     constructor() {
@@ -34,7 +36,7 @@ class VideoPlayer extends Component {
         })
         this.setState({ backnfortharray: a },function(){
             this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id-1])
-
+            
         })
        
         
@@ -97,6 +99,35 @@ class VideoPlayer extends Component {
          
         axios.post(`https://beresearcherbd.com/api/upload?id=${ this.context.CurrentUserDetails.id }`,data,options).then(res =>{
             console.log(res.statusText)
+            this.context.UpdatecurrentCourseProgress({
+                _id: this.context.currentCourseProgress._id,
+                title: this.context.currentCourseProgress.title,
+                completedItem: parseInt(this.context.currentCourseProgress.completedItem) + 1
+            })
+            this.setState({percentage: 0})
+            setTimeout(()=>{
+                axios({
+                    method: 'PUT',
+                    url: 'https://beresearcherbd.herokuapp.com/api//student/courseprogress',
+                    headers:{
+                                        'Accept': 'application/json',
+                                         'Content-Type': 'application/json'
+                                    },
+                               data: JSON.stringify( {
+                                   email: this.context.CurrentUserDetails.email,
+                                   id: this.context.currentCourseProgress._id,
+                                   completedItem: this.context.currentCourseProgress.completedItem,
+                                   currentContentDetails: this.state.backnfortharray[this.props.id]
+                               })
+                }).then((result)=>{
+                    console.log(result)
+                   this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
+                   this.props.history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem)+1}`)
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            },1000)
+            
         })
     }
     handleVideoEnd()
@@ -178,6 +209,7 @@ class VideoPlayer extends Component {
                                <FontAwesomeIcon icon={faUpload} size={'2x'}></FontAwesomeIcon>
                             <input type="file" name="file" onChange={this.onChangeHandler.bind(this)} style={{padding:'20px'}} />
                             </div>
+                            <Line id="uploadprogressbar" percent={this.state.percentage} strokeWidth="1" strokeColor="darkblue" />
                            <br></br> <button type='button' onClick={this.handleupload.bind(this)} id="upload">Upload</button>
                         </div>
                             </div>

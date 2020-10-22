@@ -44,14 +44,14 @@
     color: #FFF;
     float: left;
     padding: 30px;
-    width: 35%;
+    width:40%;
 }
 
 .course-progress{
     float: left;
     padding: 30px;
     position: relative;
-    width: 65%;
+    width: 60%;
 }
 
 .course h2{
