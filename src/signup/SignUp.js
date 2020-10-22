@@ -73,20 +73,20 @@ export const SuperVisorSignUp = () => {
             label="First Name"
             name="firstName"
             type="text"
-            placeholder="Abdul"
+            placeholder="First Name"
           />
           <MyTextInput
             label="Last Name"
             name="lastName"
             type="text"
-            placeholder="Matin"
+            placeholder="Last Name"
           />
 
           <MyTextInput
             label="Email"
             name="email"
             type="email"
-            placeholder="abdulmatin@gmail.com"
+            placeholder="xyz@gmail.com"
           />
           <MyTextInput
             label="Password"
@@ -217,19 +217,19 @@ const SignUp = () => {
                 label="First Name"
                 name="firstName"
                 type="text"
-                placeholder="Abdul"
+                placeholder="First Name"
               />
               <MyTextInput
                 label="Last Name"
                 name="lastName"
                 type="text"
-                placeholder="Matin"
+                placeholder="Last Name"
               />
               <MyTextInput
                 label="Email"
                 name="email"
                 type="email"
-                placeholder="abdulmatin@gmail.com"
+                placeholder="example@gmail.com"
               />
               <MyTextInput
                 label="Password"
