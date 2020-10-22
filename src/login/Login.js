@@ -62,8 +62,8 @@ const Login = () => {
                     "Content-Type": "application/json",
                   },
                   data: JSON.stringify({
-                    email: "imran.cuet.cse17@gmail.com",
-                    password: "12345678",
+                    email: "abdulmatincuetcse17@gmail.com",
+                    password: "87654321",
                   }),
                 }).then((res) => {
                   console.log(res);
