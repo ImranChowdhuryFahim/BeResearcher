@@ -96,7 +96,7 @@ class VideoPlayer extends Component {
                 console.log(`${loaded}kb of ${total}kb | ${percent}`)
             }
         }
-         
+         //url changed
         axios.post(`https://beresearcherbd.com/api/upload?id=${ this.context.CurrentUserDetails.id }`,data,options).then(res =>{
             console.log(res.statusText)
             this.context.UpdatecurrentCourseProgress({
