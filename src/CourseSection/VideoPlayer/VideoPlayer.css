@@ -95,6 +95,13 @@
     outline: none;
 }
 
+#uploadprogressbar
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 810px;
+}
+
 @media screen and (max-width: 1200px) {
     
     #video{
@@ -142,6 +149,10 @@
     #upload{
         width: 100% !important;
     }
+    #uploadprogressbar
+{
+    width: 100%;
+}
   }
 
   @media screen and (max-width: 800px) {
@@ -190,6 +201,11 @@
     #upload{
         width: 100% !important;
     }
+    #uploadprogressbar
+{
+
+    width: 100%;
+}
   }
 
 
@@ -259,6 +275,11 @@
         margin: 0 auto;
         width: 90% !important;
     }
+    #uploadprogressbar
+{
+    
+    width: 100%;
+}
    
   }
 
