@@ -15,11 +15,13 @@ const Header = () => {
     <header className="header">
       <nav>
         <div className="logo">
-          <img
-            src={logo}
-            alt="logo"
-            style={{ height: "45px", marginTop: "2px", marginLeft: "35px" }}
-          ></img>
+          <Link to="/dashboard">
+            <img
+              src={logo}
+              alt="logo"
+              style={{ height: "45px", marginTop: "2px", marginLeft: "35px" }}
+            ></img>
+          </Link>
 
           <ul>
             <li className="nav-item">
