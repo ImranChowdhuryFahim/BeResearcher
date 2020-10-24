@@ -1,5 +1,7 @@
 import React from "react";
 import "./bodysection.css";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const courseContainer = {
   display: "flex",
@@ -19,12 +21,30 @@ const card = {
 };
 
 const MyCourses = () => {
+  const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    fetch(
+      "https://beresearcherbd.herokuapp.com/api/course/getcoursedata/Research%20Methodology"
+    )
+      .then((resp) => {
+        console.log(resp);
+        return resp.json();
+      })
+      .then(({ enrolledStudents }) => {
+        setStudents(enrolledStudents);
+        setLoading(false);
+      })
+      .catch((err) => alert(err));
+  }, []);
   return (
     <div style={{ margin: "0 auto" }}>
       <h1>My Courses</h1>
+      {loading ? "Loading..." : null}
       <div className="course-container" style={courseContainer}>
         <div className="card" style={card}>
-          Be Researcher
+          Research Methodology
         </div>
       </div>
       <div className="enrolled-student">
@@ -38,7 +58,16 @@ const MyCourses = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {students.map(({ name, institute, email }) => (
+              <tr>
+                <td>{name}</td>
+                <td>{institute}</td>
+                <td>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </td>
+              </tr>
+            ))}
+            {/* <tr>
               <td>Abdul Matin</td>
               <td>Chittagong University Of Engineering And Technology</td>
               <td>
@@ -46,7 +75,7 @@ const MyCourses = () => {
                   abdulmatincuercse17@gmail.com
                 </a>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>

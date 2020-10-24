@@ -8,9 +8,7 @@
 
 .review-assignment {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
+  width: 100%;
 }
 
 .review-assignment input {
@@ -51,8 +49,8 @@ label {
 .create-assignment input[type="submit"],
 .review-assignment input[type="submit"] {
   background-color: rgb(216, 224, 224);
-  /* height: 50px; */
-  /* width: 200px; */
+  height: 50px;
+  width: 200px;
 }
 input[type="submit"] {
   cursor: pointer;
