@@ -43,11 +43,11 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/home">
+          {/* <Route path="/home">
             <div className="App">
               <Coursebutton></Coursebutton>
             </div>
-          </Route>
+          </Route> */}
           <PrivateRoute
             exact
             path="/dashboard"
