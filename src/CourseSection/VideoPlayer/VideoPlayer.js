@@ -99,6 +99,7 @@ class VideoPlayer extends Component {
          //url changed
         axios.post(`https://beresearcherbd.com/api/upload?id=${ this.context.CurrentUserDetails.id }`,data,options).then(res =>{
             console.log(res.statusText)
+            if(parseInt(this.props.id)> parseInt(this.context.currentCourseProgress.completedItem)){
             this.context.UpdatecurrentCourseProgress({
                 _id: this.context.currentCourseProgress._id,
                 title: this.context.currentCourseProgress.title,
@@ -127,7 +128,7 @@ class VideoPlayer extends Component {
                     console.log(err)
                 })
             },1000)
-            
+        }
         })
     }
     handleVideoEnd()
