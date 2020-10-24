@@ -84,7 +84,7 @@ const Login = () => {
                 label="Email"
                 name="email"
                 type="email"
-                placeholder="abdulmatin@gmail.com"
+                placeholder="example@gmail.com"
               />
               <MyTextInput
                 label="password"
