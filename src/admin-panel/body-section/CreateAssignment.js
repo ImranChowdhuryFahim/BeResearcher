@@ -2,7 +2,7 @@ import React from "react";
 import "./bodysection.css";
 
 import { CourseContext } from "../../data";
-import { faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
+// import { faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
 
 class CreateAssignment extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Formik, Form, ErrorMessage, useField } from "formik";
+import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import { MyTextInput } from "../signup/SignUp";
 import * as Yup from "yup";
@@ -32,6 +32,13 @@ const Login = () => {
             password: Yup.string().required("Required"),
           })}
           onSubmit={(values, { setSubmitting }) => {
+
+            axios.get(`https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${'Research Methodology'}`)
+           .then((res)=>{
+            
+            context.UpdateTotalItem(res.data.totalItem)
+            
+           })
             axios({
               method: "POST",
               url: `https://beresearcherbd.herokuapp.com/api/student/login`,
@@ -44,7 +51,7 @@ const Login = () => {
                 password: values.password,
               }),
             }).then((res) => {
-              console.log(res);
+              // console.log(res);
               setSubmitting(false);
 
               if (res.data.length === 0) {
@@ -71,7 +78,7 @@ const Login = () => {
                   "imran.cuet.cse17@gmail.com"
                 )
                   Auth.adminAuthenticate();
-                console.log(Auth.getAdminAuth(), "admin auth");
+                // console.log(Auth.getAdminAuth(), "admin auth");
                 history.push("/dashboard");
               }
             });

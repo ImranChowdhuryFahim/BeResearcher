@@ -10,7 +10,7 @@ class Sidebar extends Component {
     if(this.props.id>1 && this.props.Isopen){
     // console.log(this.context.CourseContent);
     const node = ReactDOM.findDOMNode(this.props.rf.current);
-    node.scrollTop = node.scrollTop + this.props.id * 5;
+    node.scrollTop = node.scrollTop + this.props.id * 30;
     // console.log(node.scrollTop);
   }
   }
