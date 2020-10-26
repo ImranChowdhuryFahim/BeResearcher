@@ -2,6 +2,7 @@
   "name": "be_researcher",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://beresearcherbd.com/",
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "@emotion/core": "^10.0.35",

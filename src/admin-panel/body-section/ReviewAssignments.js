@@ -21,7 +21,7 @@ const Details = (props) => {
         onClick={() =>
           window.open(
             getSrc(
-              `https://beresearcherbd.com/api/assignment/${studentId}/${assignment}`
+              `https://nodeapi.beresearcherbd.com/api/assignment/${studentId}/${assignment}`
             )
           )
         }
@@ -30,7 +30,7 @@ const Details = (props) => {
       </button>
       <iframe
         src={getSrc(
-          `https://beresearcherbd.com/api/assignment/${studentId}/${assignment}`
+          `https://nodeapi.beresearcherbd.com/api/assignment/${studentId}/${assignment}`
         )}
         title="Review Assignment PDF"
         frameborder="0"
