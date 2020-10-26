@@ -297,7 +297,7 @@ const SignUp = () => {
               Sign Up
             </button>
             <h4>
-              Have a account?<Link to="/login">Login</Link>
+              Have an account?<Link to="/login">Login</Link>
             </h4>
           </div>
           <div className="social-media-mobile-view">
@@ -318,7 +318,7 @@ const SignUp = () => {
               Register as a Supervisor
             </button>
             <h4>
-              Have a account?<Link to="/login">Login</Link>
+              Have an account?<Link to="/login">Login</Link>
             </h4>
           </div>
         </div>
