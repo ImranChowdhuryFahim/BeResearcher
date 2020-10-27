@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { CourseContext } from "../data";
 import logo from "./logo.png";
+import Auth from "../Auth";
 
 class Dashboard extends Component {
   render() {
@@ -48,7 +49,7 @@ class Dashboard extends Component {
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/announcement">Announcements</Link>
                 <Link to="/logout">Logout</Link>
-                <Link to="/admin">Admin Panel</Link>
+               {Auth.getAdminAuth()? (<Link to="/admin">Admin Panel</Link>):('')} 
               </div>
             </div>
           </div>
