@@ -34,7 +34,9 @@ class CreateAssignment extends React.Component {
     event.preventDefault();
     const { title, body, unit, courseTitle } = this.state;
     const newCourseContent = this.state.courseContent;
+    var totalitems =0 ;
     for (let x in newCourseContent) {
+      totalitems+= newCourseContent[x].length;
       if (x > unit) {
         newCourseContent[x] = newCourseContent[x].map((elem) => {
           elem.id++;
@@ -50,6 +52,7 @@ class CreateAssignment extends React.Component {
           this.state.courseContent[unit].length - 1
         ].id + 1,
       description: body,
+      totalItem: totalitems+1,
       type: "assignment",
     });
     this.setState({ isSubmitting: true });
@@ -71,7 +74,7 @@ class CreateAssignment extends React.Component {
         alert("Oops, something went wrong. Try creating again.");
         this.setState({ title: "", body: "", unit: "", isSubmitting: false });
       });
-    // this.context.updateAssignment(1);
+    this.context.updateAssignment(1);
   }
 
   componentDidMount() {
