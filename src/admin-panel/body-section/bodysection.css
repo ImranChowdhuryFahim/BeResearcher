@@ -48,7 +48,7 @@ label {
 
 .create-assignment input[type="submit"],
 .review-assignment input[type="submit"] {
-  background-color: rgb(216, 224, 224);
+  background-color: rgb(98, 100, 100);
   height: 50px;
   width: 200px;
 }

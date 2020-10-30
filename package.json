@@ -1,6 +1,7 @@
 {
   "name": "be_researcher",
   "version": "0.1.0",
+  "homepage": "https://beresearcherbd.com/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.2",

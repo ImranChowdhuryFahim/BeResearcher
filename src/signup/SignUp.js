@@ -42,7 +42,14 @@ export const SuperVisorSignUp = () => {
   return (
     <div>
       <Formik
-        initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          institution: "",
+          position: "",
+        }}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Must be 15 characters or less")
@@ -61,9 +68,30 @@ export const SuperVisorSignUp = () => {
           //   .required("Required"),
           // position: Yup.string().required("Required"),
         })}
-        onSubmit={async (values, { setSubmitting }) => {
-          console.log(values);
-          await new Promise((r) => setTimeout(r, 500));
+        onSubmit={(values, { setSubmitting }) => {
+          fetch(
+            "https://beresearcherbd.herokuapp.com/api/supervisor/registration",
+            {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify({
+                email: values.email,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                password: values.password,
+                institution: values.institution,
+                position: values.position,
+              }),
+            }
+          )
+            .then((resp) => resp.text())
+            .then((resp) => {
+              alert(resp);
+            })
+            .catch((err) => alert(err));
+
           setSubmitting(false);
         }}
       >
@@ -297,7 +325,7 @@ const SignUp = () => {
               Sign Up
             </button>
             <h4>
-              Have a account?<Link to="/login">Login</Link>
+              Have an account?<Link to="/login">Login</Link>
             </h4>
           </div>
           <div className="social-media-mobile-view">
@@ -318,7 +346,7 @@ const SignUp = () => {
               Register as a Supervisor
             </button>
             <h4>
-              Have a account?<Link to="/login">Login</Link>
+              Have an account?<Link to="/login">Login</Link>
             </h4>
           </div>
         </div>

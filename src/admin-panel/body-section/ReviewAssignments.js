@@ -71,7 +71,9 @@ const ReviewAssignments = () => {
       .then(({ enrolledStudents }) => {
         setStudents(enrolledStudents);
         enrolledStudents.forEach((element) => {
-          fetch(`https://beresearcherbd.com/api/assignment/${element._id}`)
+          fetch(`https://beresearcherbd.com/api/assignment/${element._id}`, {
+            mode: "cors",
+          })
             .then((resp) => resp.json())
             .then((resp) => {
               setAssingments((prev) => {

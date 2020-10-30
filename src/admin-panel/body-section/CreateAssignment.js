@@ -33,7 +33,6 @@ class CreateAssignment extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { title, body, unit, courseTitle } = this.state;
-    console.log(this.state);
     const newCourseContent = this.state.courseContent;
     newCourseContent[unit].push({
       unit: Number(unit),
@@ -41,7 +40,6 @@ class CreateAssignment extends React.Component {
       description: body,
       type: "assignment",
     });
-    console.log(newCourseContent);
     this.setState({ isSubmitting: true });
     fetch("https://beresearcherbd.herokuapp.com/api/course/updatecontent", {
       method: "PUT",
@@ -58,7 +56,7 @@ class CreateAssignment extends React.Component {
         this.setState({ title: "", body: "", unit: "", isSubmitting: false });
       })
       .catch(() => {
-        console.log("Oops, something went wrong. Try creating again.");
+        alert("Oops, something went wrong. Try creating again.");
         this.setState({ title: "", body: "", unit: "", isSubmitting: false });
       });
     // this.context.updateAssignment(1);

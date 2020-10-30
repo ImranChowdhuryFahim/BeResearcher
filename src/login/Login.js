@@ -68,7 +68,8 @@ const Login = () => {
                 if (
                   values.email === "sabirndc08cuet10@gmail.com" ||
                   "abdulmatincuetcse17@gmail.com" ||
-                  "imran.cuet.cse17@gmail.com"
+                  "imran.cuet.cse17@gmail.com" ||
+                  "amanu092@gmail.com"
                 )
                   Auth.adminAuthenticate();
                 console.log(Auth.getAdminAuth(), "admin auth");
