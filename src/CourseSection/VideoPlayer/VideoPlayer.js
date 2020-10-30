@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import {withRouter} from 'react-router-dom'
@@ -5,9 +6,9 @@ import './VideoPlayer.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight, faCheck , faLeaf, faUpload} from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faAngleRight, faCheck , faUpload} from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../../data'
-import { Line, Circle } from 'rc-progress';
+import { Line } from 'rc-progress';
 
 
 class VideoPlayer extends Component {
@@ -30,6 +31,7 @@ class VideoPlayer extends Component {
         
         let a = []
         Object.keys(this.context.CourseContent).map((e) => {
+            // eslint-disable-next-line array-callback-return
             this.context.CourseContent[e].map((course) => {
                 a.push(course)
             })
@@ -97,7 +99,7 @@ class VideoPlayer extends Component {
             }
         }
          //url changed
-        axios.post(`https://beresearcherbd.com/api/upload?id=${ this.context.CurrentUserDetails.id }`,data,options).then(res =>{
+        axios.post(`https://nodeapi.beresearcherbd.com/api/upload?id=${ this.context.CurrentUserDetails.id }`,data,options).then(res =>{
             console.log(res.statusText)
             if(parseInt(this.props.id)> parseInt(this.context.currentCourseProgress.completedItem)){
             this.context.UpdatecurrentCourseProgress({
@@ -115,15 +117,18 @@ class VideoPlayer extends Component {
                                          'Content-Type': 'application/json'
                                     },
                                data: JSON.stringify( {
+                                   
                                    email: this.context.CurrentUserDetails.email,
                                    id: this.context.currentCourseProgress._id,
                                    completedItem: this.context.currentCourseProgress.completedItem,
-                                   currentContentDetails: this.state.backnfortharray[this.props.id]
+                                   currentContentDetails: ( parseInt(this.state.backnfortharray.length)-1>=parseInt(this.props.id))? this.state.backnfortharray[this.props.id]: this.state.backnfortharray[this.props.id-1]
                                })
                 }).then((result)=>{
                     console.log(result)
+                    console.log(this.state.backnfortharray.length)
+                    if(parseInt(this.state.backnfortharray.length)-1>=parseInt(this.props.id)){
                    this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
-                   this.props.history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem)+1}`)
+                   this.props.history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem)+1}`)}
                 }).catch((err)=>{
                     console.log(err)
                 })
@@ -134,7 +139,7 @@ class VideoPlayer extends Component {
     handleVideoEnd()
     {
         if(parseInt(this.props.id)> parseInt(this.context.currentCourseProgress.completedItem)){
-        console.log(this.context.currentCourseProgress)
+        //console.log(this.context.currentCourseProgress)
         this.context.UpdatecurrentCourseProgress({
             _id: this.context.currentCourseProgress._id,
             title: this.context.currentCourseProgress.title,
@@ -149,15 +154,18 @@ class VideoPlayer extends Component {
                                      'Content-Type': 'application/json'
                                 },
                            data: JSON.stringify( {
+                               
                                email: this.context.CurrentUserDetails.email,
                                id: this.context.currentCourseProgress._id,
                                completedItem: this.context.currentCourseProgress.completedItem,
-                               currentContentDetails: this.state.backnfortharray[this.props.id]
+                               currentContentDetails: ( parseInt(this.state.backnfortharray.length)-1>=parseInt(this.props.id))? this.state.backnfortharray[this.props.id]: this.state.backnfortharray[this.props.id-1]
                            })
             }).then((result)=>{
                 console.log(result)
+                console.log(this.state.backnfortharray.length)
+                if(parseInt(this.state.backnfortharray.length)-1>=parseInt(this.props.id)){
                this.context.UpdateCurrentContentDetails(this.state.backnfortharray[this.props.id])
-               this.props.history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem)+1}`)
+               this.props.history.push(`/course/research-methodology/${parseInt(this.context.currentCourseProgress.completedItem)+1}`)}
             }).catch((err)=>{
                 console.log(err)
             })

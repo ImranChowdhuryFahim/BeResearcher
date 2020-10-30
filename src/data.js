@@ -25,7 +25,7 @@ export class CourseProvider extends Component {
         src: "https://youtu.be/Ra6vA6-GbiI",
         type: "lecture",
       },
-      totalItem: 22,
+      totalItem: 23,
     };
     this.updateAssignment = this.updateAssignment.bind(this);
   }
@@ -36,14 +36,12 @@ export class CourseProvider extends Component {
 
   UpdateCurrentContentDetails(e) {
     this.setState({ CurrentContentDetails: e });
-    console.log(this.state.CurrentContentDetails);
+    // console.log(this.state.CurrentContentDetails);
   }
 
   updateAssignment(unit) {
-    console.log(this.state.CourseContent[unit]);
-    this.setState({ CourseContent: "kicchu na" }, () =>
-      console.log(this.state.CourseContent)
-    );
+    // console.log(this.state.CourseContent[unit]);
+    this.setState({ CourseContent: "kicchu na" });
   }
 
   UpdateCourseContent(e) {
@@ -52,17 +50,18 @@ export class CourseProvider extends Component {
 
   UpdatecurrentCourseProgress(e) {
     this.setState({ currentCourseProgress: e });
-    console.log(this.state.currentCourseProgress)
+    // console.log(this.state.currentCourseProgress)
   }
 
   UpdateCurrentUserDetails(e){
     this.setState({currentuserdetails: e});
-    console.log(this.state.currentuserdetails)
+    // console.log(this.state.currentuserdetails)
   }
 
   UpdateTotalItem(e)
   {
     this.setState({totalItem: e});
+    // console.log(this.state.totalItem)
   }
 
   render() {

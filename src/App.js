@@ -9,7 +9,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Coursebutton from "./coursebutton";
+// import Coursebutton from "./coursebutton";
 import Dahsboard from "./Dashboard/Dashboard";
 import SignUp from "./signup/SignUp";
 import Login from "./login/Login";
@@ -31,6 +31,8 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
     }
   />
 );
+
+
 
 function App() {
   return (

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from "react-dom";
 import Header from './Header/Header'
 import Sidebar from './SideBar/Sidebar'
 import VideoPlayer from './VideoPlayer/VideoPlayer'
@@ -52,7 +51,7 @@ class App extends Component {
         // console.log(this.props.match.params)
         axios.get(`https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${'Research Methodology'}`)
         .then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
             setTimeout(() => {
                 this.context.UpdateCourseContent(res.data.courseContent)
                 // this.context.UpdateTotalItem(res.data.totalItem)
@@ -88,7 +87,7 @@ class App extends Component {
            align-items: center;
         `
         return (
-            <div>
+            <div className={"coursevideosection"}>
                 {this.context.CourseContent!==null?(<div className="CourseSection">
                 <Header key={0} toggole={this.toggole.bind(this)}></Header>
                 <Sidebar key={1} Isopen={this.state.open} id={this.props.match.params.ContentId}  open={this.open.bind(this)} Ismobile={this.state.Ismobile} rf={this.state.myref} close={this.close.bind(this)}></Sidebar>

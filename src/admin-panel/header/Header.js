@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faUser,
-  faSignInAlt,
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -32,7 +31,7 @@ const Header = () => {
                 title="Messages"
               >
                 <FontAwesomeIcon icon={faEnvelope} size="lg" color="black" />
-                <span class="message-badge">10</span>
+                <span className="message-badge">10</span>
               </Link>
             </li>
             <li className="nav-item">

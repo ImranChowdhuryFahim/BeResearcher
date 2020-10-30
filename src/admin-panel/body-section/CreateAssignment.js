@@ -2,7 +2,7 @@ import React from "react";
 import "./bodysection.css";
 
 import { CourseContext } from "../../data";
-import { faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
+// import { faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
 
 class CreateAssignment extends React.Component {
   constructor(props) {
@@ -34,9 +34,21 @@ class CreateAssignment extends React.Component {
     event.preventDefault();
     const { title, body, unit, courseTitle } = this.state;
     const newCourseContent = this.state.courseContent;
+    for (let x in newCourseContent) {
+      if (x > unit) {
+        newCourseContent[x] = newCourseContent[x].map((elem) => {
+          elem.id++;
+          return elem;
+        });
+      }
+    }
     newCourseContent[unit].push({
       unit: Number(unit),
       title: title,
+      id:
+        this.state.courseContent[unit][
+          this.state.courseContent[unit].length - 1
+        ].id + 1,
       description: body,
       type: "assignment",
     });

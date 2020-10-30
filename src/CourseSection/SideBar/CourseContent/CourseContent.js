@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDotCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { CourseContext } from '../../../data'
 import {withRouter} from 'react-router-dom'
-import { faGratipay } from '@fortawesome/free-brands-svg-icons'
+// import { faGratipay } from '@fortawesome/free-brands-svg-icons'
 
 class CourseContent extends Component{
     handleclick(event) {

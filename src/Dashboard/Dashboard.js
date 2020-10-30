@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { CourseContext } from "../data";
 import logo from "./logo.png";
+import Auth from "../Auth";
 
 class Dashboard extends Component {
   render() {
@@ -42,10 +43,13 @@ class Dashboard extends Component {
                 </span>
               </div>
               <div className="dropdown-content">
-                <a href="/dashboard">Dashboard</a>
+                {/* <a href="/dashboard">Dashboard</a>
                 <a href="/announcement">Announcements</a>
-                <a href="/logout">Logout</a>
-                <Link to="/admin">Admin Panel</Link>
+                <a href="/logout">Logout</a> */}
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/announcement">Announcements</Link>
+                <Link to="/logout">Logout</Link>
+               {Auth.getAdminAuth()? (<Link to="/admin">Admin Panel</Link>):('')} 
               </div>
             </div>
           </div>
@@ -55,11 +59,11 @@ class Dashboard extends Component {
             <div className={"course-info"}>
               <h6>Course</h6>
               <h2>Research Methodology</h2>
-              <a href="#">
+              <Link to="/dashboard">
                 {" "}
                 View all chapters{" "}
                 <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>{" "}
-              </a>
+                </Link>
             </div>
 
             <div className={"course-progress"}>
@@ -68,9 +72,7 @@ class Dashboard extends Component {
                   <span
                     style={{
                       width:
-                        (this.context.currentCourseProgress.completedItem /
-                          this.context.totalItem) *
-                        100,
+                      (this.context.currentCourseProgress.completedItem/this.context.totalItem)*100 + '%'
                     }}
                   ></span>
                   <div className={"progress-text"}>
@@ -86,6 +88,7 @@ class Dashboard extends Component {
               <button
                 className={"btn"}
                 onClick={(e) => {
+                  if(parseInt(this.context.totalItem)>parseInt(this.props.id)){
                   history.push(
                     `/course/research-methodology/${
                       parseInt(
@@ -93,6 +96,16 @@ class Dashboard extends Component {
                       ) + 1
                     }`
                   );
+                  }
+                  else{
+                    history.push(
+                      `/course/research-methodology/${
+                        parseInt(
+                          this.context.currentCourseProgress.completedItem
+                        ) 
+                      }`
+                    );
+                  }
                 }}
               >
                 Continue
