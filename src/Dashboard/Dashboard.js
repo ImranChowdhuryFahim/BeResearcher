@@ -88,7 +88,7 @@ class Dashboard extends Component {
               <button
                 className={"btn"}
                 onClick={(e) => {
-                  if(parseInt(this.context.totalItem)>parseInt(this.props.id)){
+                  if(parseInt(this.context.totalItem)>parseInt(this.context.currentCourseProgress.completedItem)){
                   history.push(
                     `/course/research-methodology/${
                       parseInt(
