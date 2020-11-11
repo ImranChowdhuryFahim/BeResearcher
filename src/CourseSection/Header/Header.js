@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, Redirect } from "react-router-dom";
 import './Header.css'
 import logo from './logo2.png'
 import ham from './ham.png'
@@ -46,9 +47,9 @@ class Header extends Component {
 
                         </div>
                         <div className="dropdown-content">
-                            <a href="/dashboard">Dashboard</a>
-                            <a href="/announcement">Announcements</a>
-                            <a href="/logout">Logout</a>
+                        <Link to="/dashboard">Dashboard</Link>
+                <Link to="/announcement">Announcements</Link>
+                <Link to="/logout">Logout</Link>
                         </div>
                     </div>
                 </div>

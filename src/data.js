@@ -7,24 +7,9 @@ export class CourseProvider extends Component {
     super();
     this.state = {
       CourseContent: null,
-      currentuserdetails: {
-        name: "Imran Chowdhury",
-        email: "imran.cuet.cse17@gmail.com",
-        id: "",
-      },
-      currentCourseProgress: {
-        _id: "5f8ac2936e9334246ba98438",
-        title: "Research Methodology",
-        completedItem: 0,
-      },
-      CurrentContentDetails: {
-        id: 1,
-        unit: 1,
-        title:
-          "Webinar Speech: আমি কি পারব গবেষক হতে? - Can I become a researcher? - Mymensingh Eng. College",
-        src: "https://youtu.be/Ra6vA6-GbiI",
-        type: "lecture",
-      },
+      currentuserdetails: null,
+      currentCourseProgress: null,
+      CurrentContentDetails: null,
       totalItem: 23,
     };
     this.updateAssignment = this.updateAssignment.bind(this);

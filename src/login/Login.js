@@ -32,13 +32,13 @@ const Login = () => {
             password: Yup.string().required("Required"),
           })}
           onSubmit={(values, { setSubmitting }) => {
-            axios
-              .get(
-                `https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${"Research Methodology"}`
-              )
-              .then((res) => {
-                context.UpdateTotalItem(res.data.totalItem);
-              });
+            // axios
+            //   .get(
+            //     `https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${"Research Methodology"}`
+            //   )
+            //   .then((res) => {
+            //     context.UpdateTotalItem(res.data.totalItem);
+            //   });
             axios({
               method: "POST",
               url: `https://beresearcherbd.herokuapp.com/api/student/login`,
@@ -58,19 +58,23 @@ const Login = () => {
                 alert("Wrong email or Password");
                 window.location.reload();
               } else {
-                context.UpdateCurrentUserDetails({
-                  id: res.data._id,
-                  name: res.data.firstName + " " + res.data.lastName,
-                  email: res.data.email,
-                });
-                context.UpdatecurrentCourseProgress({
-                  _id: res.data.enrolledCourses[0]._id,
-                  title: res.data.enrolledCourses[0].title,
-                  completedItem: res.data.enrolledCourses[0].completedItem,
-                });
-                context.UpdateCurrentContentDetails(
-                  res.data.enrolledCourses[0].currentContentDetails
-                );
+                // context.UpdateCurrentUserDetails({
+                //   id: res.data._id,
+                //   name: res.data.firstName + " " + res.data.lastName,
+                //   email: res.data.email,
+                // });
+                // context.UpdatecurrentCourseProgress({
+                //   _id: res.data.enrolledCourses[0]._id,
+                //   title: res.data.enrolledCourses[0].title,
+                //   completedItem: res.data.enrolledCourses[0].completedItem,
+                // });
+                // context.UpdateCurrentContentDetails(
+                //   res.data.enrolledCourses[0].currentContentDetails
+                // );
+                localStorage.setItem('login',JSON.stringify({
+                  login: true,
+                  token: res.data.token
+                }))
                 Auth.authenticate();
                 if (
                   values.email === "sabirndc08cuet10@gmail.com" ||

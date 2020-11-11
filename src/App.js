@@ -14,6 +14,7 @@ import Dahsboard from "./Dashboard/Dashboard";
 import SignUp from "./signup/SignUp";
 import Login from "./login/Login";
 import Auth from "./Auth";
+import Logout from "./logout/Logout";
 
 const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   <Route
@@ -50,25 +51,29 @@ function App() {
               <Coursebutton></Coursebutton>
             </div>
           </Route> */}
-          <PrivateRoute
+          <Route
             exact
             path="/dashboard"
             component={Dahsboard}
-            authCheck={Auth.getAuth.bind(Auth)}
-          ></PrivateRoute>
+          ></Route>
+          <Route
+          exact
+          path="/logout"
+          component={Logout}
+          ></Route>
 
           <PrivateRoute
             path="/admin"
             component={AdminPanel}
             authCheck={Auth.getAdminAuth.bind(Auth)}
           />
-          <PrivateRoute
+          <Route
             exact
             path="/course/:CourseName/:ContentId"
             component={CourseSection}
             authCheck={Auth.getAuth.bind(Auth)}
             key={2}
-          ></PrivateRoute>
+          ></Route>
           <Route path="*">
             <Redirect
               to={{

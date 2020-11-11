@@ -1,17 +1,85 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Dashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { CourseContext } from "../data";
+import axios from 'axios'
+import { BeatLoader } from 'react-spinners'
+import { css } from '@emotion/core'
 import logo from "./logo.png";
 import Auth from "../Auth";
 
 class Dashboard extends Component {
+  constructor()
+    {
+        super()
+        this.state = {
+            redirect: false
+        }
+    }
+  componentDidMount()
+  {
+    let localData= JSON.parse(localStorage.getItem('login'));
+    if(localData && localData.login)
+    {
+      axios
+              .get(
+                `https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${"Research Methodology"}`
+              )
+              .then((res) => {
+                this.context.UpdateTotalItem(res.data.totalItem);
+              });
+      axios({
+        method: "GET",
+        url: `https://beresearcherbd.herokuapp.com/api/student/getdetails`,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          auth: localData.token,
+        },
+      }).then((res)=>{
+        if(res.data.length !== 0)
+        {
+                this.context.UpdateCurrentUserDetails({
+                  id: res.data._id,
+                  name: res.data.firstName + " " + res.data.lastName,
+                  email: res.data.email,
+                });
+                this.context.UpdatecurrentCourseProgress({
+                  _id: res.data.enrolledCourses[0]._id,
+                  title: res.data.enrolledCourses[0].title,
+                  completedItem: res.data.enrolledCourses[0].completedItem,
+                });
+                this.context.UpdateCurrentContentDetails(
+                  res.data.enrolledCourses[0].currentContentDetails
+                );
+        }
+      })
+    }
+    else{
+      this.setState({redirect: true})
+    }
+  }
   render() {
     const { history } = this.props;
+    const loaderCss = css`
+           
+           height: 100vh;
+           text-align: center;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        `
+    if(this.state.redirect)
+    {
+      return <Redirect to='/login'></Redirect>
+    }
+    
     return (
       <div>
+        {(this.context.CurrentUserDetails!==null && this.context.currentCourseProgress!==null && this.context.totalItem!==null && this.context.CurrentContentDetails!==null)?
+        ( <div>
         <div className={"DashboardHeader"}>
           <div>
             {" "}
@@ -113,6 +181,12 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
+      </div>
+      ):(
+        <div>
+                    <BeatLoader css={loaderCss} loading size={'30'} color={'blue'} ></BeatLoader>
+                </div>
+      )}
       </div>
     );
   }
