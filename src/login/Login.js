@@ -6,13 +6,20 @@ import * as Yup from "yup";
 import logo from "./logo.png";
 import "./styles.css";
 import Auth from "../Auth";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import axios from "axios";
 import { CourseContext } from "../data";
 
 const Login = () => {
   const history = useHistory();
   const context = useContext(CourseContext);
+  let localData= JSON.parse(localStorage.getItem('login'));
+    if(localData && localData.login)
+    {
+      console.log('hi')
+      return <Redirect to='/dashboard'>
+      </Redirect>
+    }
   return (
     <div>
       <div className="login-form-container">
