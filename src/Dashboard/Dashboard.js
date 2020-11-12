@@ -81,7 +81,7 @@ class Dashboard extends Component {
     }
     
     return (
-      <div>
+      <div className={'Dashboard'}>
         {(this.context.CurrentUserDetails!==null && this.context.currentCourseProgress!==null && this.context.totalItem!==null && this.context.CurrentContentDetails!==null)?
         ( <div>
         <div className={"DashboardHeader"}>

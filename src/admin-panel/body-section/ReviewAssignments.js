@@ -15,7 +15,7 @@ const Details = (props) => {
   useEffect(() => console.log(studentId, assignment));
   return (
     <div>
-      <h2 style={{ display: "inline" }}>{assignment}</h2>
+      <h2 style={{ display: "inline" ,marginLeft: "100px"}}>{assignment}</h2>
       <button
         style={{ float: "right" }}
         onClick={() =>
@@ -34,9 +34,9 @@ const Details = (props) => {
         )}
         title="Review Assignment PDF"
         frameborder="0"
-        style={{ width: "100%", height: "700px", margin: "2px" }}
+        style={{ width: "100%", height: "600px", margin: "2px" ,marginLeft: "100px",border:"2px solid black"}}
       ></iframe>
-      <form>
+      <form style={{marginLeft: "350px",marginTop:'20px'}}>
         <input type="number" placeholder="Marks/points" />
         <textarea
           name="comment"
@@ -127,7 +127,7 @@ const ReviewAssignments = () => {
                     </div>
 
                     {show === false ? (
-                      "na"
+                      ""
                     ) : (
                       <ol>
                         {assignments[student._id].map((element) => (

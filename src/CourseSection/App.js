@@ -4,12 +4,7 @@ import Sidebar from './SideBar/Sidebar'
 import VideoPlayer from './VideoPlayer/VideoPlayer'
 import { CourseContext } from '../data'
 import axios from 'axios'
-import {
-    Switch,
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-  } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { BeatLoader } from 'react-spinners'
 import { css } from '@emotion/core'
 import './App.css'
