@@ -65,23 +65,6 @@ const Login = () => {
                 alert("Wrong email or Password");
                 window.location.reload();
               } else {
-                // context.UpdateCurrentUserDetails({
-                //   id: res.data._id,
-                //   name: res.data.firstName + " " + res.data.lastName,
-                //   email: res.data.email,
-                // });
-                // context.UpdatecurrentCourseProgress({
-                //   _id: res.data.enrolledCourses[0]._id,
-                //   title: res.data.enrolledCourses[0].title,
-                //   completedItem: res.data.enrolledCourses[0].completedItem,
-                // });
-                // context.UpdateCurrentContentDetails(
-                //   res.data.enrolledCourses[0].currentContentDetails
-                // );
-                localStorage.setItem('login',JSON.stringify({
-                  login: true,
-                  token: res.data.token
-                }))
                 Auth.authenticate();
                 if (
                   values.email === "sabirndc08cuet10@gmail.com" ||
@@ -90,7 +73,18 @@ const Login = () => {
                   values.email === "amanu092@gmail.com"
                 ) {
                   Auth.adminAuthenticate();
-                  //  console.log(Auth.getAdminAuth(), "admin auth");
+                  localStorage.setItem('login',JSON.stringify({
+                    login: true,
+                    adminauth: true,
+                    token: res.data.token
+                  }))
+                }
+                else{
+                  localStorage.setItem('login',JSON.stringify({
+                    login: true,
+                    adminauth: false,
+                    token: res.data.token
+                  }))
                 }
                 history.push("/dashboard");
               }

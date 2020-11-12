@@ -23,6 +23,10 @@ class Dashboard extends Component {
     let localData= JSON.parse(localStorage.getItem('login'));
     if(localData && localData.login)
     {
+      if(localData.adminauth)
+      {
+        Auth.adminAuthenticate();
+      }
       axios
               .get(
                 `https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${"Research Methodology"}`
