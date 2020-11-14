@@ -17,6 +17,7 @@ const Details = (props) => {
     <div>
       <h2 style={{ display: "inline" ,marginLeft: "100px"}}>{assignment}</h2>
       <button
+      id="new_tab"
         style={{ float: "right" }}
         onClick={() =>
           window.open(
@@ -34,9 +35,9 @@ const Details = (props) => {
         )}
         title="Review Assignment PDF"
         frameborder="0"
-        style={{ width: "100%", height: "600px", margin: "2px" ,marginLeft: "100px",border:"2px solid black"}}
+        id="iframe"
       ></iframe>
-      <form style={{marginLeft: "350px",marginTop:'20px'}}>
+      <form className="marks_comments" >
         <input type="number" placeholder="Marks/points" />
         <textarea
           name="comment"
@@ -99,7 +100,7 @@ const ReviewAssignments = () => {
           ))}
           <pre>{JSON.stringify(assignments, null, 2)}</pre> */}
 
-          <table>
+          <table >
             <thead>
               <tr>
                 <th>#</th>

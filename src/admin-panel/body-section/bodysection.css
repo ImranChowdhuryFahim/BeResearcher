@@ -111,3 +111,90 @@ tfoot {
     text-shadow: 0.25em 0 0 white, 0.5em 0 0 white;
   }
 }
+#iframe {
+  width: 100%;
+  height: 600px;
+  margin: 2px;
+  margin-left: 100px;
+  border: 2px solid black;
+}
+.marks_comments {
+  margin-left: 350px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 1007px) {
+  #iframe {
+    width: 100%;
+    height: 580px;
+    margin: 2px;
+    margin-left: 10px;
+    border: 2px solid black;
+  }
+  .marks_comments {
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+  .create-assignment form {
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .review-assignment {
+    font-size: 0.8vh;
+  }
+  td {
+    padding: 5px;
+    font-size: 0.8vh;
+  }
+  #iframe {
+    width: 100%;
+    height: 223px;
+    margin: 2px;
+    margin-left: 0px;
+    margin-top: -10px;
+    border: 2px solid black;
+  }
+  .marks_comments {
+    margin-top: 30px;
+    margin-left: -60px;
+    margin-top: 0px;
+  }
+  .review-assignment input[type="submit"],
+  input[type="number"],
+  textarea {
+    height: 50px !important;
+    width: 120px !important;
+    font-size: 1vh;
+  }
+  .review-assignment {
+    font-size: 0.5vw;
+  }
+  #new_tab {
+    width: 120px;
+    height: 10px;
+    font-size: 0.5vh;
+    padding: 0px;
+  }
+  #unit{
+    width: 200px;
+  }
+
+  .create-assignment form{
+    width: 175px;
+    height: 400px;
+    font-size: 1vh;
+    margin-top: -300px;
+  }
+  .create-assignment input[type="text"] {
+    width: 200px;
+    font-size: 1vh;
+  }
+  .create-assignment textarea{
+    font-size: 1vh;
+  }
+
+  label {
+    font-size: 1rem;
+    letter-spacing: 0px;
+  }
+}

@@ -3,8 +3,8 @@
 }
 .left-sidebar {
   position: sticky;
-  height: 94vh;
-  width: 220px;
+  height: 93.93vh;
+  width: 10vw;
   background-color: rgb(216, 224, 224);
 }
 
@@ -33,10 +33,31 @@
 }
 
 .left-sidebar a {
-  padding: 15px;
+  padding: .8rem;
   text-decoration: none;
   color: inherit;
   display: block;
-  font-size: larger;
+  font-size: 2vh;
   font-weight: bold;
+}
+
+@media screen and (max-width: 1007px)
+{
+   .left-sidebar a{
+     font-size: 1.5vh;
+   }
+   .left-sidebar{
+     width: 18vh;
+   }
+}
+@media screen and (max-width:  640px)
+{
+ .left-sidebar a{
+   font-size: .8vh;
+   padding: .5rem;
+ } 
+ .left-sidebar{
+   width: 13vh;
+   height: 93.93vh;
+ }
 }
