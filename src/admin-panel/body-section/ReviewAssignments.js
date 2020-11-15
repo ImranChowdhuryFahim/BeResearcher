@@ -84,7 +84,10 @@ const ReviewAssignments = () => {
               // console.log(resp1);
             });
         });
-        setLoading(false);
+        setTimeout(()=>{
+          setLoading(false);
+        },1000)
+        
       })
       .catch((err) => alert(err));
   }, []);
@@ -94,73 +97,75 @@ const ReviewAssignments = () => {
       <div className="review-assignment">
         <div>
           <h1>Review Assingments</h1>
-          {loading ? "Loading..." : null}
+          {loading ? "Loading..." : (
+          <table >
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Submitted Assignments</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((student, i) => (
+              <tr key={i}>
+                <td>{i}</td>
+                <td>{student.name}</td>
+                <td>
+                  <div
+                    style={{
+                      background: "gray",
+                      textAlign: "center",
+                      cursor: "pointer",
+                      padding: "2px",
+                      borderRadius: "5px",
+                    }}
+                    onClick={() => setShow(!show)}
+                  >
+                    {show ? "Hide" : "See"}
+                  </div>
+
+                  {show === false ? (
+                    ""
+                  ) : (
+                    <ol>
+                      {assignments[student._id].map((element) => (
+                        <li key={element}>
+                          <Link
+                            to={`/admin/review-assignment/details/${student._id}/${element}`}
+                          >
+                            {element}
+                          </Link>
+                        </li>
+                      ))}
+                    </ol>
+                  )}
+                </td>
+              </tr>
+            ))}
+            {/* <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>
+                <table>
+                  <tr>
+                    <a href="">ja</a>
+                  </tr>
+                  <tr>no</tr>
+                  <tr>no</tr>
+                  <Link to="/admin/review-assignment/ken">SO</Link>
+                </table>
+              </td>
+            </tr> */}
+          </tbody>
+        </table>
+          )}
           {/* {students.map((student) => (
             <pre>{JSON.stringify(student, null, 2)}</pre>
           ))}
           <pre>{JSON.stringify(assignments, null, 2)}</pre> */}
 
-          <table >
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Submitted Assignments</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.map((student, i) => (
-                <tr key={i}>
-                  <td>{i}</td>
-                  <td>{student.name}</td>
-                  <td>
-                    <div
-                      style={{
-                        background: "gray",
-                        textAlign: "center",
-                        cursor: "pointer",
-                        padding: "2px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => setShow(!show)}
-                    >
-                      {show ? "Hide" : "See"}
-                    </div>
 
-                    {show === false ? (
-                      ""
-                    ) : (
-                      <ol>
-                        {assignments[student._id].map((element) => (
-                          <li key={element}>
-                            <Link
-                              to={`/admin/review-assignment/details/${student._id}/${element}`}
-                            >
-                              {element}
-                            </Link>
-                          </li>
-                        ))}
-                      </ol>
-                    )}
-                  </td>
-                </tr>
-              ))}
-              {/* <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>
-                  <table>
-                    <tr>
-                      <a href="">ja</a>
-                    </tr>
-                    <tr>no</tr>
-                    <tr>no</tr>
-                    <Link to="/admin/review-assignment/ken">SO</Link>
-                  </table>
-                </td>
-              </tr> */}
-            </tbody>
-          </table>
         </div>
         <Route
           path="/admin/review-assignment/details/:studentId/:assignment"
