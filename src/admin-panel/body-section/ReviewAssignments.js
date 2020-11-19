@@ -15,9 +15,9 @@ const Details = (props) => {
   useEffect(() => console.log(studentId, assignment));
   return (
     <div>
-      <h2 style={{ display: "inline" ,marginLeft: "100px"}}>{assignment}</h2>
+      <h2 style={{ display: "inline", marginLeft: "100px" }}>{assignment}</h2>
       <button
-      id="new_tab"
+        id="new_tab"
         style={{ float: "right" }}
         onClick={() =>
           window.open(
@@ -37,7 +37,7 @@ const Details = (props) => {
         frameborder="0"
         id="iframe"
       ></iframe>
-      <form className="marks_comments" >
+      <form className="marks_comments">
         <input type="number" placeholder="Marks/points" />
         <textarea
           name="comment"
@@ -84,10 +84,9 @@ const ReviewAssignments = () => {
               // console.log(resp1);
             });
         });
-        setTimeout(()=>{
+        setTimeout(() => {
           setLoading(false);
-        },1000)
-        
+        }, 1000);
       })
       .catch((err) => alert(err));
   }, []);
@@ -97,53 +96,59 @@ const ReviewAssignments = () => {
       <div className="review-assignment">
         <div>
           <h1>Review Assingments</h1>
-          {loading ? "Loading..." : (
-          <table >
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Submitted Assignments</th>
-            </tr>
-          </thead>
-          <tbody>
-            {students.map((student, i) => (
-              <tr key={i}>
-                <td>{i}</td>
-                <td>{student.name}</td>
-                <td>
-                  <div
-                    style={{
-                      background: "gray",
-                      textAlign: "center",
-                      cursor: "pointer",
-                      padding: "2px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => setShow(!show)}
-                  >
-                    {show ? "Hide" : "See"}
-                  </div>
+          {loading ? (
+            "Loading..."
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Submitted Assignments</th>
+                </tr>
+              </thead>
+              <tbody>
+                {students.map((student, i) => (
+                  <tr key={i}>
+                    <td>{i}</td>
+                    <td>{student.name}</td>
+                    <td>
+                      <div
+                        style={{
+                          background: "gray",
+                          textAlign: "center",
+                          cursor: assignments[student._id] ? "pointer" : "none",
+                          padding: "2px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          assignments[student._id]
+                            ? setShow(!show)
+                            : setShow(show);
+                        }}
+                      >
+                        {show ? "Hide" : "See"}
+                      </div>
 
-                  {show === false ? (
-                    ""
-                  ) : (
-                    <ol>
-                      {assignments[student._id].map((element) => (
-                        <li key={element}>
-                          <Link
-                            to={`/admin/review-assignment/details/${student._id}/${element}`}
-                          >
-                            {element}
-                          </Link>
-                        </li>
-                      ))}
-                    </ol>
-                  )}
-                </td>
-              </tr>
-            ))}
-            {/* <tr>
+                      {show === false ? (
+                        ""
+                      ) : (
+                        <ol>
+                          {assignments[student._id].map((element) => (
+                            <li key={element}>
+                              <Link
+                                to={`/admin/review-assignment/details/${student._id}/${element}`}
+                              >
+                                {element}
+                              </Link>
+                            </li>
+                          ))}
+                        </ol>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+                {/* <tr>
               <td>1</td>
               <td>Mark</td>
               <td>
@@ -157,15 +162,13 @@ const ReviewAssignments = () => {
                 </table>
               </td>
             </tr> */}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
           )}
           {/* {students.map((student) => (
             <pre>{JSON.stringify(student, null, 2)}</pre>
           ))}
           <pre>{JSON.stringify(assignments, null, 2)}</pre> */}
-
-
         </div>
         <Route
           path="/admin/review-assignment/details/:studentId/:assignment"
