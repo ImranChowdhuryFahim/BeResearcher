@@ -86,7 +86,7 @@ const ReviewAssignments = () => {
         });
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 100);
       })
       .catch((err) => alert(err));
   }, []);
@@ -131,7 +131,7 @@ const ReviewAssignments = () => {
                           ? show
                             ? "Hide"
                             : "See"
-                          : "No assignment"}
+                          : "See"}
                       </div>
 
                       {show === false ? (
