@@ -127,11 +127,7 @@ const ReviewAssignments = () => {
                             : setShow(show);
                         }}
                       >
-                        {assignments[student._id]
-                          ? show
-                            ? "Hide"
-                            : "See"
-                          : "See"}
+                        {show ? "Hide" : "See"}
                       </div>
 
                       {show === false ? (
