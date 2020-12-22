@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export const CourseContext = React.createContext();
 
@@ -7,7 +7,7 @@ export class CourseProvider extends Component {
     super();
     this.state = {
       CourseContent: null,
-      currentuserdetails: null,
+      currentuserdetails: 'ha',
       currentCourseProgress: null,
       CurrentContentDetails: null,
       totalItem: 23,
@@ -26,7 +26,7 @@ export class CourseProvider extends Component {
 
   updateAssignment(unit) {
     // console.log(this.state.CourseContent[unit]);
-    this.setState({ CourseContent: "kicchu na" });
+    this.setState({ CourseContent: 'kicchu na' });
   }
 
   UpdateCourseContent(e) {
@@ -38,14 +38,13 @@ export class CourseProvider extends Component {
     // console.log(this.state.currentCourseProgress)
   }
 
-  UpdateCurrentUserDetails(e){
-    this.setState({currentuserdetails: e});
+  UpdateCurrentUserDetails(e) {
+    this.setState({ currentuserdetails: e });
     // console.log(this.state.currentuserdetails)
   }
 
-  UpdateTotalItem(e)
-  {
-    this.setState({totalItem: e});
+  UpdateTotalItem(e) {
+    this.setState({ totalItem: e });
     // console.log(this.state.totalItem)
   }
 
@@ -59,7 +58,7 @@ export class CourseProvider extends Component {
           CourseTitle: this.state.CourseTitle,
           currentCourseProgress: this.state.currentCourseProgress,
           totalItem: this.state.totalItem,
-          UpdateTotalItem : (e)=> this.UpdateTotalItem(e),
+          UpdateTotalItem: (e) => this.UpdateTotalItem(e),
           UpdatecurrentCourseProgress: (e) =>
             this.UpdatecurrentCourseProgress(e),
           updateAssignment: this.updateAssignment,

@@ -1,20 +1,21 @@
-import React from "react";
-import "./App.css";
-import CourseSection from "./CourseSection/App";
-import AdminPanel from "./admin-panel";
-import { CourseProvider } from "./data";
+import React from 'react';
+import './App.css';
+import CourseSection from './CourseSection/App';
+import AdminPanel from './admin-panel';
+import Announcement from './Dashboard/Announcement';
+import { CourseProvider } from './data';
 import {
   Switch,
   BrowserRouter as Router,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 // import Coursebutton from "./coursebutton";
-import Dahsboard from "./Dashboard/Dashboard";
-import SignUp from "./signup/SignUp";
-import Login from "./login/Login";
-import Auth from "./Auth";
-import Logout from "./logout/Logout";
+import Dahsboard from './Dashboard/Dashboard';
+import SignUp from './signup/SignUp';
+import Login from './login/Login';
+import Auth from './Auth';
+import Logout from './logout/Logout';
 
 const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   <Route
@@ -25,15 +26,13 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/login",
+            pathname: '/login',
           }}
         />
       )
     }
   />
 );
-
-
 
 function App() {
   return (
@@ -51,22 +50,17 @@ function App() {
               <Coursebutton></Coursebutton>
             </div>
           </Route> */}
-          <Route
-            exact
-            path="/dashboard"
-            component={Dahsboard}
-          ></Route>
-          <Route
-          exact
-          path="/logout"
-          component={Logout}
-          ></Route>
+          <Route exact path="/dashboard" component={Dahsboard}></Route>
+          <Route exact path="/logout" component={Logout}></Route>
 
           <PrivateRoute
             path="/admin"
             component={AdminPanel}
             authCheck={Auth.getAdminAuth.bind(Auth)}
           />
+
+          <Route path="/announcement" component={Announcement}></Route>
+
           <Route
             exact
             path="/course/:CourseName/:ContentId"
@@ -77,7 +71,7 @@ function App() {
           <Route path="*">
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: '/login',
               }}
             />
           </Route>
