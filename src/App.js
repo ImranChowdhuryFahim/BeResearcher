@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+
+import Home from './landing-page/Home';
 import CourseSection from './CourseSection/App';
 import AdminPanel from './admin-panel';
 import Announcement from './Dashboard/Announcement';
@@ -39,6 +41,9 @@ function App() {
     <CourseProvider>
       <Router>
         <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
@@ -71,7 +76,7 @@ function App() {
           <Route path="*">
             <Redirect
               to={{
-                pathname: '/login',
+                pathname: '/home',
               }}
             />
           </Route>
