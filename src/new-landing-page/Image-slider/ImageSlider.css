@@ -1,0 +1,24 @@
+.ImageSlider {
+  width: 70%;
+  height: 600px;
+  border: 1px solid black;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #c4c4c4;
+}
+
+.SliderImages {
+  height: 100%;
+  width: 100%;
+  transition-duration: .5s;
+  opacity: 0;
+  transition-duration: .5;
+  opacity: 1;
+}
+
+@media screen and (max-width: 960px)
+{
+    .ImageSlider{
+        height: 400px;
+    }
+}

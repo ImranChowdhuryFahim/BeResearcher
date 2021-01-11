@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Home from './landing-page/Home';
+import NewHome from './new-landing-page/App'
 import CourseSection from './CourseSection/App';
 import AdminPanel from './admin-panel';
 import Announcement from './Dashboard/Announcement';
@@ -43,6 +44,9 @@ function App() {
         <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/newhome">
+           <NewHome/>
           </Route>
           <Route path="/signup">
             <SignUp />
