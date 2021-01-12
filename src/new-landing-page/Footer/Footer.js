@@ -9,6 +9,14 @@ class Footer extends Component {
           <span>&copy; Be Researcher Bd 2020</span>
           <span> All rights reserved </span>
         </span>
+
+        <span style={{ padding: '10px' }}>|</span>
+
+        <span>Developed & maintained by : Brainfluence Limited.</span>
+
+        <span style={{ padding: '10px' }}>|</span>
+
+        <span>Supervised by : Md. Sabir hossain & Md amanullah</span>
       </div>
     );
   }
