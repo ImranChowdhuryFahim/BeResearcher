@@ -1,0 +1,17 @@
+.width-seventy {
+  width: 70%;
+}
+.center {
+  margin: 20px auto;
+}
+
+.text-container {
+  font-weight: 500;
+  font-size: large;
+  letter-spacing: 0.1em;
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+}
