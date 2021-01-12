@@ -1,36 +1,34 @@
-import React, { Component, createRef } from "react";
-import { MenuItems } from "./MenuItem";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faBars} from '@fortawesome/free-solid-svg-icons'
-import "./Navbar.css";
-import logo from "./flogo.png";
+import React, { Component, createRef } from 'react';
+import { MenuItems } from './MenuItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css';
+import logo from './flogo.png';
 
 class Navbar extends Component {
-  state={ clicked: false }
+  state = { clicked: false };
   handleClick() {
-    this.setState({ clicked: !this.state.clicked })
+    this.setState({ clicked: !this.state.clicked });
   }
   render() {
     return (
       <nav className="NavbarItems">
         <div className="navbar-logo">
-           <img
-            src={logo}
-            alt="logo"
-            style={{ height: "80px" }}
-          ></img>
+          <img src={logo} alt="logo" style={{ height: '80px' }}></img>
         </div>
         <div className="menu-icon" onClick={this.handleClick.bind(this)}>
-         <FontAwesomeIcon icon={this.state.clicked? faTimes: faBars}></FontAwesomeIcon>
+          <FontAwesomeIcon
+            icon={this.state.clicked ? faTimes : faBars}
+          ></FontAwesomeIcon>
         </div>
-        <ul className={this.state.clicked? 'nav-menu active':
-      'nav-menu'}>
+        <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a className={item.cName} href={item.url}>
+                <NavLink className={item.cName} to={item.url}>
                   {item.title}
-                </a>
+                </NavLink>
               </li>
             );
           })}

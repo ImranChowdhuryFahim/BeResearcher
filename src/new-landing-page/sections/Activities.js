@@ -2,7 +2,7 @@ import React from 'react';
 import './sections.css';
 const Activities = () => {
   return (
-    <div className="width-seventy center section">
+    <div className="width-seventy center section" id="activities">
       <h1>Activities</h1>
       <div className="text-container">
         <ul>

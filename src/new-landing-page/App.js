@@ -5,7 +5,6 @@ import Background from './sections/Background';
 import Mission from './sections/Mission';
 import Vision from './sections/Vision';
 import Activites from './sections/Activities';
-import Footer from './footer/Footer';
 import './App.css';
 
 class App extends Component {
@@ -18,7 +17,6 @@ class App extends Component {
         <Mission />
         <Vision />
         <Activites />
-        <Footer />
       </div>
     );
   }
