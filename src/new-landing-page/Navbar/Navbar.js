@@ -2,9 +2,16 @@ import React, { Component, createRef } from 'react';
 import { MenuItems } from './MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import './Navbar.css';
 import logo from './flogo.png';
+
+const activeStyle = {
+  color: 'peru',
+  backgroundColor: 'white',
+  borderRight: '5px solid peru',
+  zIndex: '-1',
+};
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -26,9 +33,13 @@ class Navbar extends Component {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <NavLink className={item.cName} to={item.url}>
+                <Link
+                  activeClass={activeStyle}
+                  className={item.cName}
+                  to={item.url}
+                >
                   {item.title}
-                </NavLink>
+                </Link>
               </li>
             );
           })}
