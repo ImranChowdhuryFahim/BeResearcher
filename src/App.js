@@ -5,6 +5,7 @@ import Home from './landing-page/Home';
 import NewHome from './new-landing-page/App'
 import CourseSection from './CourseSection/App';
 import AdminPanel from './admin-panel';
+import NewAdminPanel from './new-admin-panel/App'
 import Announcement from './Dashboard/Announcement';
 import { CourseProvider } from './data';
 import {
@@ -67,6 +68,10 @@ function App() {
             component={AdminPanel}
             authCheck={Auth.getAdminAuth.bind(Auth)}
           />
+
+          <Route path="/newadmin">
+             <NewAdminPanel></NewAdminPanel>
+          </Route>
 
           <Route path="/announcement" component={Announcement}></Route>
 

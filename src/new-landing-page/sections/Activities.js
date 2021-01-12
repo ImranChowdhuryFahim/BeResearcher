@@ -3,7 +3,7 @@ import './sections.css';
 import { Element } from 'react-scroll';
 const Activities = () => {
   return (
-    <Element name="activities">
+    <Element name="activities" >
       <div className="width-seventy center section" id="activities">
         <h1>Activities</h1>
         <div className="text-container">

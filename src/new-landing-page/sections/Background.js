@@ -4,7 +4,7 @@ import './sections.css';
 const Background = () => {
   return (
     <Element name="background">
-      <div className="width-seventy center section">
+      <div className="width-seventy center section" style={{ textAlign: 'justify' }}>
         <h1>Background</h1>
         <div className="text-container">
           It is incumbent for every university that they serve as a centre for
