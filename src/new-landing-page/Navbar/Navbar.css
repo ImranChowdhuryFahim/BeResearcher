@@ -2,16 +2,32 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+<<<<<<< HEAD
   font-family: 'Montserrat', sans-serif;
 }
 
 .NavbarItems {
+=======
+  font-family: "Montserrat", sans-serif;
+}
+
+.NavbarItems {
+  background-color: white;
+>>>>>>> 27979102bfe777ae7cdfd0317d206305a95c3081
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+<<<<<<< HEAD
+=======
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1030;
+>>>>>>> 27979102bfe777ae7cdfd0317d206305a95c3081
 }
 
 .navbar-logo {
@@ -67,7 +83,15 @@
     margin: 0 auto !important;
   }
   .NavbarItems {
+<<<<<<< HEAD
     position: relative;
+=======
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1030;
+>>>>>>> 27979102bfe777ae7cdfd0317d206305a95c3081
   }
 
   .nav-menu {
