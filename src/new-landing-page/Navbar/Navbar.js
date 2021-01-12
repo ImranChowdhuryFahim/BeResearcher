@@ -35,6 +35,9 @@ class Navbar extends Component {
               <li key={index}>
                 <Link
                   activeClass={activeStyle}
+                  smooth={true}
+                  duration={800}
+                  spy={true}
                   className={item.cName}
                   to={item.url}
                 >
