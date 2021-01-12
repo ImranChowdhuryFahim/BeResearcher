@@ -11,6 +11,9 @@ class App extends Component{
             <div className="landingpage">
                 <Navbar></Navbar>
                 <Slider></Slider>
+                <Slider></Slider>
+                <Slider></Slider>
+                <Slider></Slider>
                 <Footer></Footer>
             </div>
         )
