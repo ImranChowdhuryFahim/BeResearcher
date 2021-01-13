@@ -1,0 +1,85 @@
+.contact {
+  /* height: 80vh; */
+  width: 70%;
+  background-color: whitesmoke;
+  color: black;
+  margin: 20px auto;
+  border-radius: 2%;
+  padding: 10px;
+  letter-spacing: 6px;
+  color: black;
+  margin-bottom: 25px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.text-area-input {
+  margin: 30px;
+  height: 15vh;
+}
+
+.send-button {
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.send-button:hover {
+  transform: translate3d(0px, -5px, 0px);
+}
+
+.social-media-icon-list {
+  list-style-type: none;
+
+  position: relative;
+  font-size: 2.3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.social-media-icon-list li a {
+  color: white;
+}
+
+.social-media-icon-list li {
+  position: relative;
+  top: 0;
+  left: -20px;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  margin: 10px auto;
+  line-height: 70px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: rgb(27, 27, 27);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-media-icon-list li:hover {
+  color: black;
+}
+
+.list-item {
+  line-height: 4;
+  color: rgb(112, 103, 103);
+}
+
+.border {
+  border: 2px solid black;
+}
+
+@media screen and (max-width: 640px) {
+  .contact {
+    /* background-color: rgb(212, 212, 212); */
+  }
+  .contact {
+    width: 90%;
+  }
+}

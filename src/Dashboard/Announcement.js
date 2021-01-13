@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { CourseContext as Context } from '../data';
 import { makeStyles } from '@material-ui/core/styles';

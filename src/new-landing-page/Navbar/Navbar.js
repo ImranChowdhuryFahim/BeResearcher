@@ -2,16 +2,16 @@ import React, { Component, createRef } from 'react';
 import { MenuItems } from './MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-scroll';
+import { Link as LinkScroll } from 'react-scroll';
 import './Navbar.css';
 import logo from './flogo.png';
+import styled from 'styled-components';
 
-const activeStyle = {
-  color: 'peru',
-  backgroundColor: 'white',
-  borderRight: '5px solid peru',
-  zIndex: '-1',
-};
+const NavLinkWithScroll = styled(LinkScroll)`
+  &.active {
+    border-bottom: 2px solid peru;
+  }
+`;
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -29,22 +29,59 @@ class Navbar extends Component {
             icon={this.state.clicked ? faTimes : faBars}
           ></FontAwesomeIcon>
         </div>
-        <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+
+        <ul
+          role="navigation"
+          className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}
+        >
           {MenuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link
-                  activeClass={activeStyle}
-                  smooth={true}
-                  duration={800}
-                  spy={true}
-                  className={item.cName}
-                  to={item.url}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            );
+            if (item.type) {
+              return (
+                <div className="dropdown">
+                  <li key={index}>
+                    <NavLinkWithScroll
+                      to={item.url}
+                      spy={true}
+                      offset={-80}
+                      className={item.cName}
+                    >
+                      {item.title}
+                    </NavLinkWithScroll>
+                  </li>
+                  <div className="dropdown-content">
+                    <ul>
+                      {item.content.map((elem) => (
+                        <li>
+                          <NavLinkWithScroll
+                            smooth={true}
+                            // spy={true}
+                            to={elem}
+                            offset={-80}
+                            duration="600"
+                          >
+                            {elem}
+                          </NavLinkWithScroll>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            } else
+              return (
+                <li key={index}>
+                  <NavLinkWithScroll
+                    smooth={true}
+                    duration={800}
+                    spy={true}
+                    to={item.url}
+                    offset={-80}
+                    className={item.cName}
+                  >
+                    {item.title}
+                  </NavLinkWithScroll>
+                </li>
+              );
           })}
         </ul>
       </nav>

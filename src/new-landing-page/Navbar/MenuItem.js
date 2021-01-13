@@ -1,13 +1,15 @@
 export const MenuItems = [
   {
     title: 'Home',
-    url: '/newhome',
+    url: 'home',
     cName: 'nav-links',
   },
   {
     title: 'About',
-    url: 'background',
+    url: 'about',
     cName: 'nav-links',
+    type: 'dropdown',
+    content: ['Background', 'Mission', 'Vision', 'Activities'],
   },
   {
     title: 'Courses',
@@ -16,7 +18,7 @@ export const MenuItems = [
   },
   {
     title: 'News',
-    url: 'activities',
+    url: '#',
     cName: 'nav-links',
   },
   {
@@ -31,7 +33,7 @@ export const MenuItems = [
   },
   {
     title: 'Contact us',
-    url: '#',
+    url: 'contact',
     cName: 'nav-links',
   },
   {

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Formik, Form, useField } from "formik";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
-import * as Yup from "yup";
-import logo from "./logo.png";
-import "./style.css";
+import React, { useState } from 'react';
+import { Formik, Form, useField } from 'formik';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import * as Yup from 'yup';
+import logo from './logo.png';
+import './style.css';
 
-import SocialMedia from "./SocialMedia";
+import SocialMedia from './SocialMedia';
 
 export const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -24,7 +24,7 @@ export const MyTextInput = ({ label, ...props }) => {
 };
 
 export const MySelect = ({ label, children, ...props }) => {
-  const [field, meta] = useField({ ...props, type: "select" });
+  const [field, meta] = useField({ ...props, type: 'select' });
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
@@ -43,26 +43,26 @@ export const SuperVisorSignUp = () => {
     <div>
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-          institution: "",
-          position: "",
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          institution: '',
+          position: '',
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
-            .max(15, "Must be 15 characters or less")
-            .required("Required"),
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
           lastName: Yup.string()
-            .max(20, "Must be 20 characters or less")
-            .required("Required"),
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
           password: Yup.string()
-            .min(8, "Must be 8 characters or more")
-            .required("Required"),
+            .min(8, 'Must be 8 characters or more')
+            .required('Required'),
           email: Yup.string()
-            .email("Invalid email address")
-            .required("Required"),
+            .email('Invalid email address')
+            .required('Required'),
           // institution: Yup.string()
           //   .oneOf(["BUET", "CUET", "KUET", "RUET", "SUST"])
           //   .required("Required"),
@@ -70,11 +70,11 @@ export const SuperVisorSignUp = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           fetch(
-            "https://beresearcherbd.herokuapp.com/api/supervisor/registration",
+            'https://beresearcherbd.herokuapp.com/api/supervisor/registration',
             {
-              method: "POST",
+              method: 'POST',
               headers: {
-                "Content-type": "application/json",
+                'Content-type': 'application/json',
               },
               body: JSON.stringify({
                 email: values.email,
@@ -167,15 +167,15 @@ const SignUp = () => {
     <div
       className={
         signUpAsSupervisor
-          ? "container right-panel-active"
+          ? 'container right-panel-active'
           : studentSingUp
-          ? "container student-signup-active"
-          : "container"
+          ? 'container student-signup-active'
+          : 'container'
       }
     >
       <div className="mobile-view-form-top-div">
         <div
-          style={{ margin: "3px", cursor: "pointer" }}
+          style={{ margin: '3px', cursor: 'pointer' }}
           onClick={(e) => {
             setSignUpAsSupervisor(false);
             setStudentSingUp(false);
@@ -187,26 +187,26 @@ const SignUp = () => {
       </div>
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-          institution: "",
-          occupation: "",
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          institution: '',
+          occupation: '',
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
-            .max(15, "Must be 15 characters or less")
-            .required("Required"),
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
           lastName: Yup.string()
-            .max(20, "Must be 20 characters or less")
-            .required("Required"),
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
           password: Yup.string()
-            .min(8, "Must be 8 characters or more")
-            .required("Required"),
+            .min(8, 'Must be 8 characters or more')
+            .required('Required'),
           email: Yup.string()
-            .email("Invalid email address")
-            .required("Required"),
+            .email('Invalid email address')
+            .required('Required'),
           // institution: Yup.string()
           //   .oneOf(["teacher", "undergrad", "postgrad"])
           //   .required("Required"),
@@ -215,21 +215,21 @@ const SignUp = () => {
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
           fetch(
-            "https://beresearcherbd.herokuapp.com/api/student/registration",
+            'https://beresearcherbd.herokuapp.com/api/student/registration',
             {
-              method: "POST",
+              method: 'POST',
               headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
               },
               body: JSON.stringify(values),
             }
           )
             .then((result) => {
               setSubmitting(false);
-              history.push("/dashboard");
+              history.push('/dashboard');
               return result.text();
             })
-            .then((res) => console.log(res, "bhaiaja"))
+            .then((res) => console.log(res, 'bhaiaja'))
             .catch((err) => {
               alert(err);
               setSubmitting(false);

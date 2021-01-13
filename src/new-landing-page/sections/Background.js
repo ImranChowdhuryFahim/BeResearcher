@@ -3,9 +3,9 @@ import { Element } from 'react-scroll';
 import './sections.css';
 const Background = () => {
   return (
-    <Element name="background">
+    <Element name="Background">
       <div className="width-seventy center section">
-        <h1>Background</h1>
+        <h1 className="text-align-center">Background</h1>
         <div className="text-container">
           It is incumbent for every university that they serve as a centre for
           knowledge creation and dissemination. Universities should play a

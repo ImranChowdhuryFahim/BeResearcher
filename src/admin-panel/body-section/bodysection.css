@@ -30,7 +30,7 @@ label {
   font-size: 1.3rem;
   letter-spacing: 2px;
 }
-.create-assignment input[type="text"] {
+.create-assignment input[type='text'] {
   margin: 5px 0 20px 0;
   background-color: rgb(216, 224, 224);
   height: 50px;
@@ -46,16 +46,16 @@ label {
   letter-spacing: 2px;
 }
 
-.create-assignment input[type="submit"],
-.review-assignment input[type="submit"] {
+.create-assignment input[type='submit'],
+.review-assignment input[type='submit'] {
   background-color: rgb(98, 100, 100);
   height: 50px;
   width: 200px;
 }
-input[type="submit"] {
+input[type='submit'] {
   cursor: pointer;
 }
-input[type="submit"]:disabled {
+input[type='submit']:disabled {
   cursor: not-allowed;
 }
 select {
@@ -89,7 +89,7 @@ tfoot {
 }
 
 .loading:after {
-  content: " .";
+  content: ' .';
   animation: dots 1s steps(5, end) infinite;
 }
 
@@ -159,9 +159,9 @@ tfoot {
     margin-left: -60px;
     margin-top: 0px;
   }
-  .review-assignment input[type="submit"],
-  input[type="number"],
-  textarea {
+  .review-assignment input[type='submit'],
+  input[type='number'],
+  .review-assignment textarea {
     height: 50px !important;
     width: 120px !important;
     font-size: 1vh;
@@ -175,21 +175,21 @@ tfoot {
     font-size: 0.5vh;
     padding: 0px;
   }
-  #unit{
+  #unit {
     width: 200px;
   }
 
-  .create-assignment form{
+  .create-assignment form {
     width: 175px;
     height: 400px;
     font-size: 1vh;
     margin-top: -300px;
   }
-  .create-assignment input[type="text"] {
+  .create-assignment input[type='text'] {
     width: 200px;
     font-size: 1vh;
   }
-  .create-assignment textarea{
+  .create-assignment textarea {
     font-size: 1vh;
   }
 
