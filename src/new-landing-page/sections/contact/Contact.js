@@ -13,7 +13,7 @@ import './contact.css';
 const Contact = () => {
   return (
     <Element name="contact" className="contact">
-      <h1 className="text-align-center">CONTACT</h1>
+      <h1 className="text-align-center1">CONTACT</h1>
       <Formik initialValues={{ name: '', email: '', message: '' }}>
         {(props) => (
           <Form className="contact-form">

@@ -21,15 +21,11 @@
 .admin-menues{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 10px;
-    margin-left: 2rem;
+    justify-content: left;
+
 }
 
-.admin-menues>li{
-    padding: 20px;
-    
-}
+
 .admin-menues>li:hover{
     background-color: blue;
     cursor: pointer;
@@ -38,7 +34,10 @@
 .admin-menues>li a{
     color: white;
     text-decoration: none;
+    display:inline-block;
+    width:100%;
     padding: 20px;
+ 
 }
 
 
