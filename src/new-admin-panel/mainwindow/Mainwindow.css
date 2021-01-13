@@ -1,0 +1,36 @@
+.admin-mainwindow{
+    height: 100vh;
+    width: 86%;
+    background-color: white;
+    float: right;
+
+}
+
+.functionalities1{
+    background-color: rgb(31, 30, 30);
+    color: white;
+    margin-top: -18px;
+    padding: 20px;
+}
+
+.functionalities1.active{
+    display: none;
+}
+
+.admin-menues>li a{
+    color:white;
+    text-decoration: none;
+}
+
+@media screen and (max-width:1020px)
+{
+    .admin-mainwindow{
+        width: 74%;
+    }
+}
+@media screen and (max-width:768px)
+{
+    .admin-mainwindow{
+        width: 100%;
+    }
+}

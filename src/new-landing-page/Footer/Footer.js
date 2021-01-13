@@ -6,7 +6,7 @@ class Footer extends Component {
     return (
       <div className="landing_footer">
         <span style={{ display: 'flex', flexDirection: 'column' }}>
-          <span>&copy; Be Researcher Bd 2020</span>
+          <span>&copy; Be Researcher Bd 2021</span>
           <span> All rights reserved </span>
         </span>
 
