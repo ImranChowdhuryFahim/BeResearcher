@@ -8,11 +8,12 @@ class App extends Component{
     render()
     {
         return(
+            
             <div>
                 <Mainwindow></Mainwindow>
                 <Sidebar></Sidebar>
-                
             </div>
+            
         )
     }
 }

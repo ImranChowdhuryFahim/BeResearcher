@@ -1,14 +1,14 @@
 .contact {
   /* height: 80vh; */
-  width: 70%;
-  background-color: whitesmoke;
+  width: 100%;
+  background-color: #c4c4c4;
   color: black;
-  margin: 20px auto;
-  border-radius: 2%;
+  
+
   padding: 10px;
   letter-spacing: 6px;
   color: black;
-  margin-bottom: 25px;
+  
 }
 
 .contact-form {

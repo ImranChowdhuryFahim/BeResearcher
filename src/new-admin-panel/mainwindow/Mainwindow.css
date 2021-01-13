@@ -11,6 +11,8 @@
     color: white;
     margin-top: -18px;
     padding: 20px;
+    position: fixed;
+    top:80px
 }
 
 .functionalities1.active{
