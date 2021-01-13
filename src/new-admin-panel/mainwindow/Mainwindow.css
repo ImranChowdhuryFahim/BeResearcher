@@ -7,7 +7,7 @@
 }
 
 .functionalities1{
-    background-color: black;
+    background-color: rgb(31, 30, 30);
     color: white;
     margin-top: -18px;
     padding: 20px;
@@ -15,6 +15,11 @@
 
 .functionalities1.active{
     display: none;
+}
+
+.admin-menues>li a{
+    color:white;
+    text-decoration: none;
 }
 
 @media screen and (max-width:1020px)

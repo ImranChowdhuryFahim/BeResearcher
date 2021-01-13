@@ -35,11 +35,29 @@
     cursor: pointer;
 }
 
+.admin-menues>li a{
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
 
 @media screen and (max-width:768px)
 {
    .admin-sidebar{
        display: none;
    }
+   .admin-menues>li a{
+    padding: 10px;
+}
+
+}
+
+@media screen and (max-width:1020px)
+{
+   .admin-menues>li a{
+    padding: 10px;
+}
+
 }
 
