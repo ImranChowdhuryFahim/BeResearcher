@@ -3,13 +3,19 @@
   width: 100%;
   background-color: whitesmoke;
   color: black;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   padding: 10px;
-  letter-spacing: 6px;
   color: black;
   margin-bottom: 0px;
 }
 
+.header-text {
+  letter-spacing: 6px;
+}
+
+.text-align-center {
+  text-align: center;
+}
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -18,12 +24,13 @@
 }
 
 .text-area-input {
-  margin: 30px;
+  margin-top: 30px;
   height: 15vh;
 }
 
 .send-button {
   width: 200px;
+  margin: 20px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -74,6 +81,10 @@
   border: 2px solid black;
 }
 
+.Toastify button {
+  display: none;
+}
+
 @media screen and (max-width: 640px) {
   .contact {
     /* background-color: rgb(212, 212, 212); */
@@ -81,7 +92,4 @@
   .contact {
     width: 100%;
   }
-}
-.text-align-center1{
-  text-align: center;
 }

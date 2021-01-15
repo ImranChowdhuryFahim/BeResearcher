@@ -5,11 +5,14 @@ const Vision = () => {
   return (
     <Element name="Vision">
       <div className="width-seventy center section">
-        <h1 className="text-align-center">Vision</h1>
+        <h1>Vision</h1>
         <div className="text-container">
           <ul>
             <li>
-              🔹Leveraging research in Higher Educational Institutes for
+              <span role="img" aria-label="bullet">
+                🔹
+              </span>
+              Leveraging research in Higher Educational Institutes for
               Sustainable Development .
             </li>
           </ul>
