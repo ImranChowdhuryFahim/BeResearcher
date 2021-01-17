@@ -9,7 +9,7 @@
     justify-content: flex-end;
     grid-gap: 30px;
     padding-right: 20px;
-    
+    /* position: fixed; */
 }
 
 .admin-menu-icon{
@@ -52,5 +52,7 @@
     .admin-menu-icon{
         display: inline-block;   
       }
-
+    .admin-nav-bar{
+      position: fixed;
+    }
 }

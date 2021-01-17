@@ -6,7 +6,7 @@ const Mission = () => {
   return (
     <Element name="Mission">
       <div className="width-seventy center section">
-        <h1>Mission</h1>
+        <h1 className="heading">Mission</h1>
         <div className="text-container">
           <ul>
             <li>

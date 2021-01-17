@@ -8,7 +8,7 @@ const Background = () => {
         className="width-seventy center section"
         style={{ textAlign: 'justify' }}
       >
-        <h1>Background</h1>
+        <h1 className="heading">Background</h1>
         <div className="text-container">
           You sent Yesterday at 11:03 PM figmar tai to Imran sent Yesterday at
           11:04 PM It is incumbent for every university that they serve as a
@@ -28,7 +28,8 @@ const Background = () => {
           Universities in Bangladesh are going in their conventional ways.
           Students are researching in their final years only to pass but doing
           research passionately from 1st or 2nd year is very rare in our
-          country. This group was founded with a noble purpose for a research
+          country.<br></br>
+          This group was founded with a noble purpose for a research
           devoted environment in the Universities and Colleges in Bangladesh.
           Though it is observed that the students of the final year do their
           thesis for obtaining the certificate only whereas it could be any
@@ -37,7 +38,7 @@ const Background = () => {
           of Computer Science & Engineering (CSE), Chittagong University of
           Engineering & Technology (CUET), Bangladesh. The Students from 2nd
           Year in the department of CSE, CUET have published more than 10
-          articles in international conferences and journals [1-3]. This type of
+          articles in international conferences and journals. This type of
           accomplishment is rare not only in Bangladesh but also in first world
           universities. Being perplexed by this achievement he has created a
           social media-based platform named Be Researcher BD (গবেষক হতে চাই) to
@@ -47,7 +48,7 @@ const Background = () => {
           difficulties in fundings and recognition, they dream of a
           research-friendly environment in higher educational institutes. Be
           Researcher BD group is assisting research enthusiast learners with
-          different activities [4-9].
+          different activities.
         </div>
       </div>
     </Element>

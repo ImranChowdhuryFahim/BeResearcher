@@ -39,11 +39,11 @@ export const MenuItems = [
   {
     title: 'Log in',
     url: '#',
-    cName: 'nav-links nav-button',
+    cName: 'nav-links nav-login-button',
   },
   {
     title: 'Sign up',
     url: '#',
-    cName: 'nav-links nav-button',
+    cName: 'nav-links nav-signup-button',
   },
 ];

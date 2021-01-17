@@ -5,7 +5,7 @@ const Activities = () => {
   return (
     <Element name="Activities">
       <div className="width-seventy center section" id="activities">
-        <h1>Activities</h1>
+        <h1 className="heading">Activities</h1>
         <div className="text-container">
           <ul>
             <li>
@@ -19,13 +19,13 @@ const Activities = () => {
                 🔹
               </span>
               Conducting Online/Offline Training on Research and Higher Studies
-              Guidelines [4-6]
+              Guidelines 
             </li>
             <li>
               <span role="img" aria-label="bullet">
                 🔹
               </span>
-              Arranging Seminar, Workshop or Webinar [7-9]
+              Arranging Seminar, Workshop or Webinar 
             </li>
             <li>
               <span role="img" aria-label="bullet">

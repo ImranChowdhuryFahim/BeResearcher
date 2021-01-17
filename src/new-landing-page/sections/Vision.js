@@ -5,7 +5,7 @@ const Vision = () => {
   return (
     <Element name="Vision">
       <div className="width-seventy center section">
-        <h1>Vision</h1>
+        <h1 className="heading">Vision</h1>
         <div className="text-container">
           <ul>
             <li>

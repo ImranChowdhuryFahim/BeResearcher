@@ -1,0 +1,21 @@
+.CardView{
+    width: 350px;
+    height: 120px;
+    background-color: #00c0ef;
+    color: white;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+@media screen and (max-width:1020px)
+{
+    .CardView{
+        width: 300px;
+    }
+
+    
+}

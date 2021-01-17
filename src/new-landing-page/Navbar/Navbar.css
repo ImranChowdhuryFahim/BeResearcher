@@ -57,15 +57,32 @@
   display: none;
 }
 
-.nav-button {
-  background-color: #14a79f;
-  border: 1px solid black;
+.nav-login-button {
+  /* background-color: #14a79f; */
+  border: 2px solid #2896a9;
+  color:#0f7c90;
   cursor: pointer;
-  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px;
 }
-.nav-button:hover {
-  background-color: rgb(0, 255, 136);
-  color: black;
+.nav-signup-button{
+  border: 2px solid #2896a9;
+  background-color:#2896a9;
+  color:white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+
+}
+.nav-login-button:hover {
+  background-color: transparent;
+  color: #0a5e6d;
+  border-radius: 0px;
+}
+.nav-signup-button:hover {
+  background-color: #0a5e6d;
+  border-radius: 0px;
+  border-color: #0a5e6d;
 }
 
 ul li ul {
@@ -79,17 +96,19 @@ ul li ul {
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .dropdown-content {
+  margin-top: 0px!important;
+  margin-left: -50px;
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  cursor: pointer;
 }
 
 .dropdown-content > ul > li > a {

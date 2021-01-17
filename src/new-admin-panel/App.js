@@ -46,7 +46,7 @@ class App extends Component {
                       <li> <NavLink to="/newadmin/mailbox" activeStyle={activeStyle}><FontAwesomeIcon icon={faMailBulk}></FontAwesomeIcon> MailBox </NavLink> </li>
                   </ul>
               </div>
-              
+              <div className={"loaded_component"}>
             <Switch>
               {routes.map((route, index) => (
                 <Route
@@ -57,6 +57,7 @@ class App extends Component {
                 />
               ))}
             </Switch>
+            </div>
           </div>
         </BrowserRouter>
       </div>
