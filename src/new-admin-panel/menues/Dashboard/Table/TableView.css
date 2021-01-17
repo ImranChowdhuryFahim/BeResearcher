@@ -12,6 +12,9 @@ thead{
     background-color: blueviolet;
     color: white;
 }
+tbody{
+    padding-top: 50px;
+}
 td,
 th {
   padding: 10px;

@@ -1,4 +1,4 @@
-input[type='email'],
+/* input[type='email'],
 input[type='text'],
 input[type='number'],
 input[type='password'],
@@ -13,7 +13,7 @@ label {
 
 button[type='submit'] {
   margin-top: 1rem;
-}
+} */
 
 /* * {
   box-sizing: border-box;
@@ -35,7 +35,7 @@ html {
   text-decoration-skip-ink: "auto";
 } */
 
-:root {
+/* :root {
   --gray-900: #1a202c;
   --gray-800: #2d3748;
   --gray-700: #4a5568;
@@ -198,7 +198,7 @@ button {
 
 button:hover {
   cursor: pointer;
-}
+} */
 /* button:focus-visible,
 input[type="submit"]:focus-visible,
 input[type="reset"]:focus-visible,
