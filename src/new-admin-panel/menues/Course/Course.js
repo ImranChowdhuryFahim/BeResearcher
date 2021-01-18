@@ -14,8 +14,9 @@ class Course extends Component{
       handleCreateUnit()
       {
         let newContent={}
-        newContent[Object.keys(this.state.CourseContent).length+1]=[{}];
+        newContent[Object.keys(this.state.CourseContent).length+1]=[{type: 'lecture'}];
         this.setState({CourseContent: Object.assign(this.state.CourseContent,newContent)})
+
         // console.log(this.state.CourseContent)
       }
     
