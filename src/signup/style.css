@@ -287,16 +287,16 @@ input[type="button"]:focus-visible {
   margin: 3px;
 }
 
-.container form {
+/* .container form {
   margin-left: 10px;
-}
+} */
 
-.student-signup-container {
+/* .student-signup-container {
   left: 0;
   width: 50%;
   z-index: 2;
   margin-left: 10px;
-}
+} */
 
 /* .supervisor-signup-container {
   left: 0;
@@ -338,6 +338,7 @@ input[type="button"]:focus-visible {
 }
 
 /* --------------- */
+
 @media screen and (max-width: 800px) {
   .container {
     height: 100vh;

@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 
 import Home from './landing-page/Home';
-import NewHome from './new-landing-page/App'
+import NewHome from './new-landing-page/App';
 import CourseSection from './CourseSection/App';
 import AdminPanel from './admin-panel';
-import NewAdminPanel from './new-admin-panel/App'
+import NewAdminPanel from './new-admin-panel/App';
 import Announcement from './Dashboard/Announcement';
 import { CourseProvider } from './data';
 import {
@@ -17,6 +17,7 @@ import {
 // import Coursebutton from "./coursebutton";
 import Dahsboard from './Dashboard/Dashboard';
 import SignUp from './signup/SignUp';
+import { NewSignup, NewLogin } from './new-signup-login';
 import Login from './login/Login';
 import Auth from './Auth';
 import Logout from './logout/Logout';
@@ -47,10 +48,16 @@ function App() {
             <Home />
           </Route>
           <Route path="/newhome">
-           <NewHome/>
+            <NewHome />
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/new-signup">
+            <NewSignup />
+          </Route>
+          <Route path="/new-login">
+            <NewLogin />
           </Route>
           <Route path="/login">
             <Login />
@@ -70,7 +77,7 @@ function App() {
           />
 
           <Route path="/newadmin">
-             <NewAdminPanel></NewAdminPanel>
+            <NewAdminPanel></NewAdminPanel>
           </Route>
 
           <Route path="/announcement" component={Announcement}></Route>

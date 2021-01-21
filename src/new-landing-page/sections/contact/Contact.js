@@ -34,7 +34,7 @@ const MyTextArea = ({ ...props }) => {
 
 const Contact = () => {
   return (
-    <Element name="contact" className="contact">
+    <Element name="contact" className="contact-container">
       <h1 className="text-align-center header-text">CONTACT</h1>
       <Formik
         initialValues={{ name: '', email: '', message: '' }}
@@ -64,18 +64,8 @@ const Contact = () => {
       >
         {(props) => (
           <Form className="contact-form">
-            <MyTextInput
-              style={{ border: '2px solid black' }}
-              name="name"
-              type="text"
-              placeholder="NAME"
-            />
-            <MyTextInput
-              style={{ border: '2px solid black' }}
-              name="email"
-              type="email"
-              placeholder="EMAIL"
-            />
+            <MyTextInput name="name" type="text" placeholder="NAME" />
+            <MyTextInput name="email" type="email" placeholder="EMAIL" />
             <MyTextArea
               name="message"
               placeholder="MESSAGE"
@@ -87,7 +77,7 @@ const Contact = () => {
               disabled={props.isSubmitting}
             >
               <FontAwesomeIcon icon={faPaperPlane} size="large" />
-              <div>SEND</div>
+              <div style={{ paddingLeft: '5px' }}> SEND</div>
             </button>
             <ToastContainer
               position="top-right"
@@ -104,9 +94,9 @@ const Contact = () => {
         )}
       </Formik>
       <div className="social-media-icon-container">
+        <hr />
+        <br />
         <ul className="social-media-icon-list">
-          <hr />
-          <br />
           <li className="list-item" style={{ margin: '4px' }}>
             <FontAwesomeIcon icon={faFacebook} size="lg" />
           </li>

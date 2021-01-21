@@ -1,29 +1,27 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import "./Sidebar.css";
-import { CaretLeftFilled, CaretRightFilled} from "@ant-design/icons";
-import Unit from "./Unit/Unit";
-import CourseContent from "./CourseContent/CourseContent";
-import { CourseContext } from "../../data";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import './Sidebar.css';
+import { CaretLeftFilled, CaretRightFilled } from '@ant-design/icons';
+import Unit from './Unit/Unit';
+import CourseContent from './CourseContent/CourseContent';
+import { CourseContext } from '../../data';
 class Sidebar extends Component {
   componentDidMount() {
-    if(this.props.id>1 && this.props.Isopen){
-    // console.log(this.context.CourseContent);
-    const node = ReactDOM.findDOMNode(this.props.rf.current);
-    node.scrollTop = node.scrollTop + this.props.id * 30;
-    // console.log(node.scrollTop);
-  }
+    if (this.props.id > 1 && this.props.Isopen) {
+      // console.log(this.context.CourseContent);
+      const node = ReactDOM.findDOMNode(this.props.rf.current);
+      node.scrollTop = node.scrollTop + this.props.id * 30;
+      // console.log(node.scrollTop);
+    }
   }
 
-  componentDidUpdate()
-  {
-    if(this.props.id>1 && this.props.Isopen && this.props.Ismobile){
+  componentDidUpdate() {
+    if (this.props.id > 1 && this.props.Isopen && this.props.Ismobile) {
       // console.log(this.context.CourseContent);
       const node = ReactDOM.findDOMNode(this.props.rf.current);
       node.scrollTop = node.scrollTop + this.props.id * 40;
       // console.log(node.scrollTop);
-    }
-    else if(this.props.id>1 && this.props.Isopen && !this.props.Ismobile){
+    } else if (this.props.id > 1 && this.props.Isopen && !this.props.Ismobile) {
       // console.log(this.context.CourseContent);
       const node = ReactDOM.findDOMNode(this.props.rf.current);
       node.scrollTop = node.scrollTop + this.props.id * 5;
@@ -31,67 +29,79 @@ class Sidebar extends Component {
     }
   }
 
-
   render() {
     return (
-
-     <div>
-         {
-             this.props.Isopen?(<div
-                className="Sidebar_Container"
+      <div>
+        {this.props.Isopen ? (
+          <div
+            className="Sidebar_Container"
+            style={{
+              width: this.props.Isopen ? '350px' : '0px',
+              color: this.props.Isopen ? 'black' : 'transparent',
+            }}
+          >
+            <div className="CourseHeading">
+              <span
+                className="coursetitle"
                 style={{
-                  width: this.props.Isopen ? "350px" : "0px",
-                  color: this.props.Isopen ? "black" : "transparent",
+                  color: this.props.Isopen ? '#ffffff' : 'transparent',
+                  fontSize: this.props.Isopen ? '18px' : '0px',
                 }}
               >
-                <div className="CourseHeading">
-                  <span className="coursetitle" style={{color:this.props.Isopen?'#ffffff':'transparent', fontSize:this.props.Isopen?'18px':'0px'}}>{this.context.currentCourseProgress.title}</span>
-                      <CaretLeftFilled
-                        id="leftArrow"
-                        style={{ color: "white", fontSize: "40px" }}
-                        onClick={this.props.close}
-                      ></CaretLeftFilled>
-                    
-                </div>
-                <div className="CourseContents" ref={this.props.rf}>
-                  {Object.keys(this.context.CourseContent).map((unit) => {
-                    return (
-                      <div key={unit}>
-                        <Unit txt={"Unit " + unit} key={unit}></Unit>
-                        {this.context.CourseContent[unit].map((course) => {
-                          return (
-                            <CourseContent
-                              txt={course.title}
-                              coursedata={course}
-                              key={course.id}
-                              active={
-                                this.context.CurrentContentDetails.id === course.id
-                                  ? "true"
-                                  : "false"
-                              }
-                              done = {
-                                parseInt(this.context.currentCourseProgress.completedItem) >= parseInt(course.id)
-                                ? "true"
-                                  : "false"
-                              }
-                              open={this.props.open}
-                              close={this.props.close}
-                            ></CourseContent>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-                  <div style={{ height: "140px" }}></div>
-                </div>
-              </div>):(
-                  <div>
-                      <CaretRightFilled
-                      style={{fontSize: this.props.Ismobile?'0px':'60px', margin:'10px', marginLeft:'30px'}} onClick={this.props.open}></CaretRightFilled>
+                {this.context.currentCourseProgress.title}
+              </span>
+              <CaretLeftFilled
+                id="leftArrow"
+                style={{ color: 'white', fontSize: '40px' }}
+                onClick={this.props.close}
+              ></CaretLeftFilled>
+            </div>
+            <div className="CourseContents" ref={this.props.rf}>
+              {Object.keys(this.context.CourseContent).map((unit) => {
+                return (
+                  <div key={unit}>
+                    <Unit txt={'Unit ' + unit} key={unit}></Unit>
+                    {this.context.CourseContent[unit].map((course) => {
+                      return (
+                        <CourseContent
+                          txt={course.title}
+                          coursedata={course}
+                          key={course.id}
+                          active={
+                            this.context.CurrentContentDetails.id === course.id
+                              ? 'true'
+                              : 'false'
+                          }
+                          done={
+                            parseInt(
+                              this.context.currentCourseProgress.completedItem
+                            ) >= parseInt(course.id)
+                              ? 'true'
+                              : 'false'
+                          }
+                          open={this.props.open}
+                          close={this.props.close}
+                        ></CourseContent>
+                      );
+                    })}
                   </div>
-              )
-         }
-      
+                );
+              })}
+              <div style={{ height: '140px' }}></div>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <CaretRightFilled
+              style={{
+                fontSize: this.props.Ismobile ? '0px' : '60px',
+                margin: '10px',
+                marginLeft: '30px',
+              }}
+              onClick={this.props.open}
+            ></CaretRightFilled>
+          </div>
+        )}
       </div>
     );
   }

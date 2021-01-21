@@ -1,47 +1,81 @@
-.contact {
-  /* height: 80vh; */
-  width: 100%;
-  background-color: whitesmoke;
-  color: black;
-  /* margin: 20px auto; */
-  padding: 10px;
-  color: black;
-  margin-bottom: 0px;
+:root {
+  --border-color: teal;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  height: 85vh;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
 }
 
 .header-text {
   letter-spacing: 6px;
+  font-size: 30px;
 }
 
 .text-align-center {
   text-align: center;
 }
-.contact-form {
+.contact-container > form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
+  margin: 50px;
 }
 
-.text-area-input {
-  margin-top: 30px;
-  height: 15vh;
+.contact-container > form > input,
+.contact-container > form > textarea {
+  padding: 10px 0 10px 15px;
+  font-size: 17px;
+  font-weight: 300;
+  color: rgb(24, 23, 23);
+  letter-spacing: 1px;
+  border: none;
+  background: transparent;
+  font-family: 'Mukta', sans-serif;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--border-color);
+  margin-top: 10px;
 }
 
 .send-button {
-  width: 200px;
-  margin: 20px;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 300;
+  padding: 10px 0 10px 15px;
+  border: 1px solid var(--border-color);
+  color: var(--border-color);
+  cursor: pointer;
 }
 
 .send-button:hover {
   transform: translate3d(0px, -5px, 0px);
 }
+/*social media section */
+.social-media-icon-container {
+}
+
+hr {
+  color: var(--border-color);
+}
 
 .social-media-icon-list {
   list-style-type: none;
-
+  display: flex;
+  justify-content: center;
   position: relative;
   font-size: 2.3rem;
   text-align: center;
@@ -55,7 +89,7 @@
 .social-media-icon-list li {
   position: relative;
   top: 0;
-  left: -20px;
+  /* left: -20px; */
   display: inline-block;
   height: 70px;
   width: 70px;
@@ -63,7 +97,7 @@
   line-height: 70px;
   border-radius: 50%;
   color: #fff;
-  background-color: rgb(27, 27, 27);
+  background-color: var(--border-color);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -75,10 +109,6 @@
 .list-item {
   line-height: 4;
   color: rgb(112, 103, 103);
-}
-
-.border {
-  border: 2px solid black;
 }
 
 .Toastify button {
