@@ -7,7 +7,7 @@ import { CourseContext } from '../data';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { css } from '@emotion/core';
-import logo from './logo.png';
+import logo from './flogo.png';
 import Auth from '../Auth';
 
 class Dashboard extends Component {
@@ -87,8 +87,7 @@ class Dashboard extends Component {
                   src={logo}
                   alt={'logo'}
                   style={{
-                    marginTop: '5px',
-                    height: '50px',
+                    height: '60px',
                     marginLeft: '10px',
                   }}
                 ></img>
@@ -102,22 +101,17 @@ class Dashboard extends Component {
                     <FontAwesomeIcon
                       icon={faUser}
                       size={'2x'}
-                      style={{ marginTop: '5px' }}
                     ></FontAwesomeIcon>
                     <span
                       style={{
                         paddingLeft: '5px',
                         fontSize: '11px',
-                        marginTop: '10px',
                       }}
                     >
                       {this.context.CurrentUserDetails.name}
                     </span>
                   </div>
                   <div className="dropdown-content">
-                    {/* <a href="/dashboard">Dashboard</a>
-                <a href="/announcement">Announcements</a>
-                <a href="/logout">Logout</a> */}
                     <Link to="/dashboard">Dashboard</Link>
                     <Link to="/announcement">Announcements</Link>
                     <Link to="/logout">Logout</Link>

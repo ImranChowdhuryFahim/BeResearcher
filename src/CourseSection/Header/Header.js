@@ -36,14 +36,14 @@ class Header extends Component {
                             </span>
                         </div>
                     </div>
-                    <div className="Announcement" style={{ display: 'flex' }}>
-                        <FontAwesomeIcon className="ans" icon={faBullhorn} size={'2x'} ></FontAwesomeIcon>
-                        <span className="ans" style={{ paddingLeft: '5px', fontSize: '13px', marginTop: '12px' }}>Announcements</span>
+                    <div className="Announcement" style={{ display: 'flex' , alignItems:'center' }}>
+                        <FontAwesomeIcon className="ans" icon={faBullhorn} ></FontAwesomeIcon>
+                        <span className="ans" style={{ paddingLeft: '5px', fontSize: '13px' }}>Announcements</span>
                     </div>
                     <div className="UserDetails">
                         <div className="UserProfile" style={{ display: 'flex', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faUser} size={'2x'} ></FontAwesomeIcon>
-                            <span style={{ paddingLeft: '5px', fontSize: '11px' }}>{this.context.CurrentUserDetails.name}</span>
+                            <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
+                            <span style={{ paddingLeft: '5px', fontSize: '13px' }}>{this.context.CurrentUserDetails.name}</span>
 
                         </div>
                         <div className="dropdown-content">
