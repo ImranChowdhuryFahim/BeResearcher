@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { CourseContext } from '../../data';
 import { Line } from 'rc-progress';
+import Quiz from './quiz/Quiz';
 
 class VideoPlayer extends Component {
   constructor() {
@@ -248,6 +249,8 @@ class VideoPlayer extends Component {
     }
   }
   render() {
+    console.log('**Context** ', this.context);
+
     return (
       <div className="VideoContainer">
         <div className={'unitinfo'}>
@@ -302,59 +305,65 @@ class VideoPlayer extends Component {
           )}
         </div>
         {this.context.CurrentContentDetails.type === 'lecture' ? (
-          <ReactPlayer
-            playing={true}
-            controls
-            id="video"
-            onEnded={this.handleVideoEnd.bind(this)}
-            url={this.context.CurrentContentDetails.src}
-          />
+          <div>
+            <ReactPlayer
+              playing={true}
+              controls
+              id="video"
+              onEnded={this.handleVideoEnd.bind(this)}
+              url={this.context.CurrentContentDetails.src}
+            />
+          </div>
+        ) : this.context.CurrentContentDetails.type === 'quiz' ? (
+          <div className="quiz-container">
+            <Quiz
+              {...this.context.CurrentContentDetails}
+              OnQuizAnswered={this.handleVideoEnd.bind(this)}
+            />
+          </div>
         ) : (
           <div>
-            {this.context.CurrentContentDetails.type === 'assignment' ? (
-              <div>
-                <div className={'unitinfo'}> Description </div>
-                <div className={'assignmentdetails'}>
-                  {this.context.CurrentContentDetails.description}
-                </div>
-
-                <div className={'FileUploader'}>
-                  <label style={{ color: '#575d76', fontWeight: 'bold' }}>
-                    Upload your file
-                  </label>
-                  <br></br>
-                  <br></br>
-                  <div className={'filechooser'}>
-                    <FontAwesomeIcon
-                      icon={faUpload}
-                      size={'2x'}
-                    ></FontAwesomeIcon>
-                    <input
-                      type="file"
-                      name="file"
-                      onChange={this.onChangeHandler.bind(this)}
-                      style={{ padding: '20px' }}
-                    />
-                  </div>
-                  <Line
-                    id="uploadprogressbar"
-                    percent={this.state.percentage}
-                    strokeWidth="1"
-                    strokeColor="darkblue"
-                  />
-                  <br></br>{' '}
-                  <button
-                    type="button"
-                    onClick={this.handleupload.bind(this)}
-                    id="upload"
-                  >
-                    Upload
-                  </button>
-                </div>
+            <div>
+              <div className={'unitinfo'}> Description </div>
+              <div className={'assignmentdetails'}>
+                {this.context.CurrentContentDetails.description}
               </div>
-            ) : (
-              <div></div>
-            )}
+
+              <div className={'FileUploader'}>
+                <label style={{ color: '#575d76', fontWeight: 'bold' }}>
+                  Upload your file
+                </label>
+                <br></br>
+                <br></br>
+                <div className={'filechooser'}>
+                  <FontAwesomeIcon
+                    icon={faUpload}
+                    size={'2x'}
+                  ></FontAwesomeIcon>
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={this.onChangeHandler.bind(this)}
+                    style={{ padding: '20px' }}
+                  />
+                </div>
+                <Line
+                  id="uploadprogressbar"
+                  percent={this.state.percentage}
+                  strokeWidth="1"
+                  strokeColor="darkblue"
+                />
+                <br></br>{' '}
+                <button
+                  type="button"
+                  onClick={this.handleupload.bind(this)}
+                  id="upload"
+                >
+                  Upload
+                </button>
+              </div>
+            </div>
+            }
           </div>
         )}
 

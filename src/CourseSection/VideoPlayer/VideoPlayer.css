@@ -1,216 +1,210 @@
-.VideoContainer{
-    width: 100%;
-    height: 85vh;
-    
+.VideoContainer {
+  width: 100%;
+  height: 85vh;
 }
 
-#video{
-    margin: 0 auto;
-    padding-top: 20px;
-    width: 810px !important;
-    height: 510px !important;
-    margin-left: 34%;
-    padding-bottom: 50px;
-    
-}
-.unitinfo{
-    margin-top: 40px;
-    margin-left: 34%;
-    font-size: 15px;
-    font-weight: bold;
-    color: #575d76;
-    padding-bottom: 5px;
-    
-
+.quiz-container {
+  margin-top: 40px;
+  margin-left: 34%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #0033ff;
+  padding-bottom: 5px;
+  width: 43%;
 }
 
-.LectureTitle{
-    font-size: 13px;
-    margin-left: 34%;
-    background-color: #f0f3f6;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    width: 810px;
-    border-radius: 5px;
+#video {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 810px !important;
+  height: 510px !important;
+  margin-left: 34%;
+  padding-bottom: 50px;
+}
+.unitinfo {
+  margin-top: 40px;
+  margin-left: 34%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #575d76;
+  padding-bottom: 5px;
 }
 
-.forwardbackward{
-    margin-left: 34%;
-    width: 810px;
-    display: flex;
-    align-items: center;
-}
-#leftarrow , #rightarrow{
-    position: relative;
-}
-
-.btn1:hover #leftarrow{
-      right: 5px;
-      transition: ease all .3s;
-}
-.btn3:hover #rightarrow{
-    left: 5px;
-    transition: ease all .3s;
+.LectureTitle {
+  font-size: 13px;
+  margin-left: 34%;
+  background-color: #f0f3f6;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: 810px;
+  border-radius: 5px;
 }
 
-.assignmentdetails{
-    margin-left: 34%;
-    background-color: #f0f3f6;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    width: 810px;
-    border-radius: 5px;
-    
+.forwardbackward {
+  margin-left: 34%;
+  width: 810px;
+  display: flex;
+  align-items: center;
+}
+#leftarrow,
+#rightarrow {
+  position: relative;
 }
 
-.FileUploader{
-    padding-top: 20px;
-    padding-bottom: 50px;
-    margin-left: 34%;
+.btn1:hover #leftarrow {
+  right: 5px;
+  transition: ease all 0.3s;
+}
+.btn3:hover #rightarrow {
+  left: 5px;
+  transition: ease all 0.3s;
 }
 
-.filechooser{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    border: 1px dashed gray;
-    width: 810px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-#upload{
-    width: 810px;
-    height: 30px;
-    background-color: #4faf3d;
-    border-style: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#upload:focus{
-    outline: none;
+.assignmentdetails {
+  margin-left: 34%;
+  background-color: #f0f3f6;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 810px;
+  border-radius: 5px;
 }
 
-#uploadprogressbar
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 810px;
+.FileUploader {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-left: 34%;
+}
+
+.filechooser {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 1px dashed gray;
+  width: 810px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#upload {
+  width: 810px;
+  height: 30px;
+  background-color: #4faf3d;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#upload:focus {
+  outline: none;
+}
+
+#uploadprogressbar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 810px;
 }
 
 @media screen and (max-width: 1200px) {
-    
-    #video{
-        margin: 0 auto;
-        padding-top: 50px;
-        width: 59% !important;
-        height: 450px !important;
-        margin-left: 40%;
-        padding-bottom: 50px;
-    }
-    .unitinfo{
-        width: 59% !important;
-        margin: 0 auto;
-        padding-top: 10px;
-        margin-left: 40%;
-    }
-    .LectureTitle{
-        margin-left: 40%;
-        background-color: #f0f3f6;
-        height: 43px;
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        width: 59% !important;
-        border-radius: 5px;
-        text-align: center;
-    }
-    .forwardbackward{
-        
-        width: 59% !important;
-        margin-left: 40%;
-    }
-
-    .assignmentdetails{
-        margin-left: 40%;
-        width: 59% !important;
-    }
-    .FileUploader{
-        margin-left: 40%;
-        width: 59% !important;
-    }
-    .filechooser{
-        width: 100% !important;
-    }
-    #upload{
-        width: 100% !important;
-    }
-    #uploadprogressbar
-{
-    width: 100%;
-}
+  #video {
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 59% !important;
+    height: 450px !important;
+    margin-left: 40%;
+    padding-bottom: 50px;
+  }
+  .unitinfo,
+  .quiz-container {
+    width: 59% !important;
+    margin: 0 auto;
+    padding-top: 10px;
+    margin-left: 40%;
+  }
+  .LectureTitle {
+    margin-left: 40%;
+    background-color: #f0f3f6;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 59% !important;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .forwardbackward {
+    width: 59% !important;
+    margin-left: 40%;
   }
 
-  @media screen and (max-width: 800px) {
-    
-    #video{
-        margin: 0 auto;
-        padding-top: 20px;
-        width: 85% !important;
-        height: 500px !important;
-        padding-bottom: 50px;
-    }
-    .unitinfo{
-        width: 85% !important;
-        margin: 0 auto;
-        padding-top: 10px;
-
-    }
-    .LectureTitle{
-        margin: 0 auto;
-        background-color: #f0f3f6;
-        height: 43px;
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        width: 85% !important;
-        border-radius: 5px;
-        text-align: center;
-    }
-    .forwardbackward{
-        margin: 0 auto;
-        width: 85% !important;
-
-    }
-
-    .assignmentdetails{
-
-        width: 85% !important;
-    }
-    .FileUploader{
-
-        width: 85% !important;
-    }
-    .filechooser{
-        width: 100% !important;
-    }
-    #upload{
-        width: 100% !important;
-    }
-    #uploadprogressbar
-{
-
+  .assignmentdetails {
+    margin-left: 40%;
+    width: 59% !important;
+  }
+  .FileUploader {
+    margin-left: 40%;
+    width: 59% !important;
+  }
+  .filechooser {
+    width: 100% !important;
+  }
+  #upload {
+    width: 100% !important;
+  }
+  #uploadprogressbar {
     width: 100%;
+  }
 }
+
+@media screen and (max-width: 800px) {
+  #video {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 85% !important;
+    height: 500px !important;
+    padding-bottom: 50px;
+  }
+  .unitinfo {
+    width: 85% !important;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+  .LectureTitle {
+    margin: 0 auto;
+    background-color: #f0f3f6;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 85% !important;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .forwardbackward {
+    margin: 0 auto;
+    width: 85% !important;
   }
 
+  .assignmentdetails {
+    width: 85% !important;
+  }
+  .FileUploader {
+    width: 85% !important;
+  }
+  .filechooser {
+    width: 100% !important;
+  }
+  #upload {
+    width: 100% !important;
+  }
+  #uploadprogressbar {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 760px) {
-    /* .Sidebar_Container{
+  /* .Sidebar_Container{
         width: 0px !important;
         color: transparent !important;
     }
@@ -218,69 +212,63 @@
         color: transparent !important;
     } */
 
-    .CourseSection{
-        overflow-y: auto;
-    }
-    
-    #video{
-        margin: 0 auto;
-        width: 89% !important;
-        height: 45% !important;
-    }
-    .unitinfo{
-        width: 90% !important;
-        margin: 0 auto;
-        padding-top: 10px;
-    }
-    .LectureTitle{
-        width: 90% !important;
-        height: 90px;
-        margin: 0 auto;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        justify-content: space-evenly;
-    }
-    .forwardbackward{
-
-        width: 90% !important;
-        display: flex;
-        flex-direction: column;
-        margin: auto !important;
-    }
-    .btn1{
-        font-size: 14px;
-        margin-left: auto !important;
-        margin-bottom: 5px;
-    }
-    .btn2{
-        font-size: 14px;
-    }
-    .btn3{
-        font-size: 13px;
-        margin-right: auto !important;
-        margin-top: 5px;
-        margin-bottom: 80px;
-    }
-    .inprogress{
-        padding-top: 3px;
-        margin: 0 auto !important;
-    }
-
-    .assignmentdetails{
-        margin: 0 auto;
-        width: 88% !important;
-    }
-    .FileUploader{
-        margin: 0 auto;
-        width: 90% !important;
-    }
-    #uploadprogressbar
-{
-    
-    width: 100%;
-}
-   
+  .CourseSection {
+    overflow-y: auto;
   }
 
- 
+  #video {
+    margin: 0 auto;
+    width: 89% !important;
+    height: 45% !important;
+  }
+  .unitinfo {
+    width: 90% !important;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+  .LectureTitle {
+    width: 90% !important;
+    height: 90px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+  }
+  .forwardbackward {
+    width: 90% !important;
+    display: flex;
+    flex-direction: column;
+    margin: auto !important;
+  }
+  .btn1 {
+    font-size: 14px;
+    margin-left: auto !important;
+    margin-bottom: 5px;
+  }
+  .btn2 {
+    font-size: 14px;
+  }
+  .btn3 {
+    font-size: 13px;
+    margin-right: auto !important;
+    margin-top: 5px;
+    margin-bottom: 80px;
+  }
+  .inprogress {
+    padding-top: 3px;
+    margin: 0 auto !important;
+  }
+
+  .assignmentdetails {
+    margin: 0 auto;
+    width: 88% !important;
+  }
+  .FileUploader {
+    margin: 0 auto;
+    width: 90% !important;
+  }
+  #uploadprogressbar {
+    width: 100%;
+  }
+}
