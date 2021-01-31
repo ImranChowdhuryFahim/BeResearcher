@@ -255,7 +255,7 @@ class Course extends Component {
                                   placeholder={"e.g. Introduction"}
                                   style={{
                                     marginBottom: "5px",
-                                    padding: "10px",
+                                    padding: "6px",
                                     width: "100%",
                                   }}
                                 ></input>
@@ -268,7 +268,7 @@ class Course extends Component {
                                   data-rid={id}
                                   onChange={this.handlesource.bind(this)}
                                   placeholder={"Youtube Link"}
-                                  style={{ padding: "10px", width: "100%" }}
+                                  style={{ padding: "6px", width: "100%" }}
                                 ></input>
                               </div>
                             </div>
@@ -301,7 +301,7 @@ class Course extends Component {
                                   placeholder={"e.g. Assignment1"}
                                   style={{
                                     marginBottom: "5px",
-                                    padding: "10px",
+                                    padding: "6px",
                                     width: "100%",
                                   }}
                                 ></input>
@@ -315,7 +315,7 @@ class Course extends Component {
                                   data-rid={id}
                                   onChange={this.handleDescription.bind(this)}
                                   placeholder={"e.g. Assignment1"}
-                                  style={{ padding: "10px", width: "100%" }}
+                                  style={{ padding: "5px", width: "100%" }}
                                 ></textarea>
                               </div>
                             </div>
@@ -370,7 +370,7 @@ class Course extends Component {
                                           "e.g. What is the Capital of Bangladesh"
                                         }
                                         style={{
-                                          padding: "10px",
+                                          padding: "6px",
                                           width: "100%",
                                         }}
                                       ></input>
@@ -395,7 +395,7 @@ class Course extends Component {
                                         onChange={this.handleOption.bind(this)}
                                         placeholder={"e.g. Dhaka"}
                                         style={{
-                                          padding: "10px",
+                                          padding: "6px",
                                           width: "100%",
                                         }}
                                       ></input>
@@ -411,7 +411,7 @@ class Course extends Component {
                                         onChange={this.handleOption.bind(this)}
                                         placeholder={"e.g. Chittagont"}
                                         style={{
-                                          padding: "10px",
+                                          padding: "6px",
                                           width: "100%",
                                         }}
                                       ></input>
@@ -436,7 +436,7 @@ class Course extends Component {
                                         onChange={this.handleOption.bind(this)}
                                         placeholder={"e.g. Comilla"}
                                         style={{
-                                          padding: "10px",
+                                          padding: "6px",
                                           width: "100%",
                                         }}
                                       ></input>
@@ -452,7 +452,7 @@ class Course extends Component {
                                         onChange={this.handleOption.bind(this)}
                                         placeholder={"e.g. Barisal"}
                                         style={{
-                                          padding: "10px",
+                                          padding: "6px",
                                           width: "100%",
                                         }}
                                       ></input>
@@ -473,7 +473,7 @@ class Course extends Component {
                                       ques-no={j}
                                       onChange={this.handleAnswer.bind(this)}
                                       placeholder={"e.g. Dhaka"}
-                                      style={{ padding: "10px", width: "35%" }}
+                                      style={{ padding: "6px", width: "35%" }}
                                     ></input>
                                   </div>
                                   <button
