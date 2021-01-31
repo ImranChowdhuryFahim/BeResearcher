@@ -13,7 +13,7 @@ class TableView extends Component {
               <th>Name</th>
               <th>Institute</th>
               <th>Email</th>
-              {/* <th>Course</th> */}
+              <th>Course</th>
               <th>Complete Percentange</th>
             </tr>
           </thead>
@@ -24,7 +24,7 @@ class TableView extends Component {
                   <td>{name}</td>
                   <td>{institute}</td>
                   <td><a href={`mailto:${email}`}>{email}</a></td>
-                  {/* <td>Research Methodology</td> */}
+                  <td>Research Methodology</td>
                   <td>
                     <CircularProgressbar
                       value={50}
