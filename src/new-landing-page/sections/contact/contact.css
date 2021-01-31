@@ -115,11 +115,15 @@ hr {
   display: none;
 }
 
-@media screen and (max-width: 640px) {
-  .contact {
-    /* background-color: rgb(212, 212, 212); */
-  }
-  .contact {
+@media screen and (max-width: 768px)
+{
+  .contact{
+    margin-bottom: 100px;
     width: 100%;
   }
+  .contact-container{
+    margin-bottom: 100px;
+  }
 }
+
+
