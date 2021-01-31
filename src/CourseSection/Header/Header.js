@@ -37,12 +37,12 @@ class Header extends Component {
                         </div>
                     </div>
                     <div className="Announcement" style={{ display: 'flex' , alignItems:'center' }}>
-                        <FontAwesomeIcon className="ans" icon={faBullhorn} ></FontAwesomeIcon>
+                        <FontAwesomeIcon className="ans" icon={faBullhorn} size={"2x"} ></FontAwesomeIcon>
                         <span className="ans" style={{ paddingLeft: '5px', fontSize: '13px' }}>Announcements</span>
                     </div>
                     <div className="UserDetails">
                         <div className="UserProfile" style={{ display: 'flex', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faUser} size={"2x"}></FontAwesomeIcon>
                             <span style={{ paddingLeft: '5px', fontSize: '13px' }}>{this.context.CurrentUserDetails.name}</span>
 
                         </div>

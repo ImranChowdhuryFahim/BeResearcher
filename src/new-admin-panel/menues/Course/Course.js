@@ -523,6 +523,7 @@ class Course extends Component {
         <input
           className={"create-course-button"}
           type="submit"
+          value="Create Course"
           onClick={this.handleCreate.bind(this)}
         ></input>
       </div>
