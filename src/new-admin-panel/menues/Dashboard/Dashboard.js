@@ -13,21 +13,49 @@ class Dashboard extends Component{
         super();
         this.state = {
           studentList: null,
+          totalItem: null,
+          totalStudents: null,
+          totalCoursers: 1,
         };
       }
     componentDidMount()
     {
         axios({
             method: 'GET',
-            url: "https://beresearcherbd.herokuapp.com/api/course/getcoursedata/Research%20Methodology",
+            url: "https://beresearcherbd.herokuapp.com/api/student/get_all_enrolled_students/Research Methodology",
             headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
             },
           }).then((Result)=>{
-              this.setState({studentList: Result.data.enrolledStudents})
-              console.log(this.state.studentList)
+              this.setState({studentList: Result.data})
+              // console.log(Result.data)
           })
+
+          axios({
+            method: 'GET',
+            url: "https://beresearcherbd.herokuapp.com/api/course/gettotalitem/Research Methodology",
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          }).then((Result)=>{
+              this.setState({totalItem: Result.data.totalItem})
+              // console.log(Result.data.totalItem)
+          })
+
+          axios({
+            method: 'GET',
+            url: "https://beresearcherbd.herokuapp.com/api/student/getall",
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          }).then((Result)=>{
+              this.setState({totalStudents: Result.data.length})
+              // console.log(Result.data.length)
+          })
+
     }
     render()
     {
@@ -40,15 +68,15 @@ class Dashboard extends Component{
     `;
         return(
             <div className={"dashboardContent"}>
-                {this.state.studentList !== null ? (
+                {this.state.studentList !== null && this.state.totalItem !== null  && this.state.totalStudents !== null ? (
                 <div>
                 <div className={"cards"}>
-                <CardView color={"#0054f0"} icon={faUsers} heading={"Total Students"}></CardView>
-                <CardView color={"#dd4b39"} icon={faChalkboardTeacher} heading={"Total Supervisors"}></CardView>
-                <CardView color={"#770ff5"} icon={faGraduationCap} heading={"Total Course"}></CardView>
-                <CardView color={"#ffa930"} icon={faDollarSign} heading={"Fees Collection"}></CardView>
+                <CardView color={"#0054f0"} icon={faUsers} count={this.state.totalStudents} heading={"Total Students"}></CardView>
+                <CardView color={"#dd4b39"} icon={faChalkboardTeacher} count={6} heading={"Total Supervisors"}></CardView>
+                <CardView color={"#770ff5"} icon={faGraduationCap} count={1} heading={"Total Course"}></CardView>
+                <CardView color={"#ffa930"} icon={faDollarSign} count={0} heading={"Fees Collection"}></CardView>
                 </div>
-                <TableView studentList={this.state.studentList}></TableView>
+                <TableView studentList={this.state.studentList} totalItem= { this.state.totalItem}></TableView>
                 </div>):(
                     <div style={{margin:'0 auto'}}>
                     <BeatLoader

@@ -45,30 +45,7 @@ class Sidebar extends Component {
                 Course{' '}
               </NavLink>{' '}
             </li>
-            <li>
-              {' '}
-              <NavLink to="/newadmin/quiz" activeStyle={activeStyle}>
-                {' '}
-                <FontAwesomeIcon
-                  icon={faBookReader}
-                ></FontAwesomeIcon> Quiz{' '}
-              </NavLink>{' '}
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/newadmin/assignment" activeStyle={activeStyle}>
-                {' '}
-                <FontAwesomeIcon
-                  icon={faBookmark}
-                ></FontAwesomeIcon> Assignment{' '}
-              </NavLink>{' '}
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/newadmin/news" activeStyle={activeStyle}>
-                <FontAwesomeIcon icon={faNewspaper}></FontAwesomeIcon> News{' '}
-              </NavLink>{' '}
-            </li>
+
             <li>
               {' '}
               <NavLink to="/newadmin/events" activeStyle={activeStyle}>
@@ -79,6 +56,21 @@ class Sidebar extends Component {
               {' '}
               <NavLink to="/newadmin/blog" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faBlog}></FontAwesomeIcon> Blog{' '}
+              </NavLink>{' '}
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/newadmin/news" activeStyle={activeStyle}>
+                <FontAwesomeIcon icon={faNewspaper}></FontAwesomeIcon> News{' '}
+              </NavLink>{' '}
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/newadmin/assignment" activeStyle={activeStyle}>
+                {' '}
+                <FontAwesomeIcon
+                  icon={faBookmark}
+                ></FontAwesomeIcon> Assignment{' '}
               </NavLink>{' '}
             </li>
             <li>

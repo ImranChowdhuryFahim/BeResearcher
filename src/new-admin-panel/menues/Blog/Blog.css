@@ -1,17 +1,64 @@
-.blog_write{
-    width: 98%;
-    height: 700px;
+
+.create-blog
+{
     margin: 20px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    
+}
+.blog_write{
+    border: 1px solid black;
+    height: 400px;
     padding: 5px;   
-    overflow-x: scroll;
+    overflow-y: auto;
 }
 
 .post-button{
-    padding: 15px;
+
+    font-weight: bold;
+}
+
+select{
+    margin: 10px 10px 10px 0px;
+    padding: 7px;
+    width: 100%;
+}
+
+input[type='text'] {
+    margin: 10px 10px 10px 0px;
+    padding: 7px;
+    width: 100%;
+  }
+textarea{
+    margin: 10px 10px 10px 0px;
+    width: 100%;
+    padding: 5px;
+}
+input[type="submit"]
+{
+    margin: 10px 10px 10px 0px;
+    padding: 8px;
+    width: 300px;
+    color: white;
+    background-color: blueviolet;
+    border-style: none;
+    box-shadow: 0 2px 4px 0 rgba(0.2, 0.2, 0.2, 0.5);
+    border-radius: 5px;
+}
+
+
+.heading_name
+{
     background-color: blueviolet;
     color: white;
-    border-style: none;
+    width: 100%;
     border-radius: 5px;
-    font-weight: bold;
+    padding: 6px;
+    font-size: 18px;
+}
+
+@media screen and (max-width:768px)
+{
+    .create-blog{
+        margin-top: 50px;
+    }
 }

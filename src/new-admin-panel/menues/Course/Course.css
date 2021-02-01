@@ -83,6 +83,6 @@ input[type="submit"]
 @media screen and (max-width:768px)
 {
     .create-course{
-        margin-top: 60px;
+        margin-top: 50px;
     }
 }

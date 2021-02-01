@@ -5,6 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 class TableView extends Component {
   render() {
+    let i=0;
     return (
       <div className={"TableView"}>
         <table border="0" cellSpacing="0" cellPadding="0">
@@ -18,17 +19,22 @@ class TableView extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.studentList.map(( {name, institute, email }) => {
+            {this.props.studentList.map(( {enrolledCourses,firstName,lastName, institution, email }) => {
+              
+              i++;
               return (
-                <tr>
-                  <td>{name}</td>
-                  <td>{institute}</td>
+                
+                <tr key={i}>
+                  <td>{firstName}{" "}{lastName}</td>
+                  <td>{institution}</td>
                   <td><a href={`mailto:${email}`}>{email}</a></td>
                   <td>Research Methodology</td>
                   <td>
                     <CircularProgressbar
-                      value={50}
-                      text={`${50}%`}
+                      value={Math.floor((enrolledCourses[0].completedItem
+                        /this.props.totalItem)*100)}
+                      text={`${Math.floor((enrolledCourses[0].completedItem
+                        /this.props.totalItem)*100)}%`}
                       className={"size"}
                     />
                   </td>

@@ -17,7 +17,7 @@ class CardView extends Component{
                   {this.props.heading}
                   </span>
                   <br></br>
-                  <span style={{ fontSize:'18px' }}>2550</span>
+                  <span style={{ fontSize:'18px' }}>{this.props.count}</span>
                 </div>
 
                 </div>
