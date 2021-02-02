@@ -4,9 +4,9 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
+import axios from "axios";
 
 class Blog extends Component {
-  
   state = {
     blog: {},
     editorState: EditorState.createEmpty(),
@@ -21,20 +21,37 @@ class Blog extends Component {
     createBlog["title"] = event.target.value;
     this.setState({ blog: createBlog });
   }
-  handleBlogCatagory(event)
-  {
+  handleBlogCatagory(event) {
     let createBlog = this.state.blog;
     createBlog["catagory"] = event.target.value;
     this.setState({ blog: createBlog });
   }
-  handleCreateBlogPost()
-  {
+  handleCreateBlogPost() {
     let createBlog = this.state.blog;
-    createBlog["body"] = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
+    createBlog["body"] = draftToHtml(
+      convertToRaw(this.state.editorState.getCurrentContent())
+    );
     this.setState({ blog: createBlog });
-    console.log(this.state.blog)
+    console.log(this.state.blog);
   }
+
   render() {
+    function uploadImageCallBack(file) {
+      return new Promise((resolve, reject) => {
+        const data = new FormData();
+        data.append("file", file);
+        //url changed
+        axios.post(
+          `https://nodeapi.beresearcherbd.com/api/uploadimage`,
+          data
+        ).then((res)=>{
+          // console.log(res)
+          resolve({ data: { link: res.data } })
+        }).catch((err) => {
+          reject(err)
+        })
+      });
+    }
     return (
       <div className={"create-blog"}>
         <h1 className={"heading_name"}>Blog Title</h1>
@@ -70,7 +87,15 @@ class Blog extends Component {
             onEditorStateChange={this.onEditorStateChange}
             placeholder="Write Here"
             toolbar={{
-              image: { uploadEnabled: true, previewImage: false },
+              inline: { inDropdown: true },
+              list: { inDropdown: true },
+              textAlign: { inDropdown: true },
+              link: { inDropdown: true },
+              history: { inDropdown: true },
+              image: {
+                uploadCallback: uploadImageCallBack,
+                alt: { present: true, mandatory: false },
+              },
             }}
           />
         </div>

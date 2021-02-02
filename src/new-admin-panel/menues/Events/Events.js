@@ -4,6 +4,7 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
+import axios from "axios";
 
 class Events extends Component {
     state = {
@@ -52,6 +53,22 @@ class Events extends Component {
       }
 
   render() {
+    function uploadImageCallBack(file) {
+      return new Promise((resolve, reject) => {
+        const data = new FormData();
+        data.append("file", file);
+        //url changed
+        axios.post(
+          `https://nodeapi.beresearcherbd.com/api/uploadimage`,
+          data
+        ).then((res)=>{
+          // console.log(res)
+          resolve({ data: { link: res.data } })
+        }).catch((err) => {
+          reject(err)
+        })
+      });
+    }
     return (
       <div className={"create-events"}>
         <h1 className={"heading_name"}>Event Name</h1>
@@ -78,7 +95,15 @@ class Events extends Component {
             onEditorStateChange={this.onEditorStateChange}
             placeholder="Event Details"
             toolbar={{
-              image: { uploadEnabled: true, previewImage: false },
+              inline: { inDropdown: true },
+              list: { inDropdown: true },
+              textAlign: { inDropdown: true },
+              link: { inDropdown: true },
+              history: { inDropdown: true },
+              image: {
+                uploadCallback: uploadImageCallBack,
+                alt: { present: true, mandatory: false },
+              },
             }}
           />
         </div>
