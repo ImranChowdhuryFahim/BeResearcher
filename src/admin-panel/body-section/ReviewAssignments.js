@@ -81,7 +81,7 @@ const ReviewAssignments = () => {
                 // console.log(prev, resp1);
                 return Object.assign(prev, { [element._id]: resp1 });
               });
-              // console.log(resp1);
+              console.log(resp1);
             });
         });
         setTimeout(() => {

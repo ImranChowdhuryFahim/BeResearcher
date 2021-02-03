@@ -12,52 +12,52 @@ import Accesrole from './menues/Access-Role/AccessRole';
 
 const adminRoutes = [
   {
-    path: '/newadmin/dashboard',
+    path: '/admin/dashboard',
     exact: true,
     body: () => <Dashboard />,
   },
   {
-    path: '/newadmin/announcement',
+    path: '/admin/announcement',
     exact: true,
     body: () => <Announcement />,
   },
   {
-    path: '/newadmin/Assignment',
+    path: '/admin/Assignment',
     exact: true,
     body: () => <Assignment />,
   },
   {
-    path: '/newadmin/blog',
+    path: '/admin/blog',
     exact: true,
     body: () => <Blog />,
   },
   {
-    path: '/newadmin/courses',
+    path: '/admin/courses',
     exact: true,
     body: () => <Course />,
   },
   {
-    path: '/newadmin/events',
+    path: '/admin/events',
     exact: true,
     body: () => <Events />,
   },
   {
-    path: '/newadmin/mailbox',
+    path: '/admin/mailbox',
     exact: true,
     body: () => <Mailbox />,
   },
   {
-    path: '/newadmin/news',
+    path: '/admin/news',
     exact: true,
     body: () => <News />,
   },
   {
-    path: '/newadmin/quiz',
+    path: '/admin/quiz',
     exact: true,
     body: () => <Quiz />,
   },
   {
-    path: '/newadmin/access-role',
+    path: '/admin/access-role',
     exact: true,
     body: () => <Accesrole />,
   },
