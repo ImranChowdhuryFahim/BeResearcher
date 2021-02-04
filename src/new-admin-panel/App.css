@@ -38,7 +38,8 @@
 
 
 .admin-mainwindow{
-    height: 100vh;
+    margin-top: 60px;
+    height: 80vh;
     width: 86%;
     background-color: white;
     float: right;
@@ -105,6 +106,7 @@
 {
     .admin-mainwindow{
         width: 100%;
+        margin-top: 40px;
     }
     .admin-menu-icon{
         display: inline-block;   

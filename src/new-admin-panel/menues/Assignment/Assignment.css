@@ -24,9 +24,24 @@ input[type="submit"]
     border-radius: 5px;
 }
 
-@media screen and (max-width:768px)
+.pdf-viewer
 {
-    .review_assignment{
-        margin-top: 50px;
+    height: 418px;
+}
+
+.assignment-name{
+    display: inline;
+    text-align: center;
+
+}
+
+@media screen and (max-width: 768px)
+{
+    .pdf-viewer{
+        height: 300px;
+    }
+    .assignment-name{
+        font-size: 13px;
     }
 }
+
