@@ -50,7 +50,10 @@ const Question = ({
         'loading...'
       ) : (
         <div className="question-answer-container">
-          <div className="question">{quiz[currentQuestionIndex].question}</div>
+          <div className="question">
+            (Q.{currentQuestionIndex + 1} of {quiz.length}){' '}
+            {quiz[currentQuestionIndex].question}
+          </div>
           <div className="answer-container">
             {options.map((elem, index) => (
               <button
@@ -70,7 +73,9 @@ const Question = ({
           <button
             className={
               'next-btn ' +
-              (showAnswer && currentQuestionIndex < quiz.length ? '' : 'hidden')
+              (showAnswer && currentQuestionIndex < quiz.length - 1
+                ? ''
+                : 'hidden')
             }
             title="go to next question"
             onClick={handleNextQuestion}
