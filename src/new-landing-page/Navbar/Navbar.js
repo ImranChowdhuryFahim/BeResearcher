@@ -6,6 +6,7 @@ import { Link as LinkScroll } from 'react-scroll';
 import './Navbar.css';
 import logo from './flogo.png';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NavLinkWithScroll = styled(LinkScroll)`
   &.active {
@@ -35,7 +36,7 @@ class Navbar extends Component {
           className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}
         >
           {MenuItems.map((item, index) => {
-            if (item.type) {
+            if (item.type==='dropdown') {
               return (
                 <div className="dropdown">
                   <li key={index}>
@@ -67,7 +68,21 @@ class Navbar extends Component {
                   </div>
                 </div>
               );
-            } else
+            }
+            else if(item.type==='button')
+            {
+                return(
+                  <li key={index}>
+                  <Link
+                    to={item.url}
+                    className={item.cName}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+                )   
+            }
+             else
               return (
                 <li key={index}>
                   <NavLinkWithScroll

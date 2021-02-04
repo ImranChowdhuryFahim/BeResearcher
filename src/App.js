@@ -1,26 +1,22 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import Home from './landing-page/Home';
-import NewHome from './new-landing-page/App';
-import CourseSection from './CourseSection/App';
-import AdminPanel from './admin-panel';
-import NewAdminPanel from './new-admin-panel/App';
-import Announcement from './Dashboard/Announcement';
-import { CourseProvider } from './data';
+import Home from "./new-landing-page/App";
+import CourseSection from "./CourseSection/App";
+import AdminPanel from "./new-admin-panel/App";
+import Announcement from "./Dashboard/Announcement";
+import { CourseProvider } from "./data";
 import {
   Switch,
   BrowserRouter as Router,
   Route,
   Redirect,
-} from 'react-router-dom';
+} from "react-router-dom";
 // import Coursebutton from "./coursebutton";
-import Dahsboard from './Dashboard/Dashboard';
-import SignUp from './signup/SignUp';
-import { NewSignup, NewLogin } from './new-signup-login';
-import Login from './login/Login';
-import Auth from './Auth';
-import Logout from './logout/Logout';
+import Dahsboard from "./Dashboard/Dashboard";
+import { NewSignup, NewLogin } from "./new-signup-login";
+import Auth from "./Auth";
+import Logout from "./logout/Logout";
 
 const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   <Route
@@ -31,7 +27,7 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: '/login',
+            pathname: "/login",
           }}
         />
       )
@@ -47,38 +43,24 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/newhome">
-            <NewHome />
-          </Route>
           <Route path="/signup">
-            <SignUp />
-          </Route>
-          <Route path="/new-signup">
             <NewSignup />
           </Route>
-          <Route path="/new-login">
+          <Route path="/login">
             <NewLogin />
           </Route>
-          <Route path="/login">
-            <Login />
+
+          <Route path="/dashboard" component={Dahsboard}>
           </Route>
-          {/* <Route path="/home">
-            <div className="App">
-              <Coursebutton></Coursebutton>
-            </div>
-          </Route> */}
-          <Route exact path="/dashboard" component={Dahsboard}></Route>
-          <Route exact path="/logout" component={Logout}></Route>
+          <Route path="/logout">
+            <Logout />
+          </Route>
 
           <PrivateRoute
             path="/admin"
             component={AdminPanel}
             authCheck={Auth.getAdminAuth.bind(Auth)}
           />
-
-          <Route path="/newadmin">
-            <NewAdminPanel></NewAdminPanel>
-          </Route>
 
           <Route path="/announcement" component={Announcement}></Route>
 
@@ -92,7 +74,7 @@ function App() {
           <Route path="*">
             <Redirect
               to={{
-                pathname: '/home',
+                pathname: "/home",
               }}
             />
           </Route>

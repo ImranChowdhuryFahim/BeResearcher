@@ -33,14 +33,14 @@ class Sidebar extends Component {
           <ul className="admin-menues">
             <li>
               {' '}
-              <NavLink to="/newadmin/dashboard" activeStyle={activeStyle}>
+              <NavLink to="/admin/dashboard" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faTachometerAlt}></FontAwesomeIcon>{' '}
                 Dashboard
               </NavLink>{' '}
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/courses" activeStyle={activeStyle}>
+              <NavLink to="/admin/courses" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faChalkboardTeacher}></FontAwesomeIcon>{' '}
                 Course{' '}
               </NavLink>{' '}
@@ -48,25 +48,25 @@ class Sidebar extends Component {
 
             <li>
               {' '}
-              <NavLink to="/newadmin/events" activeStyle={activeStyle}>
+              <NavLink to="/admin/events" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon> Events{' '}
               </NavLink>{' '}
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/blog" activeStyle={activeStyle}>
+              <NavLink to="/admin/blog" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faBlog}></FontAwesomeIcon> Blog{' '}
               </NavLink>{' '}
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/news" activeStyle={activeStyle}>
+              <NavLink to="/admin/news" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faNewspaper}></FontAwesomeIcon> News{' '}
               </NavLink>{' '}
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/assignment" activeStyle={activeStyle}>
+              <NavLink to="/admin/assignment" activeStyle={activeStyle}>
                 {' '}
                 <FontAwesomeIcon
                   icon={faBookmark}
@@ -75,20 +75,20 @@ class Sidebar extends Component {
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/announcement" activeStyle={activeStyle}>
+              <NavLink to="/admin/announcement" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faBullhorn}></FontAwesomeIcon>{' '}
                 Announcement{' '}
               </NavLink>{' '}
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/access-role" activeStyle={activeStyle}>
+              <NavLink to="/admin/access-role" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faUserTag}></FontAwesomeIcon> Access Role{' '}
               </NavLink>{' '}
             </li>
             <li>
               {' '}
-              <NavLink to="/newadmin/mailbox" activeStyle={activeStyle}>
+              <NavLink to="/admin/mailbox" activeStyle={activeStyle}>
                 <FontAwesomeIcon icon={faMailBulk}></FontAwesomeIcon> MailBox{' '}
               </NavLink>{' '}
             </li>

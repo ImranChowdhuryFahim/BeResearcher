@@ -1,5 +1,5 @@
 const Auth = {
-  isAuthenticated: false,
+  isAuthenticated: true,
   isAdmin: true,
   authenticate() {
     this.isAuthenticated = true;

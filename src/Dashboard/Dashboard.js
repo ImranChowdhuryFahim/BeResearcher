@@ -51,6 +51,7 @@ class Dashboard extends Component {
             title: res.data.enrolledCourses[0].title,
             completedItem: res.data.enrolledCourses[0].completedItem,
           });
+
           this.context.UpdateCurrentContentDetails(
             res.data.enrolledCourses[0].currentContentDetails
           );
