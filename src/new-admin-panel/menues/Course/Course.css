@@ -80,9 +80,3 @@ input[type="submit"]
     font-weight: bold;
 }
 
-@media screen and (max-width:768px)
-{
-    .create-course{
-        margin-top: 50px;
-    }
-}

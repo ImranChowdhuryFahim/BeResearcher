@@ -12,7 +12,7 @@ const Details = (props) => {
   useEffect(() => console.log(studentId, assignment));
   return (
     <div>
-      <h2 style={{ display: "inline", marginLeft: "100px" }}>{assignment}</h2>
+      <h2 className={'assignment-name'} >{assignment}</h2>
       <button
         id="new_tab"
         style={{ float: "right" }}
@@ -34,7 +34,8 @@ const Details = (props) => {
         frameborder="0"
         id="iframe"
         width="100%"
-        height="418px"
+        className={'pdf-viewer'}
+        
       ></iframe>
     </div>
   );
