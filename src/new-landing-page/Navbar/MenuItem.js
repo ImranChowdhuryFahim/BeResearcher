@@ -32,7 +32,7 @@ export const MenuItems = [
   },
   {
     title: 'Blog',
-    url: '#',
+    url: '/blog',
     cName: 'nav-links',
     type: 'nav-link',
   },

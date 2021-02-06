@@ -1,22 +1,23 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
-import Home from "./new-landing-page/App";
-import CourseSection from "./CourseSection/App";
-import AdminPanel from "./new-admin-panel/App";
-import Announcement from "./Dashboard/Announcement";
-import { CourseProvider } from "./data";
+import Home from './new-landing-page/App';
+import CourseSection from './CourseSection/App';
+import AdminPanel from './new-admin-panel/App';
+import Announcement from './Dashboard/Announcement';
+import Blog from './blog/Blog';
+import { CourseProvider } from './data';
 import {
   Switch,
   BrowserRouter as Router,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 // import Coursebutton from "./coursebutton";
-import Dahsboard from "./Dashboard/Dashboard";
-import { NewSignup, NewLogin } from "./new-signup-login";
-import Auth from "./Auth";
-import Logout from "./logout/Logout";
+import Dahsboard from './Dashboard/Dashboard';
+import { NewSignup, NewLogin } from './new-signup-login';
+import Auth from './Auth';
+import Logout from './logout/Logout';
 
 const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   <Route
@@ -27,7 +28,7 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/login",
+            pathname: '/login',
           }}
         />
       )
@@ -49,9 +50,10 @@ function App() {
           <Route path="/login">
             <NewLogin />
           </Route>
-
-          <Route path="/dashboard" component={Dahsboard}>
+          <Route path="/blog">
+            <Blog />
           </Route>
+          <Route path="/dashboard" component={Dahsboard}></Route>
           <Route path="/logout">
             <Logout />
           </Route>
@@ -74,7 +76,7 @@ function App() {
           <Route path="*">
             <Redirect
               to={{
-                pathname: "/home",
+                pathname: '/home',
               }}
             />
           </Route>
