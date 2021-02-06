@@ -7,13 +7,17 @@ import axios from "axios";
 import './News.css'
 
 class News extends Component{
-    state = {
-        news: {},
-        editorState: EditorState.createEmpty(),
-      };
+  constructor(props)
+    {
+        super(props);
+        this.state = {
+          news: {},
+            editorState: EditorState.createEmpty(),
+          };
+    }
       onEditorStateChange = (editorState) => {
         this.setState({
-          editorState,
+          editorState: editorState,
         });
       };
       handleNewsTitle(event) {

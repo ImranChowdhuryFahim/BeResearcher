@@ -7,10 +7,14 @@ import draftToHtml from "draftjs-to-html";
 import axios from "axios";
 
 class Blog extends Component {
-  state = {
-    blog: {},
-    editorState: EditorState.createEmpty(),
-  };
+  constructor(props)
+    {
+        super(props);
+        this.state = {
+            blog: {},
+            editorState: EditorState.createEmpty(),
+          };
+    }
   onEditorStateChange = (editorState) => {
     this.setState({
       editorState,
