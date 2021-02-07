@@ -23,7 +23,7 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      Auth.getAuth() ? ( //Auth.getAuth()
+      authCheck() ? ( //Auth.getAuth()
         <Component {...props} />
       ) : (
         <Redirect
@@ -66,13 +66,13 @@ function App() {
 
           <Route path="/announcement" component={Announcement}></Route>
 
-          <Route
+          <PrivateRoute
             exact
             path="/course/:CourseName/:ContentId"
             component={CourseSection}
             authCheck={Auth.getAuth.bind(Auth)}
             key={2}
-          ></Route>
+          ></PrivateRoute>
           <Route path="*">
             <Redirect
               to={{

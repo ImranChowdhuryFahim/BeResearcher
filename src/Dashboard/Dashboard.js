@@ -84,14 +84,14 @@ class Dashboard extends Component {
             <div className={'DashboardHeader'}>
               <div>
                 {' '}
-                <img
+               <Link to="/home"> <img
                   src={logo}
                   alt={'logo'}
                   style={{
                     height: '60px',
                     marginLeft: '10px',
                   }}
-                ></img>
+                ></img></Link>
               </div>
               <div className={'DashboardUserDetails'}>
                 <div className="UserDetails">
@@ -115,11 +115,11 @@ class Dashboard extends Component {
                   <div className="dropdown-content">
                     <Link to="/announcement">Announcements</Link>
                     
-                    {Auth.getAdminAuth() ? (
+                    {/* {Auth.getAdminAuth() ? (
                       <Link to="/admin/dashboard">Admin Panel</Link>
                     ) : (
                       ''
-                    )}
+                    )} */}
                     <Link to="/logout">Logout</Link>
                   </div>
                 </div>

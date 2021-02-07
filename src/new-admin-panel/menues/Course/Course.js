@@ -105,7 +105,7 @@ class Course extends Component {
     let newContent = this.state.CourseContent;
     newContent[unit][id]["id"] = parseInt(rid);
     newContent[unit][id]["unit"] = parseInt(unit);
-    newContent[unit][id]["questions"][parseInt(ques_no)]["answer"] = event.target.value;
+    newContent[unit][id]["questions"][parseInt(ques_no)]["answer"] = event.target.value.split(",");
     this.setState({ CourseContent: newContent });
   }
   handleAddAssignment(event) {
