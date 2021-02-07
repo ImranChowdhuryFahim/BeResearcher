@@ -113,14 +113,14 @@ class Dashboard extends Component {
                     </span>
                   </div>
                   <div className="dropdown-content">
-                    <Link to="/dashboard">Dashboard</Link>
                     <Link to="/announcement">Announcements</Link>
-                    <Link to="/logout">Logout</Link>
+                    
                     {Auth.getAdminAuth() ? (
-                      <Link to="/admin">Admin Panel</Link>
+                      <Link to="/admin/dashboard">Admin Panel</Link>
                     ) : (
                       ''
                     )}
+                    <Link to="/logout">Logout</Link>
                   </div>
                 </div>
               </div>

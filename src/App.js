@@ -23,7 +23,7 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      authCheck() ? ( //Auth.getAuth()
+      Auth.getAuth() ? ( //Auth.getAuth()
         <Component {...props} />
       ) : (
         <Redirect

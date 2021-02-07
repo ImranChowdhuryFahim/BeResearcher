@@ -1,6 +1,6 @@
 const Auth = {
-  isAuthenticated: true,
-  isAdmin: true,
+  isAuthenticated: false,
+  isAdmin: false,
   authenticate() {
     this.isAuthenticated = true;
   },

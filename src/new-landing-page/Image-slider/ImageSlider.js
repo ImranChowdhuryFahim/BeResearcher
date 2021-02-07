@@ -17,7 +17,7 @@ class ImageSlider extends Component {
       } else {
         this.setState({ currentimage: 0 });
       }
-      console.log(this.state.currentimage);
+      // console.log(this.state.currentimage);
     }, 10000);
   }
   render() {

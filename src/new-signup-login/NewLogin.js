@@ -85,7 +85,7 @@ const NewLogin = () => {
                   })
                 );
               }
-              history.push('/dashboard');
+              history.push('/home');
             }
           });
         }}
