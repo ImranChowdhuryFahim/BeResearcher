@@ -8,6 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Link as ReachLink, navigate } from '@reach/router';
+import { Link as LinkReact } from 'react-router-dom';
 import logo from '../flogo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,12 +38,9 @@ export default function Header(props) {
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
         {/* <Button size="small">Subscribe</Button> */}
-        <img
-          src={logo}
-          alt="BeResearcherBd"
-          onClick={() => navigate('/home')}
-          style={{ height: '80px' }}
-        />
+        <LinkReact to="/home">
+          <img src={logo} alt="BeResearcherBd" style={{ height: '80px' }} />
+        </LinkReact>
 
         <Typography
           component="h2"
@@ -60,7 +58,7 @@ export default function Header(props) {
           <SearchIcon />
         </IconButton>
         <Button onClick={handleClick} variant="outlined" size="small">
-          Sign up
+          Subscribe
         </Button>
       </Toolbar>
       <Toolbar

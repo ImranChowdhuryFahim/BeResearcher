@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -29,16 +29,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'Research', url: '#' },
+  { title: 'Research Methodology', url: '#' },
+  { title: 'Research Basic', url: '#' },
+  { title: 'Paper Writing', url: '#' },
+  { title: 'Paper Writing Guidelines', url: '#' },
+  { title: 'Higher Study Guideline', url: '#' },
+  { title: 'Research Talks', url: '#' },
+  { title: 'Research Webinar', url: '#' },
+  { title: 'Idea Series', url: '#' },
+  { title: 'Miscellaneous', url: '#' },
 ];
 
 const mainFeaturedPost = {
@@ -110,18 +110,18 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <PostsProvider>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" style={{ minHeight: '92vh' }}>
           <Header title="Blog" sections={sections} />
           <Router>
             <Route path="/blog/post/:id" component={SinglePostPage}></Route>
             <Route exact path="/blog">
               <main>
-                {/* <MainFeaturedPost post={mainFeaturedPost} />
+                <MainFeaturedPost post={mainFeaturedPost} />
                 <Grid container spacing={4}>
                   {featuredPosts.map((post) => (
                     <FeaturedPost key={post.title} post={post} />
                   ))}
-                </Grid> */}
+                </Grid>
                 <Grid container spacing={5} className={classes.mainGrid}>
                   <Main title="All Posts" posts={content} />
                   <Sidebar
