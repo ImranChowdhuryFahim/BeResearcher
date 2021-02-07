@@ -9,13 +9,13 @@
   max-width: 500px;
   margin: auto;
   padding: 20px;
-  height: 85vh;
+  height: 80vh;
+  margin-bottom: 20px;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  margin: 50px;
 }
 
 .header-text {
@@ -29,13 +29,13 @@
 .contact-container > form {
   display: flex;
   flex-direction: column;
-  margin: 50px;
+  margin: 30px;
 }
 
 .contact-container > form > input,
 .contact-container > form > textarea {
-  padding: 10px 0 10px 15px;
-  font-size: 17px;
+  padding: 8px ;
+  font-size: 14px;
   font-weight: 300;
   color: rgb(24, 23, 23);
   letter-spacing: 1px;
@@ -52,10 +52,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  font-size: 17px;
+  margin-top: 8px;
+  font-size: 14px;
   font-weight: 300;
-  padding: 10px 0 10px 15px;
+  padding: 8px;
   border: 1px solid var(--border-color);
   color: var(--border-color);
   cursor: pointer;
@@ -77,7 +77,7 @@ hr {
   display: flex;
   justify-content: center;
   position: relative;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-align: center;
   width: 100%;
 }
@@ -91,10 +91,10 @@ hr {
   top: 0;
   /* left: -20px; */
   display: inline-block;
-  height: 70px;
-  width: 70px;
-  margin: 10px auto;
-  line-height: 70px;
+  height: 60px;
+  width: 60px;
+  margin: 8px auto;
+  line-height: 60px;
   border-radius: 50%;
   color: #fff;
   background-color: var(--border-color);
@@ -118,11 +118,10 @@ hr {
 @media screen and (max-width: 768px)
 {
   .contact{
-    margin-bottom: 100px;
     width: 100%;
   }
   .contact-container{
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
 }
 

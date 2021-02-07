@@ -19,7 +19,7 @@ class Header extends Component {
             <div>
                 <div className="CourseHeader">
                     <div className="LogoCourseSection">
-                        <img src={logo} alt="logo" style={{ height: '60px', marginLeft: '35px' }}></img>
+                      <Link to="/home"> <img src={logo} alt="logo" style={{ height: '60px', marginLeft: '35px' }}></img></Link> 
                     </div>
                     <div className="ham">
                         <img src={ham} alt="hame" style={{ height: '45px', marginLeft: '5px' }} onClick={this.props.toggole}></img>

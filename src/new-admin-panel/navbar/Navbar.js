@@ -5,7 +5,17 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { Mail } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
+
+
 class Navbar extends Component {
+
+  UsernameToAvatar(user)
+  {
+    let char_1 = user.firstName[0];
+    let char_2 = user.lastName[0];
+
+    return char_1+char_2;
+  }
   render() {
     return (
       <div className="admin-nav-bar">
@@ -18,7 +28,7 @@ class Navbar extends Component {
           <NotificationsIcon></NotificationsIcon>{' '}
         </Badge>
         <div className="avatar">
-          <Avatar>SH</Avatar>
+          <Avatar style ={{ backgroundColor:'#3f51b5' }}>{this.UsernameToAvatar(this.props.user)}</Avatar>
           <div className="dropdown-content1">
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/announcement">Announcements</Link>

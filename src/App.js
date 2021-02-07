@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
 import './App.css';
 
 import Home from './new-landing-page/App';
@@ -36,7 +36,20 @@ const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
   />
 );
 
+
+
 function App() {
+  useEffect(() => {
+    // Update the document title using the browser API
+    let localData = JSON.parse(localStorage.getItem('login'));
+      if (localData && localData.login) {
+        Auth.authenticate();
+        if(localData.adminauth)
+        {
+          Auth.adminAuthenticate();
+        }
+      }
+  });
   return (
     <CourseProvider>
       <Router>
@@ -66,13 +79,13 @@ function App() {
 
           <Route path="/announcement" component={Announcement}></Route>
 
-          <Route
+          <PrivateRoute
             exact
             path="/course/:CourseName/:ContentId"
             component={CourseSection}
             authCheck={Auth.getAuth.bind(Auth)}
             key={2}
-          ></Route>
+          ></PrivateRoute>
           <Route path="*">
             <Redirect
               to={{
