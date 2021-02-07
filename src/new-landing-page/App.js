@@ -16,6 +16,7 @@ import ImageSlider from './Image-slider/ImageSlider';
 import axios from 'axios'
 import { BeatLoader } from 'react-spinners';
 import { css } from '@emotion/core';
+import Auth from '../Auth';
 
 class App extends Component {
   constructor(props)
@@ -30,6 +31,11 @@ class App extends Component {
   {
     let localData = JSON.parse(localStorage.getItem('login'));
     if (localData && localData.login) {
+      Auth.authenticate();
+      if(localData.adminauth)
+      {
+        Auth.adminAuthenticate();
+      }
       axios({
         method: 'GET',
         url: `https://beresearcherbd.herokuapp.com/api/student/getdetails`,

@@ -69,6 +69,7 @@ class Navbar extends Component {
                               to={elem}
                               offset={-80}
                               duration="600"
+                              onClick={this.handleClick.bind(this)}
                             >
                               {elem}
                             </NavLinkWithScroll>
@@ -81,7 +82,7 @@ class Navbar extends Component {
               } else if (item.type === "button") {
                 return (
                   <li key={index}>
-                    <Link to={item.url} className={item.cName}>
+                    <Link to={item.url} className={item.cName}  onClick={this.handleClick.bind(this)}>
                       {item.title}
                     </Link>
                   </li>
@@ -96,6 +97,7 @@ class Navbar extends Component {
                       to={item.url}
                       offset={-80}
                       className={item.cName}
+                      onClick={this.handleClick.bind(this)}
                     >
                       {item.title}
                     </NavLinkWithScroll>
@@ -132,6 +134,7 @@ class Navbar extends Component {
                               to={elem}
                               offset={-80}
                               duration="600"
+                              onClick={this.handleClick.bind(this)}
                             >
                               {elem}
                             </NavLinkWithScroll>
@@ -151,7 +154,7 @@ class Navbar extends Component {
                       <ul>
                         {item.content.map((elem,i) => (
                           <li key={i}>
-                            <Link to={elem}>{elem}</Link>
+                            <Link to={elem}  onClick={this.handleClick.bind(this)} >{elem}</Link>
                           </li>
                         ))}
                       </ul>
@@ -170,6 +173,7 @@ class Navbar extends Component {
                       to={item.url}
                       offset={-80}
                       className={item.cName}
+                      onClick={this.handleClick.bind(this)}
                     >
                       {item.title}
                     </Link>
@@ -186,6 +190,7 @@ class Navbar extends Component {
                       to={item.url}
                       offset={-80}
                       className={item.cName}
+                      onClick={this.handleClick.bind(this)}
                     >
                       {item.title}
                     </NavLinkWithScroll>
