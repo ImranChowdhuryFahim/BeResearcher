@@ -17,9 +17,9 @@ const SinglePostPage = (props) => {
       <div>
         <Markdown
           className={classes.markdown}
-          key={posts[props.match.params.id].substring(0, 40)}
+          key={posts[props.match.params.id].body.substring(0, 40)}
         >
-          {posts[props.match.params.id]}
+          {posts[props.match.params.id].body}
         </Markdown>
       </div>
     </div>

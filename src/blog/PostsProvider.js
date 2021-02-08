@@ -9,17 +9,15 @@ class PostsProvider extends React.Component {
   state = { posts: [] };
 
   componentDidMount() {
-    Promise.all([fetch(post1), fetch(post2), fetch(post3)]).then((resp) => {
-      Promise.all([
-        resp[0].text(),
-        resp[1].text(),
-        resp[2].text(),
-      ]).then((resp) => this.setState({ posts: [resp[0], resp[1], resp[2]] }));
-    });
+    fetch('https://beresearcherbd.herokuapp.com/api/blog/get-all-blog-posts')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ posts: res });
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
-    console.log('ananan', this.state.posts);
     return (
       <PostsContext.Provider value={this.state.posts}>
         {this.props.children}
