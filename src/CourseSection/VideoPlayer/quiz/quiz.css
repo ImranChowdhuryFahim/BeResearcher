@@ -8,6 +8,14 @@
   font-size: 1.2rem;
 }
 
+.submit-btn-quiz {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 55px;
+  text-transform: capitalize;
+}
+
 .question {
   display: inline-block;
   background: rgb(58, 57, 57);
@@ -46,6 +54,10 @@
   background-color: rgb(144, 89, 144);
 }
 
+.black-border {
+  border: 5px solid rgb(0, 0, 0);
+}
+
 .red-border {
   border: 5px solid rgb(211, 0, 0);
 }
@@ -69,4 +81,10 @@
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .question-answer-container {
+    margin: 0 auto;
+  }
 }
