@@ -3,40 +3,91 @@ import "./Blog.css";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertToRaw } from "draft-js";
-import draftToHtml from "draftjs-to-html";
+import draftToMarkdown from "draftjs-to-markdown";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 
 class Blog extends Component {
-  constructor(props)
-    {
-        super(props);
-        this.state = {
-            blog: {},
-            editorState: EditorState.createEmpty(),
-          };
+  constructor(props) {
+    super(props);
+    this.state = {
+      laoding: false,
+      title: null,
+      catagory: "Research",
+      authorName: null,
+      editorState: EditorState.createEmpty(),
+    };
+  }
+
+  componentDidMount() {
+    let localData = JSON.parse(localStorage.getItem("login"));
+    if (localData && localData.login) {
+      axios({
+        method: "GET",
+        url: `https://beresearcherbd.herokuapp.com/api/student/getdetails`,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          auth: localData.token,
+        },
+      }).then((result) => {
+        this.setState({
+          authorName: result.data.firstName + " " + result.data.lastName,
+        });
+      });
     }
+  }
   onEditorStateChange = (editorState) => {
     this.setState({
       editorState,
     });
   };
   handleBlogTitle(event) {
-    let createBlog = this.state.blog;
-    createBlog["title"] = event.target.value;
-    this.setState({ blog: createBlog });
+    this.setState({ title: event.target.value });
   }
   handleBlogCatagory(event) {
-    let createBlog = this.state.blog;
-    createBlog["catagory"] = event.target.value;
-    this.setState({ blog: createBlog });
+    this.setState({ catagory: event.target.value });
   }
   handleCreateBlogPost() {
-    let createBlog = this.state.blog;
-    createBlog["body"] = draftToHtml(
-      convertToRaw(this.state.editorState.getCurrentContent())
-    );
-    this.setState({ blog: createBlog });
-    console.log(this.state.blog);
+    const content = this.state.editorState.getCurrentContent();
+    const rawObject = convertToRaw(content);
+    const markdownString = draftToMarkdown(rawObject);
+    const d = new Date();
+
+
+    if (this.state.title === null) {
+      window.alert("Please enter the blog title.");
+    } else {
+      let Blog = {
+        title: this.state.title,
+        catagory: this.state.catagory,
+        body: markdownString,
+        authorName: this.state.authorName,
+        createdAt: d,
+      };
+      this.setState({ laoding: true });
+
+      axios
+        .post(
+          "https://beresearcherbd.herokuapp.com/api/blog/create-blog-post",
+          Blog
+        )
+        .then((Result) => {
+          setTimeout(() => {
+            this.setState({ laoding: false });
+          }, 2000);
+          console.log(Blog);
+          window.alert("Successfully created a new blog post.")
+        })
+        .catch((err)=>{
+          setTimeout(() => {
+            this.setState({ laoding: false });
+          }, 2000);
+          window.alert("Oops! Failed to create a new blog post.")
+        })
+        ;
+      
+    }
   }
 
   render() {
@@ -45,15 +96,15 @@ class Blog extends Component {
         const data = new FormData();
         data.append("file", file);
         //url changed
-        axios.post(
-          `https://nodeapi.beresearcherbd.com/api/uploadimage`,
-          data
-        ).then((res)=>{
-          // console.log(res)
-          resolve({ data: { link: res.data } })
-        }).catch((err) => {
-          reject(err)
-        })
+        axios
+          .post(`https://nodeapi.beresearcherbd.com/api/uploadimage`, data)
+          .then((res) => {
+            // console.log(res)
+            resolve({ data: { link: res.data } });
+          })
+          .catch((err) => {
+            reject(err);
+          });
       });
     }
     return (
@@ -104,12 +155,23 @@ class Blog extends Component {
           />
         </div>
 
-        <input
-          type="submit"
+        <button
           className={"post-button"}
-          value={"Create Blog Post"}
           onClick={this.handleCreateBlogPost.bind(this)}
-        ></input>
+        >
+          {this.state.laoding && (
+            <CircularProgress
+              style={{
+                color: "white",
+                height: "20px",
+                width: "20px",
+                marginRight: "10px",
+              }}
+            ></CircularProgress>
+          )}
+          {!this.state.laoding && "Create Blog Post"}
+          {this.state.laoding && "Creating Blog Post..."}
+        </button>
       </div>
     );
   }

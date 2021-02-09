@@ -12,7 +12,7 @@ const Details = (props) => {
   useEffect(() => console.log(studentId, assignment));
   return (
     <div>
-      <h2 className={'assignment-name'} >{assignment}</h2>
+      <h2 className={"assignment-name"}>{assignment}</h2>
       <button
         id="new_tab"
         style={{ float: "right" }}
@@ -34,8 +34,7 @@ const Details = (props) => {
         frameborder="0"
         id="iframe"
         width="100%"
-        className={'pdf-viewer'}
-        
+        className={"pdf-viewer"}
       ></iframe>
     </div>
   );
@@ -50,7 +49,17 @@ class Assignment extends Component {
       students: null,
       assignments: {},
       show: false,
+      marks: null,
+      comments: null,
     };
+  }
+
+  handleMarks(event) {
+    this.setState({ marks: event.target.value });
+  }
+
+  handleComments(event) {
+    this.setState({ comments: event.target.value });
   }
 
   componentDidMount() {
@@ -79,9 +88,14 @@ class Assignment extends Component {
       <BrowserRouter>
         <div className={"review_assignment"}>
           <h1>Review Assingments</h1>
-          <div style={{ display: "flex" , height: '50vh'}}>
+          <div style={{ display: "flex", height: "50vh" }}>
             <div
-              style={{ width: "50%", marginRight: "5px", overflow:'auto', border:'1px solid black'}}
+              style={{
+                width: "50%",
+                marginRight: "5px",
+                overflow: "auto",
+                border: "1px solid black",
+              }}
             >
               {this.state.loading ? (
                 "Loading..."
@@ -156,15 +170,16 @@ class Assignment extends Component {
               />
             </div>
           </div>
-          <div style={{ marginTop:'10px' }}>
+          <div style={{ marginTop: "10px" }}>
             <form className="marks_comments">
-              <input type="number" placeholder="Marks/points" />
+              <input type="number" placeholder="Marks/points"  onChange={this.handleMarks.bind(this)}/>
               <textarea
                 name="comment"
                 placeholder="Comment/recommendation"
                 id="comment"
                 cols="50"
                 rows="3"
+                onChange={this.handleComments.bind(this)}
               ></textarea>
 
               <input type="submit" />
