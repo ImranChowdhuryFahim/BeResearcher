@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Navbar from "./navbar/Navbar";
-import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Switch, Route, NavLink , Redirect } from "react-router-dom";
 import Sidebar from "./sidebar/Sidebar";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BeatLoader } from 'react-spinners';
-import { css } from '@emotion/core';
+import { BeatLoader } from "react-spinners";
+import { css } from "@emotion/core";
 import {
   faBars,
   faTachometerAlt,
@@ -29,6 +29,7 @@ class App extends Component {
       clicked: false,
       user: null,
       loading: true,
+      redirect: false,
     };
   }
 
@@ -48,6 +49,7 @@ class App extends Component {
         this.setState({ loading: false });
       });
     } else {
+      this.setState({ redirect: true });
       this.setState({ loading: false });
     }
   }
@@ -70,6 +72,9 @@ class App extends Component {
       justify-content: center;
       align-items: center;
     `;
+    if (this.state.redirect) {
+      return <Redirect to="/login"></Redirect>;
+    }
     return (
       <div>
         {this.state.loading ? (
@@ -204,7 +209,7 @@ class App extends Component {
                           key={index}
                           path={route.path}
                           exact={route.exact}
-                          children={< route.body />}
+                          children={<route.body />}
                         />
                       ))}
                     </Switch>
