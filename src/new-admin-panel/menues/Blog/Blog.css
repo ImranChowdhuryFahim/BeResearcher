@@ -13,7 +13,18 @@
 }
 
 .post-button{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 10px 0px;
+    padding: 8px;
+    width: 300px;
+    color: white;
+    background-color: blueviolet;
+    border-style: none;
+    box-shadow: 0 2px 4px 0 rgba(0.2, 0.2, 0.2, 0.5);
+    border-radius: 5px;
+    outline-style: none;
     font-weight: bold;
 }
 
@@ -33,17 +44,7 @@ textarea{
     width: 100%;
     padding: 5px;
 }
-input[type="submit"]
-{
-    margin: 10px 10px 10px 0px;
-    padding: 8px;
-    width: 300px;
-    color: white;
-    background-color: blueviolet;
-    border-style: none;
-    box-shadow: 0 2px 4px 0 rgba(0.2, 0.2, 0.2, 0.5);
-    border-radius: 5px;
-}
+
 
 
 .heading_name

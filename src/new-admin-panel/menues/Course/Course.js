@@ -5,11 +5,24 @@ class Course extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading:false,
+      title: null,
+      description:null,
+      totalItem: null,
+      createdBy: null,
+      enrolledStudents: [],
       CourseContent: {
         1: [{ type: "lecture" }],
       },
       id: 0,
     };
+  }
+  handleCourseTitle(event)
+  {
+    this.setState({title: event.target.value})
+  }
+  handleCourseDescription(event){
+    this.setState({description: event.target.value})
   }
   handleCreateUnit() {
     let newContent = {};
@@ -69,22 +82,23 @@ class Course extends Component {
     //  console.log(newContent)
   }
   handleQuestion(event) {
-    let unit, id,ques_no,rid;
+    let unit, id, ques_no, rid;
     unit = event.target.getAttribute("data-unit");
     id = event.target.getAttribute("data-id");
     ques_no = event.target.getAttribute("ques-no");
     rid = event.target.getAttribute("data-rid");
     let newContent = this.state.CourseContent;
-    newContent[unit][id]["id"]=parseInt(rid);
+    newContent[unit][id]["id"] = parseInt(rid);
     newContent[unit][id]["unit"] = parseInt(unit);
-    newContent[unit][id]["questions"][parseInt(ques_no)]["question_no"]=parseInt(ques_no)+1;
-
-    newContent[unit][id]["questions"][parseInt(ques_no)]["question"] = event.target.value;
+    newContent[unit][id]["questions"][parseInt(ques_no)]["question_no"] =
+      parseInt(ques_no) + 1;
+    newContent[unit][id]["questions"][parseInt(ques_no)]["question"] =
+      event.target.value;
 
     this.setState({ CourseContent: newContent });
   }
   handleOption(event) {
-    let unit, id, rid, op,ques_no;
+    let unit, id, rid, op, ques_no;
     unit = event.target.getAttribute("data-unit");
     id = event.target.getAttribute("data-id");
     rid = event.target.getAttribute("data-rid");
@@ -93,7 +107,9 @@ class Course extends Component {
     let newContent = this.state.CourseContent;
     newContent[unit][id]["id"] = parseInt(rid);
     newContent[unit][id]["unit"] = parseInt(unit);
-    newContent[unit][id]["questions"][parseInt(ques_no)]["option" + parseInt(op)] = event.target.value;
+    newContent[unit][id]["questions"][parseInt(ques_no)][
+      "option" + parseInt(op)
+    ] = event.target.value;
     this.setState({ CourseContent: newContent });
   }
   handleAnswer(event) {
@@ -105,7 +121,9 @@ class Course extends Component {
     let newContent = this.state.CourseContent;
     newContent[unit][id]["id"] = parseInt(rid);
     newContent[unit][id]["unit"] = parseInt(unit);
-    newContent[unit][id]["questions"][parseInt(ques_no)]["answer"] = event.target.value.split(",");
+    newContent[unit][id]["questions"][parseInt(ques_no)][
+      "answer"
+    ] = event.target.value.split(",");
     this.setState({ CourseContent: newContent });
   }
   handleAddAssignment(event) {
@@ -127,20 +145,29 @@ class Course extends Component {
     this.setState({ CourseContent: newContent });
   }
 
-  handleAddQuizQuestion(event)
-  {
+  handleAddQuizQuestion(event) {
     let unit, id;
     unit = event.target.getAttribute("data-unit");
     id = event.target.getAttribute("data-id");
     let newContent = this.state.CourseContent;
-    newContent[unit][id]["questions"][newContent[unit][id]["questions"].length] = {
+    newContent[unit][id]["questions"][
+      newContent[unit][id]["questions"].length
+    ] = {
       question_no: newContent[unit][id]["questions"].length,
-    }
+    };
     this.setState({ CourseContent: newContent });
   }
 
   handleCreate() {
-    console.log(this.state.CourseContent);
+    let newCourse={
+      courseTitle: this.state.title,
+      courseContent: this.state.CourseContent,
+      totalItem: this.state.id,
+      courseDescription: this.state.description,
+      enrolledStudents: [],
+      createdBy: "Imran Chowdhury"
+    }
+    console.log(newCourse);
   }
   handledelete(event) {
     let unit, id;
@@ -153,16 +180,15 @@ class Course extends Component {
       this.setState({ id: this.state.id - 1 });
     }
   }
-  handlequesdelete(event)
-  {
+  handlequesdelete(event) {
     let unit, id, ques_no;
     unit = event.target.getAttribute("data-unit");
     id = event.target.getAttribute("data-id");
     ques_no = event.target.getAttribute("ques-no");
 
     let newContent = this.state.CourseContent;
-    newContent[unit][id]["questions"].splice(ques_no,1);
-    this.setState({CourseContent: newContent});
+    newContent[unit][id]["questions"].splice(ques_no, 1);
+    this.setState({ CourseContent: newContent });
   }
   handleDeleteUnit(event) {
     let unit;
@@ -180,11 +206,11 @@ class Course extends Component {
       <div className={"create-course"}>
         <div>
           <h1 className={"heading_name"}>Course Title</h1>
-          <input type="text" placeholder="e.g. Research Methodology"></input>
+          <input type="text" placeholder="e.g. Research Methodology" onChange={this.handleCourseTitle.bind(this)}></input>
         </div>
         <div>
           <h1 className={"heading_name"}>Course Description</h1>
-          <textarea placeholder="Short Description"></textarea>
+          <textarea placeholder="Short Description" onChange={this.handleCourseDescription.bind(this)}></textarea>
         </div>
         <div>
           <h1 className={"heading_name"}>Course Curriculum</h1>
@@ -331,7 +357,7 @@ class Course extends Component {
                         );
                       } else if (content.type === "quiz") {
                         quiz++;
-                        let qn=0;
+                        let qn = 0;
                         return (
                           <div key={id} className={"sections"}>
                             <div style={{ paddingBottom: "5px" }}>
@@ -356,7 +382,7 @@ class Course extends Component {
                                 <div key={qn} className={"questions"}>
                                   <div>
                                     <span>
-                                      Question{" "}{qn}
+                                      Question {qn}
                                       <input
                                         data-unit={unit}
                                         data-id={i}

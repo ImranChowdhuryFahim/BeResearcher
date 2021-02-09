@@ -204,7 +204,7 @@ class App extends Component {
                           key={index}
                           path={route.path}
                           exact={route.exact}
-                          children={<route.body />}
+                          children={< route.body />}
                         />
                       ))}
                     </Switch>
