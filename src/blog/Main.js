@@ -26,8 +26,11 @@ export default function Main(props) {
       <Divider />
       {posts.map((post, index) => (
         <div>
-          <Markdown className={classes.markdown} key={post.substring(0, 40)}>
-            {post.substring(0, 100)}
+          <Markdown
+            className={classes.markdown}
+            key={post.body.substring(0, 40)}
+          >
+            {post.body.substring(0, 100)}
           </Markdown>
           <Link to={`/blog/post/${index}`}>Read More</Link>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -21,6 +21,7 @@ import PostsProvider from './PostsProvider';
 import SinglePostPage from './SinglePostPage';
 
 import Footer2 from '../new-landing-page/Footer/Footer';
+import Markdown from 'markdown-to-jsx';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -29,19 +30,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'Research', url: '#' },
+  { title: 'Research Methodology', url: '#' },
+  { title: 'Research Basic', url: '#' },
+  { title: 'Paper Writing', url: '#' },
+  { title: 'Paper Writing Guidelines', url: '#' },
+  { title: 'Higher Study Guideline', url: '#' },
+  { title: 'Research Talks', url: '#' },
+  { title: 'Research Webinar', url: '#' },
+  { title: 'Idea Series', url: '#' },
+  { title: 'Miscellaneous', url: '#' },
 ];
 
-const mainFeaturedPost = {
+const mainFeaturedPostDummy = {
   title: 'Title of a longer featured blog post',
   description:
     "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
@@ -95,35 +96,69 @@ const sidebar = {
 
 export default function Blog() {
   const classes = useStyles();
-  const [content, Setcontent] = useState([]);
+  const [content, setcontent] = useState([]);
+  const [mainFeaturedPost, setMainFeaturedPost] = useState(
+    mainFeaturedPostDummy
+  );
   useEffect(() => {
-    Promise.all([fetch(post1), fetch(post2), fetch(post3)]).then((resp) => {
-      Promise.all([
-        resp[0].text(),
-        resp[1].text(),
-        resp[2].text(),
-      ]).then((resp) => Setcontent([resp[0], resp[1], resp[2]]));
-    });
+    // Promise.all([fetch(post1), fetch(post2), fetch(post3)]).then((resp) => {
+    //   Promise.all([
+    //     resp[0].text(),
+    //     resp[1].text(),
+    //     resp[2].text(),
+    //   ]).then((resp) => Setcontent([resp[0], resp[1], resp[2]]));
+    // });
+
+    fetch('https://beresearcherbd.herokuapp.com/api/blog/get-all-blog-posts')
+      .then((res) => res.json())
+      .then((res) => {
+        setcontent(res);
+      })
+      .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    if (content.length > 0)
+      setMainFeaturedPost((prevState) => {
+        const newState = Object.assign(prevState, {
+          title: content[0].title,
+          description: content[0].body,
+        });
+        const newStateToBeSent = {};
+
+        for (let key in newState) {
+          newStateToBeSent[key] = newState[key];
+        }
+
+        return newStateToBeSent;
+      });
+  }, [content]);
 
   return (
     <React.Fragment>
       <CssBaseline />
       <PostsProvider>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" style={{ minHeight: '92vh' }}>
           <Header title="Blog" sections={sections} />
           <Router>
             <Route path="/blog/post/:id" component={SinglePostPage}></Route>
             <Route exact path="/blog">
               <main>
-                {/* <MainFeaturedPost post={mainFeaturedPost} />
+                <MainFeaturedPost post={mainFeaturedPost} />
                 <Grid container spacing={4}>
                   {featuredPosts.map((post) => (
                     <FeaturedPost key={post.title} post={post} />
                   ))}
-                </Grid> */}
+                </Grid>
                 <Grid container spacing={5} className={classes.mainGrid}>
                   <Main title="All Posts" posts={content} />
+                  {/* {posts[0] ? (
+                    <Markdown>
+                      {`#### April 1, 2020 by [Olivier](/) ${posts[0].body}`}
+                    </Markdown>
+                  ) : (
+                    ''
+                  )} */}
                   <Sidebar
                     title={sidebar.title}
                     description={sidebar.description}
