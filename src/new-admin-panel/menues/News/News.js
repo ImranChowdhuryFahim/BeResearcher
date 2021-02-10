@@ -52,7 +52,9 @@ class News extends Component {
     const rawObject = convertToRaw(content);
     const markdownString = draftToMarkdown(rawObject);
     const d = new Date();
-
+    const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+    const mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
+    const da = new Intl.DateTimeFormat("en", { day: "numeric" }).format(d);
 
     if (this.state.title === null) {
       window.alert("Please enter the news title.");
@@ -60,7 +62,7 @@ class News extends Component {
       let News = {
         title: this.state.title,
         catagory: this.state.catagory,
-        body: markdownString,
+        body:'# '+this.state.title+' \n #### '+`${mo}${' '}${da}${', '}${ye}`+' by '+`[${this.state.authorName}]`+'(/) \n' + markdownString,
         authorName: this.state.authorName,
         createdAt: d,
       };
