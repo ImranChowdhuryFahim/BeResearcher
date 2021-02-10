@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
@@ -51,7 +52,7 @@ const mainFeaturedPostDummy = {
   linkText: 'Continue reading…',
 };
 
-const featuredPosts = [
+const featuredPostsDummy = [
   {
     title: 'Featured post',
     date: 'Nov 12',
@@ -89,7 +90,7 @@ const sidebar = {
   ],
   social: [
     { name: 'GitHub', icon: GitHubIcon },
-    { name: 'Twitter', icon: TwitterIcon },
+    { name: 'YouTube', icon: YouTubeIcon },
     { name: 'Facebook', icon: FacebookIcon },
   ],
 };
@@ -100,6 +101,7 @@ export default function Blog() {
   const [mainFeaturedPost, setMainFeaturedPost] = useState(
     mainFeaturedPostDummy
   );
+  const [featuredPosts, setFeaturedPosts] = useState(featuredPostsDummy);
   useEffect(() => {
     // Promise.all([fetch(post1), fetch(post2), fetch(post3)]).then((resp) => {
     //   Promise.all([
@@ -132,6 +134,28 @@ export default function Blog() {
 
         return newStateToBeSent;
       });
+
+    if (content.length > 2) {
+      setFeaturedPosts((prev) => {
+        const newStateObject1 = Object.assign(prev[0], {
+          title: content[1].title,
+          description: `... ${content[1].body.substring(80, 280)}`,
+          date: new Intl.DateTimeFormat('en-US', {
+            month: 'short',
+            day: '2-digit',
+          }).format(new Date(content[1].createdAt)),
+        });
+        const newStateObject2 = Object.assign(prev[1], {
+          title: content[2].title,
+          description: `... ${content[2].body.substring(80, 280)}`,
+          date: new Intl.DateTimeFormat('en-US', {
+            month: 'short',
+            day: '2-digit',
+          }).format(new Date(content[2].createdAt)),
+        });
+        return [newStateObject1, newStateObject2];
+      });
+    }
   }, [content]);
 
   return (
@@ -146,19 +170,14 @@ export default function Blog() {
               <main>
                 <MainFeaturedPost post={mainFeaturedPost} />
                 <Grid container spacing={4}>
-                  {featuredPosts.map((post) => (
-                    <FeaturedPost key={post.title} post={post} />
+                  {featuredPosts.map((post, index) => (
+                    <FeaturedPost key={post.title} post={post} postNo={index} />
                   ))}
                 </Grid>
                 <Grid container spacing={5} className={classes.mainGrid}>
                   <Main title="All Posts" posts={content} />
-                  {/* {posts[0] ? (
-                    <Markdown>
-                      {`#### April 1, 2020 by [Olivier](/) ${posts[0].body}`}
-                    </Markdown>
-                  ) : (
-                    ''
-                  )} */}
+                  {/* <Markdown>{`# April 1, 2020 by [Olivier](/)`}</Markdown> */}
+                  {/* {content[0] ? <Markdown>{content[0].body}</Markdown> : ''} */}
                   <Sidebar
                     title={sidebar.title}
                     description={sidebar.description}
