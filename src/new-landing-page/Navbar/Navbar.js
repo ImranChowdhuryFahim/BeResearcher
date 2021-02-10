@@ -87,7 +87,26 @@ class Navbar extends Component {
                     </Link>
                   </li>
                 );
-              } else
+              }
+              else if(item.type === 'link')
+              {
+                return (
+                  <li key={index}>
+                    <Link
+                      smooth={true}
+                      duration={800}
+                      spy={true}
+                      to={item.url}
+                      offset={-80}
+                      className={item.cName}
+                      onClick={this.handleClick.bind(this)}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                );
+              }
+               else
                 return (
                   <li key={index}>
                     <NavLinkWithScroll

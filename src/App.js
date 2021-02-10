@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react';
+import React ,{Component} from 'react';
 import './App.css';
 
 import Home from './new-landing-page/App';
@@ -19,28 +19,10 @@ import { NewSignup, NewLogin } from './new-signup-login';
 import Auth from './Auth';
 import Logout from './logout/Logout';
 
-const PrivateRoute = ({ component: Component, authCheck, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      authCheck() ? ( //Auth.getAuth()
-        <Component {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: '/login',
-          }}
-        />
-      )
-    }
-  />
-);
 
-
-
-function App() {
-  useEffect(() => {
-    // Update the document title using the browser API
+class App extends Component {
+  componentDidMount()
+  {
     let localData = JSON.parse(localStorage.getItem('login'));
       if (localData && localData.login) {
         Auth.authenticate();
@@ -49,9 +31,22 @@ function App() {
           Auth.adminAuthenticate();
         }
       }
-  });
-  return (
-    <CourseProvider>
+  }
+  componentDidUpdate()
+  {
+    let localData = JSON.parse(localStorage.getItem('login'));
+      if (localData && localData.login) {
+        Auth.authenticate();
+        if(localData.adminauth)
+        {
+          Auth.adminAuthenticate();
+        }
+      }
+  }
+  render()
+  {
+    return(
+<CourseProvider>
       <Router>
         <Switch>
           <Route path="/home">
@@ -71,21 +66,19 @@ function App() {
             <Logout />
           </Route>
 
-          <PrivateRoute
+          <Route
             path="/admin"
             component={AdminPanel}
-            authCheck={Auth.getAdminAuth.bind(Auth)}
           />
 
           <Route path="/announcement" component={Announcement}></Route>
 
-          <PrivateRoute
+          <Route
             exact
             path="/course/:CourseName/:ContentId"
             component={CourseSection}
-            authCheck={Auth.getAuth.bind(Auth)}
             key={2}
-          ></PrivateRoute>
+          ></Route>
           <Route path="*">
             <Redirect
               to={{
@@ -96,7 +89,9 @@ function App() {
         </Switch>
       </Router>
     </CourseProvider>
-  );
+    )
+  }
 }
+
 
 export default App;
