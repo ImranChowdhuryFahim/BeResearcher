@@ -53,6 +53,9 @@ class Blog extends Component {
     const rawObject = convertToRaw(content);
     const markdownString = draftToMarkdown(rawObject);
     const d = new Date();
+    const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+    const mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
+    const da = new Intl.DateTimeFormat("en", { day: "numeric" }).format(d);
 
 
     if (this.state.title === null) {
@@ -61,11 +64,12 @@ class Blog extends Component {
       let Blog = {
         title: this.state.title,
         catagory: this.state.catagory,
-        body: markdownString,
+        body: '# '+this.state.title+' \n #### '+`${mo}${' '}${da}${', '}${ye}`+' by '+`[${this.state.authorName}]`+'(/) \n' + markdownString,
         authorName: this.state.authorName,
         createdAt: d,
       };
       this.setState({ laoding: true });
+      console.log(Blog)
 
       axios
         .post(
