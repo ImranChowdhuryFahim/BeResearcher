@@ -8,26 +8,47 @@ const SingleQuestion = ({
   questionNo,
   quizLength,
   handleNextQuestion,
-  OnQuizAnswered,
+  handleUpdateScore,
+  handleQuizFinished,
 }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [selectedOptionsNumbers, setSelectedOptionsNumbers] = useState([]);
 
-  const handleItemClick = (items) => {
-    setSelectedOptionsNumbers((prev) => {
-      return [...prev, items];
-    });
+  const handleItemClick = (item) => {
+    if (selectedOptionsNumbers.includes(item)) {
+      const nSelectedOptionsNumber = selectedOptionsNumbers.filter(
+        (elem) => elem !== item
+      );
+      setSelectedOptionsNumbers(nSelectedOptionsNumber);
+    } else {
+      setSelectedOptionsNumbers((prev) => {
+        return [...prev, item];
+      });
+    }
   };
 
   const handleSubmit = () => {
     if (selectedOptionsNumbers.length > 0) {
       setShowAnswer(true);
+      let correct = true;
+      for (let selecedItem in selectedOptionsNumbers) {
+        if (!answers.includes(selectedOptionsNumbers[selecedItem] + 1)) {
+          correct = false;
+          break;
+        }
+      }
+
+      if (selectedOptionsNumbers.length !== answers.length) {
+        correct = false;
+      }
+
+      if (correct) {
+        handleUpdateScore();
+      } else {
+      }
     }
     if (questionNo === quizLength) {
-      setTimeout(() => {
-        alert('Quiz Completed');
-        OnQuizAnswered();
-      }, 2000);
+      handleQuizFinished();
     }
   };
 
@@ -65,9 +86,14 @@ const SingleQuestion = ({
           />
         ))}
       </div>
-      <button className="submit-btn-quiz" onClick={handleSubmit}>
+      <button
+        disabled={showAnswer}
+        className="submit-btn-quiz"
+        onClick={handleSubmit}
+      >
         SUBMIT
       </button>
+
       <button
         className={
           'next-btn ' + (showAnswer && questionNo < quizLength ? '' : 'hidden')
@@ -81,19 +107,12 @@ const SingleQuestion = ({
   );
 };
 
-const Questions = ({
-  quiz,
-  // question,
-  // quiz.answer,
-  // option1,
-  // option2,
-  // option3,
-  // option4,
-  OnQuizAnswered,
-}) => {
+const Questions = ({ quiz, OnQuizAnswered }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [options, setOptions] = useState([]);
   const [answers, setAnswer] = useState([]);
+  const [score, setScore] = useState(0);
+  const [quizeFinished, setQuizFinished] = useState(false);
 
   // const handleCheckingAnswer = (answer) => {
   //   console.log('chosen answer: ', answer);
@@ -105,6 +124,17 @@ const Questions = ({
 
   const handleNextQuestion = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+  };
+
+  const handleUpdateScore = () => {
+    setScore(score + 1);
+  };
+
+  const handleQuizFinished = () => {
+    if (score >= 4) OnQuizAnswered();
+    setTimeout(() => {
+      setQuizFinished(true);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -120,28 +150,37 @@ const Questions = ({
       );
       setAnswer(nAnswer);
     }
-    console.log('******', quiz);
   }, [quiz, currentQuestionIndex]);
 
   return (
-    // <div>
-    //   {!quiz ? 'kkkkkkkkkkkkk' : <div>{JSON.stringify(quiz, null, 2)}</div>}
-    // </div>
-
     <>
       {!quiz ? (
         'loading...'
       ) : (
         <div className="question-answer-container">
-          <SingleQuestion
-            question={quiz[currentQuestionIndex].question}
-            options={options}
-            answers={answers}
-            questionNo={currentQuestionIndex + 1}
-            quizLength={quiz.length}
-            handleNextQuestion={handleNextQuestion}
-            OnQuizAnswered={OnQuizAnswered}
-          />
+          {quizeFinished ? (
+            score <= 0 ? (
+              <span role="img" aria-label="failed">
+                🙁 You failed the quiz. Watch the video again and back to this
+                quiz.
+              </span>
+            ) : (
+              <span role="img" aria-label="pass">
+                😊 You successfully Completed the Quiz.
+              </span>
+            )
+          ) : (
+            <SingleQuestion
+              question={quiz[currentQuestionIndex].question}
+              options={options}
+              answers={answers}
+              questionNo={currentQuestionIndex + 1}
+              quizLength={quiz.length}
+              handleNextQuestion={handleNextQuestion}
+              handleUpdateScore={handleUpdateScore}
+              handleQuizFinished={handleQuizFinished}
+            />
+          )}
         </div>
       )}
     </>
