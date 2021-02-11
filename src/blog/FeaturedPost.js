@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
   card: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
 
 export default function FeaturedPost(props) {
   const classes = useStyles();
-  const { post } = props;
+  const { post, postNo } = props;
 
   return (
     <Grid item xs={12} md={6}>
@@ -40,9 +41,11 @@ export default function FeaturedPost(props) {
               <Typography variant="subtitle1" paragraph>
                 {post.description}
               </Typography>
-              <Typography variant="subtitle1" color="primary">
-                Continue reading...
-              </Typography>
+              <ReactRouterLink to={`/blog/post/${postNo + 1}`}>
+                <Typography variant="subtitle1" color="primary">
+                  Continue reading...
+                </Typography>
+              </ReactRouterLink>
             </CardContent>
           </div>
           <Hidden xsDown>

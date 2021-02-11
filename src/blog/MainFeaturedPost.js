@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { Link as ReactRouterLink } from 'react-router-dom';
+import Markdown from './Markdown';
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
@@ -68,9 +69,7 @@ export default function MainFeaturedPost(props) {
             >
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
-            </Typography>
+            <Markdown>{post.description.substring(0, 300)}</Markdown>
             <ReactRouterLink to="/blog/post/0">{post.linkText}</ReactRouterLink>
           </div>
         </Grid>
