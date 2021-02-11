@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import './Dashboard.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faUser } from '@fortawesome/free-solid-svg-icons';
-import { CourseContext } from '../data';
-import axios from 'axios';
-import { BeatLoader } from 'react-spinners';
-import { css } from '@emotion/core';
-import logo from './flogo.png';
-import Auth from '../Auth';
+import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+import "./Dashboard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
+import { CourseContext } from "../data";
+import axios from "axios";
+import { BeatLoader } from "react-spinners";
+import { css } from "@emotion/core";
+import logo from "./flogo.png";
+import Auth from "../Auth";
 
 class Dashboard extends Component {
   constructor() {
@@ -18,31 +18,31 @@ class Dashboard extends Component {
     };
   }
   componentDidMount() {
-    let localData = JSON.parse(localStorage.getItem('login'));
+    let localData = JSON.parse(localStorage.getItem("login"));
     if (localData && localData.login) {
       if (localData.adminauth) {
         Auth.adminAuthenticate();
       }
       axios
         .get(
-          `https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${'Research Methodology'}`
+          `https://beresearcherbd.herokuapp.com/api/course/getcoursedata/${"Research Methodology"}`
         )
         .then((res) => {
           this.context.UpdateTotalItem(res.data.totalItem);
         });
       axios({
-        method: 'GET',
+        method: "GET",
         url: `https://beresearcherbd.herokuapp.com/api/student/getdetails`,
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
           auth: localData.token,
         },
       }).then((res) => {
         if (res.data.length !== 0) {
           this.context.UpdateCurrentUserDetails({
             id: res.data._id,
-            name: res.data.firstName + ' ' + res.data.lastName,
+            name: res.data.firstName + " " + res.data.lastName,
             email: res.data.email,
             receivedAnnouncementIds: res.data.recievedAnnouncementIds,
           });
@@ -75,38 +75,42 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className={'Dashboard'}>
+      <div className={"Dashboard"}>
         {this.context.CurrentUserDetails !== null &&
         this.context.currentCourseProgress !== null &&
         this.context.totalItem !== null &&
         this.context.CurrentContentDetails !== null ? (
           <div>
-            <div className={'DashboardHeader'}>
+            <div className={"DashboardHeader"}>
               <div>
-                {' '}
-               <Link to="/home"> <img
-                  src={logo}
-                  alt={'logo'}
-                  style={{
-                    height: '60px',
-                    marginLeft: '10px',
-                  }}
-                ></img></Link>
+                {" "}
+                <Link to="/home">
+                  {" "}
+                  <img
+                    src={logo}
+                    alt={"logo"}
+                    style={{
+                      height: "80px",
+                      marginLeft: "10px",
+                    }}
+                  ></img>
+                </Link>
               </div>
-              <div className={'DashboardUserDetails'}>
+              <div className={"headerText"}><h1>Dashboard</h1></div>
+              <div className={"DashboardUserDetails"}>
                 <div className="UserDetails">
                   <div
                     className="UserProfile"
-                    style={{ display: 'flex', alignItems: 'center' }}
+                    style={{ display: "flex", alignItems: "center" }}
                   >
                     <FontAwesomeIcon
                       icon={faUser}
-                      size={'2x'}
+                      size={"2x"}
                     ></FontAwesomeIcon>
                     <span
                       style={{
-                        paddingLeft: '5px',
-                        fontSize: '11px',
+                        paddingLeft: "5px",
+                        fontSize: "11px",
                       }}
                     >
                       {this.context.CurrentUserDetails.name}
@@ -114,55 +118,55 @@ class Dashboard extends Component {
                   </div>
                   <div className="dropdown-content">
                     <Link to="/announcement">Announcements</Link>
-                    
+
                     {Auth.getAdminAuth() ? (
                       <Link to="/admin/dashboard">Admin Panel</Link>
                     ) : (
-                      ''
+                      ""
                     )}
                     <Link to="/logout">Logout</Link>
                   </div>
                 </div>
               </div>
             </div>
-            <div className={'courseContainer'}>
-              <div className={'course'}>
-                <div className={'course-info'}>
+            <div className={"courseContainer"}>
+              <div className={"course"}>
+                <div className={"course-info"}>
                   <h6>Course</h6>
                   <h2>Research Methodology</h2>
                   <Link to="/dashboard">
-                    {' '}
-                    View all chapters{' '}
+                    {" "}
+                    View all chapters{" "}
                     <FontAwesomeIcon
                       icon={faChevronRight}
-                    ></FontAwesomeIcon>{' '}
+                    ></FontAwesomeIcon>{" "}
                   </Link>
                 </div>
 
-                <div className={'course-progress'}>
-                  <div className={'progress-container'}>
-                    <div data-percentage={'50px'} className={'progress'}>
+                <div className={"course-progress"}>
+                  <div className={"progress-container"}>
+                    <div data-percentage={"50px"} className={"progress"}>
                       <span
                         style={{
                           width:
                             (this.context.currentCourseProgress.completedItem /
                               this.context.totalItem) *
                               100 +
-                            '%',
+                            "%",
                         }}
                       ></span>
-                      <div className={'progress-text'}>
+                      <div className={"progress-text"}>
                         {this.context.currentCourseProgress.completedItem}/
                         {this.context.totalItem} Items
                       </div>
                     </div>
                   </div>
                   <h6>Unit {this.context.CurrentContentDetails.unit}</h6>
-                  <h2 style={{ fontSize: '14px' }}>
+                  <h2 style={{ fontSize: "14px" }}>
                     {this.context.CurrentContentDetails.title}
                   </h2>
                   <button
-                    className={'btn'}
+                    className={"btn"}
                     onClick={(e) => {
                       if (
                         parseInt(this.context.totalItem) >
@@ -197,8 +201,8 @@ class Dashboard extends Component {
             <BeatLoader
               css={loaderCss}
               loading
-              size={'30'}
-              color={'blue'}
+              size={"30"}
+              color={"blue"}
             ></BeatLoader>
           </div>
         )}
