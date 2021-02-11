@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import Markdown from './Markdown';
+import Markdown from 'markdown-to-jsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { PostsContext } from './PostsProvider';
+import { NewsContext } from './NewsProvider';
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const SinglePostPage = (props) => {
-  const posts = useContext(PostsContext);
+  const news = useContext(NewsContext);
   const classes = useStyles();
   return (
     <div>
       <div>
-        {posts[0] ? (
-          <Markdown key={posts[props.match.params.id].body.substring(0, 40)}>
-            {posts[props.match.params.id].body}
+        {news[0] ? (
+          <Markdown key={news[props.match.params.id].body.substring(0, 40)}>
+            {news[props.match.params.id].body}
           </Markdown>
         ) : (
           'loading...'
