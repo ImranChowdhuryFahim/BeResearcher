@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
 }));
-const duration = 500;
+const duration = 1000;
 
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out`,
@@ -79,7 +79,6 @@ export default function Events(props) {
     <React.Fragment>
       <CssBaseline>
         <Container maxWidth="lg">
-          <button onClick={() => setEmne(!emne)}>Click to Enter</button>
           <Header title="Events" sections={[]} />
           <Grid container direction="row" justify="center" spacing={3}>
             <Grid item>
@@ -102,20 +101,42 @@ export default function Events(props) {
             </Grid>
           </Grid>
           <div className={classes.root}>
-            {isNewEvent
-              ? eventContentNew[0]
-                ? eventContentNew.map((event) => (
-                    <Event key={event.body} event={event} />
-                  ))
-                : 'Loading'
-              : ''}
-            {!isNewEvent
-              ? eventContentOld[0]
-                ? eventContentOld.map((event) => (
-                    <Event key={event.body} event={event} />
-                  ))
-                : 'Loading'
-              : ''}
+            <Transition in={isNewEvent} timeout={duration}>
+              {(state) => (
+                <div
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
+                >
+                  {isNewEvent
+                    ? eventContentNew[0]
+                      ? eventContentNew.map((event) => (
+                          <Event key={event.body} event={event} />
+                        ))
+                      : 'Loading'
+                    : ''}
+                </div>
+              )}
+            </Transition>
+            <Transition in={!isNewEvent} timeout={duration}>
+              {(state) => (
+                <div
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
+                >
+                  {!isNewEvent
+                    ? eventContentOld[0]
+                      ? eventContentOld.map((event) => (
+                          <Event key={event.body} event={event} />
+                        ))
+                      : 'Loading'
+                    : ''}
+                </div>
+              )}
+            </Transition>
           </div>
         </Container>
       </CssBaseline>
