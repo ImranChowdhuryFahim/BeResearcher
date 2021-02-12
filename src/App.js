@@ -13,7 +13,7 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-} from 'react-router-dom';
+} from "react-router-dom";
 // import Coursebutton from "./coursebutton";
 import Dahsboard from './Dashboard/Dashboard';
 import { NewSignup, NewLogin } from './new-signup-login';
