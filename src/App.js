@@ -20,6 +20,7 @@ import { NewSignup, NewLogin } from './new-signup-login';
 import Auth from './Auth';
 import Logout from './logout/Logout';
 import News from './News/News';
+import Events from './Events/Events';
 
 class App extends Component {
   componentDidMount() {
@@ -60,6 +61,9 @@ class App extends Component {
               </Route>
               <Route path="/news">
                 <News />
+              </Route>
+              <Route path="/events">
+                <Events />
               </Route>
               <Route path="/dashboard" component={Dahsboard}></Route>
               <Route path="/logout">

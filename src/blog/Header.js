@@ -32,8 +32,6 @@ export default function Header(props) {
   const classes = useStyles();
   const { sections, title } = props;
 
-  const handleClick = () => navigate('/sign-in');
-
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
@@ -57,9 +55,6 @@ export default function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button onClick={handleClick} variant="outlined" size="small">
-          Subscribe
-        </Button>
       </Toolbar>
       <Toolbar
         component="nav"
