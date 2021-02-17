@@ -143,12 +143,9 @@ const Questions = ({ quiz, OnQuizAnswered }) => {
 
   useEffect(() => {
     if (quiz) {
-      setOptions([
-        quiz[currentQuestionIndex].option1,
-        quiz[currentQuestionIndex].option2,
-        quiz[currentQuestionIndex].option3,
-        quiz[currentQuestionIndex].option4,
-      ]);
+      setOptions(
+        quiz[currentQuestionIndex].option
+      );
       const nAnswer = quiz[currentQuestionIndex].answer.map(
         (answer) => +answer
       );
