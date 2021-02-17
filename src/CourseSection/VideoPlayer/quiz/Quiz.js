@@ -64,33 +64,31 @@ const SingleQuestion = ({
         (Q.{questionNo} of {quizLength}) {question}
       </div>
       <div className="answer-container">
-      {
-  options.map((elem,index) => {
-    if ( elem !== undefined){
-      return(
-        <button
-        className={
-          'answer ' +
-          (selectedOptionsNumbers.includes(index)
-            ? showAnswer
-              ? answers.includes(index + 1)
-                ? 'green-border'
-                : 'red-border'
-              : 'black-border'
-            : showAnswer
-            ? answers.includes(index + 1)
-              ? 'green-border'
-              : ''
-            : '')
-        }
-        disabled={showAnswer}
-        onClick={() => handleItemClick(index)}
-        dangerouslySetInnerHTML={{ __html: `${index + 1}. ${elem}` }}
-      />
-      )
-    }
-  })
-}
+        {options.map((elem, index) => {
+          if (elem !== undefined) {
+            return (
+              <button
+                className={
+                  'answer ' +
+                  (selectedOptionsNumbers.includes(index)
+                    ? showAnswer
+                      ? answers.includes(index + 1)
+                        ? 'green-border'
+                        : 'red-border'
+                      : 'black-border'
+                    : showAnswer
+                    ? answers.includes(index + 1)
+                      ? 'green-border'
+                      : ''
+                    : '')
+                }
+                disabled={showAnswer}
+                onClick={() => handleItemClick(index)}
+                dangerouslySetInnerHTML={{ __html: `${index + 1}. ${elem}` }}
+              />
+            );
+          }
+        })}
       </div>
       <button
         disabled={showAnswer}
@@ -165,7 +163,7 @@ const Questions = ({ quiz, OnQuizAnswered }) => {
       ) : (
         <div className="question-answer-container">
           {quizeFinished ? (
-            score <= 0 ? (
+            (score * 100) / quiz.length < 70 ? ( // pass: 70% mark
               <span role="img" aria-label="failed">
                 🙁 You failed the quiz. Watch the video again and back to this
                 quiz.
