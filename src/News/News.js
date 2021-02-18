@@ -12,16 +12,15 @@ import Footer2 from '../new-landing-page/Footer/Footer';
 
 import Main from './Main';
 const sections = [
-  { title: 'Research', url: '#' },
-  { title: 'Research Methodology', url: '#' },
-  { title: 'Research Basic', url: '#' },
-  { title: 'Paper Writing', url: '#' },
-  { title: 'Paper Writing Guidelines', url: '#' },
-  { title: 'Higher Study Guideline', url: '#' },
-  { title: 'Research Talks', url: '#' },
-  { title: 'Research Webinar', url: '#' },
-  { title: 'Idea Series', url: '#' },
-  { title: 'Miscellaneous', url: '#' },
+  { title: 'Webinar', url: '#' },
+  { title: 'Notice', url: '#' },
+  { title: 'Training', url: '#' },
+  { title: 'Workshop', url: '#' },
+  { title: 'Course', url: '#' },
+  { title: 'Event', url: '#' },
+  { title: 'Call for Registration', url: '#' },
+  { title: 'Recruitment', url: '#' },
+  { title: 'Ambassador Update', url: '#' },
 ];
 
 const useStyles = makeStyles((theme) => ({
