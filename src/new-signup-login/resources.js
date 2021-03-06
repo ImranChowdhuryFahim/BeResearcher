@@ -35,6 +35,13 @@ export const institution = [
 // Engineering and Technology
 // **Ref:
 
+export const occupation = [
+  'Teacher',
+  'Under Grad Student',
+  'Post Grad Student',
+];
+
+
 export const researchField = [
   'Agricultural and Biological Science',
   'Biochemistry',

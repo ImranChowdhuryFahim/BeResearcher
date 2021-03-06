@@ -63,7 +63,7 @@ form {
   color: red;
 }
 
-#research-field {
+#research-field, #occupation{
   padding: 10px 0 10px 15px;
   font-size: 17px;
   font-weight: 300;
