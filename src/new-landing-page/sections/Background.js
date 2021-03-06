@@ -10,8 +10,7 @@ const Background = () => {
       >
         <h1 className="heading">Background</h1>
         <div className="text-container">
-          You sent Yesterday at 11:03 PM figmar tai to Imran sent Yesterday at
-          11:04 PM It is incumbent for every university that they serve as a
+          It is incumbent for every university that they serve as a
           centre for knowledge creation and dissemination. Universities should
           play a pivotal role in creating a conscious and perceptive society.
           There is no other option but to do good research to achieve this goal.
